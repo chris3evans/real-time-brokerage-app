@@ -1,0 +1,20 @@
+{
+  "name": "Real Time Brokerage Application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.27.0",
+  "devDependencies": {
+    "open-cli": "^8.0.0",
+    "turbo": "^2.7.2"
+  }
+}
