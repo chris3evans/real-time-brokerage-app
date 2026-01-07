@@ -15,3 +15,13 @@ model User {
   balance   Float    @default(100000.0)
   createdAt DateTime @default(now())
 }
+
+model Share {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  price     Decimal   @unique
+  peRatio   Decimal   @unique
+  name     String     @unique
+  ticker   String     @unique
+}
+
