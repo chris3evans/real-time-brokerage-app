@@ -9,19 +9,40 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+//////////////////////////////////////////////// MODELS ////////////////////////////////////////////////
+
 model User {
-  id        String   @id @default(uuid())
-  username  String   @unique
-  balance   Float    @default(100000.0)
-  createdAt DateTime @default(now())
+  id            String        @id @default(uuid())
+  username      String        @unique
+  balance       Float         @default(100000.0)
+  createdAt     DateTime      @default(now())
+  transactions  Transaction[]
 }
 
 model Share {
-  id        String    @id @default(uuid())
-  createdAt DateTime  @default(now())
-  price     Decimal   @unique
-  peRatio   Decimal   @unique
-  name     String     @unique
-  ticker   String     @unique
+  id            String          @id @default(uuid())
+  createdAt     DateTime        @default(now())
+  price         Decimal   
+  peRatio       Decimal   
+  name          String          @unique
+  ticker        String          @unique
+  transactions  Transaction[]
 }
 
+model Transaction {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  type      TradeType
+  price     Decimal 
+  shareId   String
+  share     Share     @relation(fields: [shareId], references: [id])
+}
+
+//////////////////////////////////////////////// ENUMS ////////////////////////////////////////////////
+
+enum TradeType {
+  BUY
+  SELL
+}
