@@ -5,7 +5,16 @@ import 'dotenv/config'
 import { PrismaClient } from '.prisma/client'
 
 const fastify = Fastify({ logger: true });
-const prisma = new PrismaClient()
+// const prisma = new PrismaClient()
+const globalForPrisma = global as unknown as { prisma: PrismaClient }
+
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
+    log: ['query', 'error', 'warn'], // Useful for debugging
+  })
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
 fastify.get('/status', async () => {
   return { status: 'Server is running YAYYY!' };
