@@ -2,7 +2,7 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import 'dotenv/config'
 // import { PrismaClient } from '@prisma/client/extension';
-import { PrismaClient } from '@prisma/client/extension'
+import { PrismaClient } from '.prisma/client'
 
 const fastify = Fastify({ logger: true });
 const prisma = new PrismaClient()

@@ -7,10 +7,14 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "target": "esnext",
-    "types": ["node"],
+    "target": "ESNext",
+    "module": "NodeNext",           // Add this line
+    "moduleResolution": "NodeNext", // This triggered the error
+    "baseUrl": ".",
+    "paths": {
+      ".prisma/client": ["node_modules/.prisma/client"]
+    },
+    "skipLibCheck": true,
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -41,6 +45,5 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
   }
 }
