@@ -33,7 +33,7 @@ fastify.register(cors, {
 const start = async () => {
   try {
     await fastify.listen({ port: Number(process.env.PORT) || 3001, host: '0.0.0.0' });
-    console.log(`Server is running on port ${process.env.PORT || 3001}`);
+    console.log(`Server is running on port ${process.env.PORT || 3001} AND IS FULL STACK`);
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
