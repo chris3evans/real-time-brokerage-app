@@ -8,12 +8,9 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "target": "ESNext",
-    "module": "NodeNext",           // Add this line
-    "moduleResolution": "NodeNext", // This triggered the error
+    "module": "NodeNext",        
+    "moduleResolution": "NodeNext",
     "baseUrl": ".",
-    "paths": {
-      ".prisma/client": ["node_modules/.prisma/client"]
-    },
     "skipLibCheck": true,
     // For nodejs:
     // "lib": ["esnext"],
