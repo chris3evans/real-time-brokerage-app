@@ -21,7 +21,13 @@ fastify.get('/status', async () => {
 });
 
 fastify.register(cors, {
-  origin: 'http://localhost:5173', 
+  origin: [
+      "http://localhost:5173",                             
+      "https://real-time-brokerage-app-client.vercel.app",  
+      /\.vercel\.app$/                                     
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 });
 
 const start = async () => {
