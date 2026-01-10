@@ -9,7 +9,7 @@ function App() {
     fetch(API_URL + '/profile')
       .then(res => res.json())
       .then(data => {
-        console.log(data, 'THIS IS A FULL STACK DEPLOYED WALKING SKELETON!')
+        console.log(data) 
         setMessage(data.username)
   })
       .catch(() => setMessage('API is not responding'))
