@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 function App() {
   const [message, setMessage] = useState('Loading...')
 
   useEffect(() => {
-    fetch('http://localhost:3001/profile')
+    fetch(API_URL + '/profile')
       .then(res => res.json())
       .then(data => {
         console.log(data, 'DATA')
