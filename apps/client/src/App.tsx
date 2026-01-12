@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Trading App Skeleton</h1>
+      <h1>Trading App Skeleton Is Getting Developed!</h1>
       <p>API Status: <strong>{message}</strong></p>
     </div>
   )
