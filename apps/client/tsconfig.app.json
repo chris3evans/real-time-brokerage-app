@@ -28,8 +28,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@features/*": ["src/features/*"],
-      "@dashboard/*": ["src/features/dashboard/*"],
-      "@dashboard-balance/*": ["src/features/dashboard/components/dashboard-balance/*"]
+      "@dashboard/*": ["src/features/dashboard/components/Dashboard/*"],
+      "@dashboard-balance/*": ["src/features/dashboard/components/DashboardBalance/*"],
     }
   },
   "include": ["src"]
