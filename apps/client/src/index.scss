@@ -1,4 +1,4 @@
-@import "./styles/variables";
+@import './styles/_typography.scss';
 
 *,
 body,
@@ -9,6 +9,26 @@ html {
   box-sizing: border-box;
 }
 
-.container {
-  background-color: $loss-color;
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: $text-heading-1;
+}
+h2 {
+  font-size: $text-heading-2;
+}
+h3 {
+  font-size: $text-heading-3;
+}
+h4 {
+  font-size: $text-heading-4;
+}
+h5 {
+  font-size: $text-heading-5;
+}
+
+span, p, div {
+  font-size: $text-paragraph;
 }
