@@ -1,5 +1,6 @@
 import type { DashboardBalanceProps } from "@dashboard-types/dashboard.interfaces";
 import styles from './DashboardBalance.module.scss';
+import { Button } from "@/components/Button/Button";
 
 export const DashboardBalance = ({ balanceAmount, balanceReturn  }:  DashboardBalanceProps) => {
   return (
@@ -10,8 +11,8 @@ export const DashboardBalance = ({ balanceAmount, balanceReturn  }:  DashboardBa
         <span className={styles['balance-return']}>+{balanceReturn} (7.12%)</span>
       </div>
       <div className={styles['balance-buttons']}>
-        <button className={styles['cta-button']}>Deposit</button>
-        <button className={styles['cta-button']}>Withdraw</button>
+        <Button label={'Deposit'} />
+        <Button label={'Withdraw'} />
       </div>
     </div>
   )
