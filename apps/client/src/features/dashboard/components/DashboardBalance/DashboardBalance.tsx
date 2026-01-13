@@ -1,4 +1,4 @@
-import type { DashboardBalanceProps } from '../../types/dashboard.interfaces';
+import type { DashboardBalanceProps } from "@dashboard-types/dashboard.interfaces";
 import styles from './DashboardBalance.module.scss';
 
 export const DashboardBalance = ({ balanceAmount, balanceReturn  }:  DashboardBalanceProps) => {

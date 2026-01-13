@@ -30,6 +30,8 @@
       "@features/*": ["src/features/*"],
       "@dashboard/*": ["src/features/dashboard/components/Dashboard/*"],
       "@dashboard-balance/*": ["src/features/dashboard/components/DashboardBalance/*"],
+      "@dashboard-types/*": ["src/features/dashboard/types/*"],
+      "@components-types/*": ["src/components/types/*"]
     }
   },
   "include": ["src"]
