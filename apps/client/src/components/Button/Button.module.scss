@@ -1,0 +1,14 @@
+@use "../../styles/variables" as variables;
+
+.button {
+    border: none;
+    cursor: pointer;
+
+    &.filled {
+        background-color: variables.$primary;
+    }
+
+    &.outline {
+        background-color: variables.$primary-light-2;
+    }
+}

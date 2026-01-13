@@ -1,8 +1,9 @@
-import { AppColour } from "@/types/app.enums"
-import type { ButtonComponentProps } from "../types/components.interfaces"
 
-export const Button = ({ label, backgroundColor = AppColour.PRIMARY, color = AppColour.BLACK  }: ButtonComponentProps) => {
+import type { ButtonComponentProps } from "@components-types/components.interfaces";
+import styles from './Button.module.scss';
+
+export const Button = ({ label  }: ButtonComponentProps) => {
   return (
-    <button style={{ backgroundColor, color }}>{label}</button>
+    <button className={styles['button'] + 'outline'}>{label}</button>
   )
 }
