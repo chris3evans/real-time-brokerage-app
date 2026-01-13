@@ -1,9 +1,13 @@
 import { DashboardBalance } from '@dashboard-balance/DashboardBalance';
+import { useState } from 'react';
 
 export const Dashboard = () => {
+  const [balanceAmount, setBalanceAmount] = useState<number>(0);
+  const [balanceReturn, setBalanceReturn] = useState<number>(0);
+
   return (
     <>
-    <DashboardBalance />
+    <DashboardBalance balanceAmount={balanceAmount} balanceReturn={balanceReturn} />
     </>
   )
 }
