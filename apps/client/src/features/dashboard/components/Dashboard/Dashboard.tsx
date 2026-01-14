@@ -1,5 +1,6 @@
-import { DashboardBalance } from '@dashboard-balance/DashboardBalance';
-import { useEffect, useState } from 'react';
+import { DashboardBalance } from "@dashboard-balance/DashboardBalance";
+import { useEffect, useState } from "react";
+import styles from "./Dashboard.module.scss";
 
 export const Dashboard = () => {
   const [balanceAmount, setBalanceAmount] = useState<number>(0);
@@ -8,11 +9,14 @@ export const Dashboard = () => {
   useEffect(() => {
     setBalanceAmount(10000);
     setBalanceReturn(712);
-  }, [])
+  }, []);
 
   return (
-    <>
-    <DashboardBalance balanceAmount={balanceAmount} balanceReturn={balanceReturn} />
-    </>
-  )
-}
+    <div className={styles["dashboard"]}>
+      <DashboardBalance
+        balanceAmount={balanceAmount}
+        balanceReturn={balanceReturn}
+      />
+    </div>
+  );
+};
