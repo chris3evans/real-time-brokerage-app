@@ -36,7 +36,8 @@
         "src/features/dashboard/components/DashboardMarketOverview/*"
       ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
-      "@components-types/*": ["src/components/types/*"]
+      "@components-types/*": ["src/components/types/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "include": ["src"]
