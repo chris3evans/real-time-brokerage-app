@@ -12,7 +12,7 @@ export const DashboardBalance = ({ balanceAmount, balanceReturn  }:  DashboardBa
       </div>
       <div className={styles['balance-buttons']}>
         <Button label={'Deposit'} />
-        <Button label={'Withdraw'} />
+        <Button label={'Withdraw'} style={"outline"} />
       </div>
     </div>
   )
