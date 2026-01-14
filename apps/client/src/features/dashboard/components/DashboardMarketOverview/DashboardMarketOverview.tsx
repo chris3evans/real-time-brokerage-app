@@ -1,9 +1,10 @@
+import { Card } from "@/components/Card/Card";
 import styles from "./DashboardMarketOverview.module.scss";
 
 export const DashboardMarketOverview = () => {
   return (
-    <div className={styles["dashboard-market-overview"]}>
-      DashboardMarketOverview
-    </div>
+    <Card className={styles["dashboard-market-overview"]}>
+      <h4>Market Overview</h4>
+    </Card>
   );
 };

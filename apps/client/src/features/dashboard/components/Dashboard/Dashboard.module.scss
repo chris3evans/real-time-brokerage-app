@@ -6,14 +6,5 @@
   grid-template-rows: repeat(2, min-content);
   background-color: variables.$secondary-dark-2;
   padding: 2rem;
-
-  .dashboard-balance {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-
-  .dashboard-market-balance {
-    grid-column: 2 / 4;
-    grid-row: 1 / 2;
-  }
+  gap: 2rem;
 }
