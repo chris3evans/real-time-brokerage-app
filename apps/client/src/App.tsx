@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Dashboard } from '@dashboard/Dashboard';
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
@@ -17,8 +18,8 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Trading App Skeleton Is Getting Developed!</h1>
       <p>API Status: <strong>{message}</strong></p>
+      <Dashboard />
     </div>
   )
 }
