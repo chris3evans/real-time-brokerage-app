@@ -12,10 +12,11 @@
   color: variables.$white;
 
   .balance {
-    .balance-amount {
+    & .positive {
+      color: variables.$profit-color;
     }
-
-    .balance-return {
+    & .negative {
+      color: variables.$loss-color;
     }
   }
 
