@@ -33,7 +33,7 @@
         "src/features/dashboard/components/DashboardBalance/*"
       ],
       "@dashboard-market-balace/*": [
-        "src/features/dashboard/components/DashboardMarketBalance/*"
+        "src/features/dashboard/components/DashboardMarketOverview/*"
       ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
       "@components-types/*": ["src/components/types/*"]

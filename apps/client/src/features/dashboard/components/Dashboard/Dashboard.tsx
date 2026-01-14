@@ -1,7 +1,7 @@
 import { DashboardBalance } from "@dashboard-balance/DashboardBalance";
 import { useEffect, useState } from "react";
 import styles from "./Dashboard.module.scss";
-import { DashboardMarketBalance } from "@dashboard-market-balace/DashboardMarketBalance";
+import { DashboardMarketOverview } from "@/features/dashboard/components/DashboardMarketOverview/DashboardMarketOverview";
 
 export const Dashboard = () => {
   const [balanceAmount, setBalanceAmount] = useState<number>(0);
@@ -18,7 +18,7 @@ export const Dashboard = () => {
         balanceAmount={balanceAmount}
         balanceReturn={balanceReturn}
       />
-      <DashboardMarketBalance />
+      <DashboardMarketOverview />
       {/* Overall Portfolio  Performance */}
     </div>
   );
