@@ -23,13 +23,18 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-        "composite": true,
+    "composite": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@features/*": ["src/features/*"],
       "@dashboard/*": ["src/features/dashboard/components/Dashboard/*"],
-      "@dashboard-balance/*": ["src/features/dashboard/components/DashboardBalance/*"],
+      "@dashboard-balance/*": [
+        "src/features/dashboard/components/DashboardBalance/*"
+      ],
+      "@dashboard-market-balace/*": [
+        "src/features/dashboard/components/DashboardMarketBalance/*"
+      ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
       "@components-types/*": ["src/components/types/*"]
     }
