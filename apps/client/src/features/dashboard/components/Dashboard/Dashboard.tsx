@@ -17,6 +17,8 @@ export const Dashboard = () => {
         balanceAmount={balanceAmount}
         balanceReturn={balanceReturn}
       />
+      {/* Major Indicies + Currencies */}
+      {/* Overall Portfolio  Performance */}
     </div>
   );
 };

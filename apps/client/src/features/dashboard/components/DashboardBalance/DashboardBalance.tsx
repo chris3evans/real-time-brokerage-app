@@ -8,7 +8,7 @@ export const DashboardBalance = ({
 }: DashboardBalanceProps) => {
   return (
     <div className={styles["dashboard-balance"]}>
-      <h3>Account Balance</h3>
+      <h4>Account Balance</h4>
       <div className={styles["balance"]}>
         <span className={styles["balance-amount"]}>£{balanceAmount}</span>
         <span className={styles["balance-return"]}>

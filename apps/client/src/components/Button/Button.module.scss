@@ -1,20 +1,20 @@
 @use "../../styles/variables" as variables;
 
 .button {
-    border: none;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  width: 100%;
 
-    &.filled {
-        background-color: variables.$primary;
-        color: variables.$white;
-    }
+  &.filled {
+    background-color: variables.$primary;
+    color: variables.$white;
+  }
 
-    &.outline {
-        background-color: variables.$primary-light-2;
-        border: 0.2rem solid variables.$primary;
-        color: variables.$primary;;
-    }
+  &.outline {
+    background-color: transparent;
+    border: 0.2rem solid variables.$primary;
+    color: variables.$primary;
+  }
 }
