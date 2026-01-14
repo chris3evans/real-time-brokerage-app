@@ -16,7 +16,7 @@ export const DashboardBalance = ({
       <div className={styles["balance"]}>
         <span className={styles["balance-amount"]}>£{balanceAmount}</span>
         <span className={balanceStatus}>
-          {`${balanceReturn > 0 ? "+" : ""}${balanceReturn}`} (7.12%)
+          {`${balanceReturn > 0 ? " +" : ""}${balanceReturn}`} (7.12%)
         </span>
       </div>
       <div className={styles["balance-buttons"]}>
