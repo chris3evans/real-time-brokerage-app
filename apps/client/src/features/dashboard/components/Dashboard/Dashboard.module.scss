@@ -1,7 +1,11 @@
+@use "../../../../styles/variables" as variables;
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, min-content);
+  background-color: variables.$secondary-dark-2;
+  padding: 2rem;
 
   .dashboard-balance {
     grid-column: 1 / 2;
