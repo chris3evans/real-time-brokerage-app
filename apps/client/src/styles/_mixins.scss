@@ -1,0 +1,6 @@
+@use "./variables" as variables;
+
+@mixin app-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: variables.$primary variables.$secondary-dark-2;
+}

@@ -1,6 +1,7 @@
 import type { DashboardBalanceProps } from "@dashboard-types/dashboard.interfaces";
 import styles from "./DashboardBalance.module.scss";
 import { Button } from "@/components/Button/Button";
+import { Card } from "@/components/Card/Card";
 
 export const DashboardBalance = ({
   balanceAmount,
@@ -11,7 +12,7 @@ export const DashboardBalance = ({
   if (balanceReturn < 0) balanceStatus = styles["negative"];
 
   return (
-    <div className={styles["dashboard-balance"]}>
+    <Card className={styles["dashboard-balance"]}>
       <h4>Account Balance</h4>
       <div className={styles["balance"]}>
         <span className={styles["balance-amount"]}>£{balanceAmount}</span>
@@ -23,6 +24,6 @@ export const DashboardBalance = ({
         <Button label={"Deposit"} />
         <Button label={"Withdraw"} style={"outline"} />
       </div>
-    </div>
+    </Card>
   );
 };

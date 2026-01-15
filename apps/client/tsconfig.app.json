@@ -23,15 +23,24 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-        "composite": true,
+    "composite": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@features/*": ["src/features/*"],
       "@dashboard/*": ["src/features/dashboard/components/Dashboard/*"],
-      "@dashboard-balance/*": ["src/features/dashboard/components/DashboardBalance/*"],
+      "@dashboard-balance/*": [
+        "src/features/dashboard/components/DashboardBalance/*"
+      ],
+      "@dashboard-market-balace/*": [
+        "src/features/dashboard/components/DashboardMarketOverview/*"
+      ],
+      "@dashboard-portfolio-performance/*": [
+        "src/features/dashboard/components/DashboardPortfolioPerformance/*"
+      ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
-      "@components-types/*": ["src/components/types/*"]
+      "@components-types/*": ["src/components/types/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "include": ["src"]
