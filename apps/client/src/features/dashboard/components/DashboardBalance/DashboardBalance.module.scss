@@ -1,0 +1,24 @@
+@use "../../../../styles/variables" as variables;
+
+.dashboard-balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+  .balance {
+    & .positive {
+      color: variables.$profit-color;
+    }
+    & .negative {
+      color: variables.$loss-color;
+    }
+  }
+
+  .balance-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+}
