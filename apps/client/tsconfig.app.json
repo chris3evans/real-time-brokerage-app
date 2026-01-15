@@ -35,6 +35,9 @@
       "@dashboard-market-balace/*": [
         "src/features/dashboard/components/DashboardMarketOverview/*"
       ],
+      "@dashboard-portfolio-performance/*": [
+        "src/features/dashboard/components/DashboardPortfolioPerformance/*"
+      ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
       "@components-types/*": ["src/components/types/*"],
       "@components/*": ["src/components/*"]
