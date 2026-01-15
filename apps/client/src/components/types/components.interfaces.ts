@@ -10,3 +10,9 @@ export interface CardComponentProps {
   children: React.ReactNode;
   className?: string;
 }
+
+export interface MarketIndicatorProps {
+  name: string;
+  price: number;
+  change: number;
+}

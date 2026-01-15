@@ -1,4 +1,22 @@
+@use "../../../../styles/_mixins" as mixins;
+
 .dashboard-market-overview {
   grid-column: 2 / 4;
   grid-row: 1 / 2;
+  width: 100%;
+  overflow-x: hidden;
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  .market-indicator-list {
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    column-gap: 2rem;
+    overflow-x: scroll;
+    @include mixins.app-scrollbar;
+    padding-bottom: 1rem;
+  }
 }
