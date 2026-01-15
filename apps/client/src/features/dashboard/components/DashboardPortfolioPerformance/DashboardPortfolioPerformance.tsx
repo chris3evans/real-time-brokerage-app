@@ -1,7 +1,12 @@
-export const DashboardPortfolioPerformance = () => {
-  // Top Bar
-  // // Section Title + Interval Period Selector
+import { Card } from "@/components/Card/Card";
+import styles from "./DashboardPortfolioPerformance.module.scss";
 
-  // Performance Chart
-  return <div>Dashboard Portfolio Performance Component</div>;
+export const DashboardPortfolioPerformance = () => {
+  return (
+    <Card className={styles["portfolio-performance"]}>
+      <div className={styles["portfolio-performance-heading"]}>
+        Portfolio Performance Bar will go here
+      </div>
+    </Card>
+  );
 };
