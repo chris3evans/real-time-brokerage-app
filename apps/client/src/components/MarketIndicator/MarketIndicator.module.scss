@@ -9,18 +9,6 @@
   grid-template-rows: repeat(2, min-content);
   row-gap: 3rem;
 
-  .indicator-heading {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    column-gap: 1rem;
-
-    .indicator-symbol {
-    }
-
-    .indicator-name {
-    }
-  }
-
   .indicator-value {
     display: grid;
     grid-template-rows: repeat(2, min-content);
