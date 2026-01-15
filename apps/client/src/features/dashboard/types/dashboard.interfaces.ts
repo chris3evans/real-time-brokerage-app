@@ -4,8 +4,6 @@ export interface DashboardBalanceProps {
 }
 
 export interface LineGraphPoint {
-  name: string;
-  uv: number;
-  pv: number;
-  amt: number;
+  time: string;
+  value: number;
 }
