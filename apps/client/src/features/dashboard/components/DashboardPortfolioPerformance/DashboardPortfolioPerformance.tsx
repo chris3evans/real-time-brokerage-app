@@ -28,11 +28,17 @@ export const DashboardPortfolioPerformance = () => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
+            interval={1}
             dataKey="time"
             label={{ value: "Time", position: "insideBottom", offset: 0 }}
           />
           <YAxis width="auto" label={{ value: "Value", angle: -90 }} />
-          <Tooltip />
+          <Tooltip
+            formatter={(v) => [`$${v}`, "Portfolio Value"]}
+            itemStyle={{
+              color: AppColour.BLACK,
+            }}
+          />
           <Area
             type="monotone"
             dataKey="value"
