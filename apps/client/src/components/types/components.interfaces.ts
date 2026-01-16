@@ -29,6 +29,7 @@ export interface AreaChartComponentProps {
 }
 
 export interface StockItemProps {
+  name: string;
   ticker: string;
   currentPrice: number;
   priceChange: number;
