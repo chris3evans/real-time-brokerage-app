@@ -1,6 +1,7 @@
 import type { MarketIndicatorProps } from "../types/components.interfaces";
 import styles from "./MarketIndicator.module.scss";
 import { formatChangeColour } from "@/utlities/utilities.service";
+import clsx from "clsx";
 
 export const MarketIndicator = ({
   name,
@@ -10,7 +11,7 @@ export const MarketIndicator = ({
   const percentageChange = ((change / (price - change)) * 100).toFixed(2);
 
   return (
-    <div className={styles["indicator"]}>
+    <div className={clsx(styles["indicator"], "investable")}>
       <h5>{name}</h5>
       <div className={styles["indicator-value"]}>
         <span className={styles["indicator-price"]}>{price} </span>

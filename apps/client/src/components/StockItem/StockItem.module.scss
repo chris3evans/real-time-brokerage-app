@@ -5,14 +5,7 @@
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
   column-gap: auto;
-  background-color: variables.$black;
   padding: 0.5rem 0rem;
-  cursor: pointer;
-  transition: all 0.3s;
-
-  &:hover {
-    background-color: variables.$primary-dark-2;
-  }
 
   .stock-name,
   .stock-price {

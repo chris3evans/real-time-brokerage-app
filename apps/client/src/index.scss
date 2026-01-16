@@ -43,3 +43,12 @@ button {
 .negative-change {
   color: variables.$loss-color;
 }
+.investable {
+  background-color: variables.$black;
+  cursor: pointer;
+    transition: all 0.3s;
+
+  &:hover {
+    background-color: variables.$primary-dark-2;
+  }
+}

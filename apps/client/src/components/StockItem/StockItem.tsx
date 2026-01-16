@@ -1,6 +1,7 @@
 import type { StockItemProps } from "../types/components.interfaces";
 import styles from "./StockItem.module.scss";
 import { formatChangeColour } from "@/utlities/utilities.service";
+import clsx from "clsx";
 
 export const StockItem = ({
   name,
@@ -9,7 +10,7 @@ export const StockItem = ({
   priceChange,
 }: StockItemProps) => {
   return (
-    <div className={styles["stock-item"]}>
+    <div className={clsx(styles["stock-item"], "investable")}>
       <div className={styles["stock-name"]}>
         <h5>{ticker}</h5>
         <span>{name}</span>

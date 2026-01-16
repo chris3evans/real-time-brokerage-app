@@ -1,7 +1,6 @@
 @use "../../styles/variables" as variables;
 
 .indicator {
-  background-color: variables.$secondary;
   padding: 1rem 1.5rem;
   border-radius: 1.5rem;
   width: 100%;
@@ -17,16 +16,6 @@
 
     .indicator-price {
       font-weight: 700;
-    }
-
-    .indicator-change {
-      &.positive {
-        color: variables.$profit-color;
-      }
-
-      &.negative {
-        color: variables.$loss-color;
-      }
     }
   }
 }
