@@ -43,7 +43,8 @@
       ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
       "@components-types/*": ["src/components/types/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@utilities": ["src/utilities/utilities"]
     }
   },
   "include": ["src"]

@@ -1,5 +1,6 @@
 import type { StockItemProps } from "../types/components.interfaces";
 import styles from "./StockItem.module.scss";
+import { formatChangeColour } from "@/utlities/utilities.service";
 
 export const StockItem = ({
   name,
@@ -15,7 +16,7 @@ export const StockItem = ({
       </div>
       <div className={styles["stock-price"]}>
         <h5>{currentPrice}</h5>
-        <span>{priceChange}</span>
+        <span className={formatChangeColour(priceChange)}>{priceChange}</span>
       </div>
     </div>
   );

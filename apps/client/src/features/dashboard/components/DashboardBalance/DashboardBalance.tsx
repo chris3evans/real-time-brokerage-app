@@ -2,20 +2,17 @@ import type { DashboardBalanceProps } from "@dashboard-types/dashboard.interface
 import styles from "./DashboardBalance.module.scss";
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
+import { formatChangeColour } from "@/utlities/utilities.service";
 
 export const DashboardBalance = ({
   balanceAmount,
   balanceReturn,
 }: DashboardBalanceProps) => {
-  let balanceStatus: string = "";
-  if (balanceReturn > 0) balanceStatus = styles["positive"];
-  if (balanceReturn < 0) balanceStatus = styles["negative"];
-
   return (
     <Card cardTitle="Account Balance" className={styles["dashboard-balance"]}>
       <div className={styles["balance"]}>
         <span className={styles["balance-amount"]}>£{balanceAmount}</span>
-        <span className={balanceStatus}>
+        <span className={formatChangeColour(balanceReturn)}>
           {`${balanceReturn > 0 ? " +" : ""}${balanceReturn}`} (7.12%)
         </span>
       </div>
