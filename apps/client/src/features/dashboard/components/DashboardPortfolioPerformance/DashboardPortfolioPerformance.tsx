@@ -32,7 +32,15 @@ export const DashboardPortfolioPerformance = () => {
             dataKey="time"
             label={{ value: "Time", position: "insideBottom", offset: 0 }}
           />
-          <YAxis width="auto" label={{ value: "Value", angle: -90 }} />
+          <YAxis
+            width="auto"
+            label={{
+              value: "Value",
+              angle: -90,
+              position: "insideLeft",
+              offset: 0,
+            }}
+          />
           <Tooltip
             formatter={(v) => [`$${v}`, "Portfolio Value"]}
             itemStyle={{
