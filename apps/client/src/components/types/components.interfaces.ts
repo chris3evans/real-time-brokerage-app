@@ -16,3 +16,12 @@ export interface MarketIndicatorProps {
   price: number;
   change: number;
 }
+
+export interface LineGraphPoint {
+  time: string;
+  value: number;
+}
+
+export interface AreaChartComponentProps {
+  chartData: LineGraphPoint[];
+}
