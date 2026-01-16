@@ -12,8 +12,7 @@ export const DashboardBalance = ({
   if (balanceReturn < 0) balanceStatus = styles["negative"];
 
   return (
-    <Card className={styles["dashboard-balance"]}>
-      <h4>Account Balance</h4>
+    <Card cardTitle="Account Balance" className={styles["dashboard-balance"]}>
       <div className={styles["balance"]}>
         <span className={styles["balance-amount"]}>£{balanceAmount}</span>
         <span className={balanceStatus}>

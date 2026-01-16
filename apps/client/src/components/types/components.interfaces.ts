@@ -8,6 +8,7 @@ export interface ButtonComponentProps {
 
 export interface CardComponentProps {
   children: React.ReactNode;
+  cardTitle?: string;
   className?: string;
 }
 
