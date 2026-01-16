@@ -38,6 +38,9 @@
       "@dashboard-portfolio-performance/*": [
         "src/features/dashboard/components/DashboardPortfolioPerformance/*"
       ],
+      "@dashboard-portfolio-overview/*": [
+        "src/features/dashboard/components/DashboardPortfolioOverview/*"
+      ],
       "@dashboard-watchlist/*": [
         "src/features/dashboard/components/DashboardWatchList/*"
       ],
