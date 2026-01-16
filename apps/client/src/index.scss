@@ -46,7 +46,7 @@ button {
 .investable {
   background-color: variables.$black;
   cursor: pointer;
-    transition: all 0.3s;
+  transition: all 0.3s;
 
   &:hover {
     background-color: variables.$primary-dark-2;

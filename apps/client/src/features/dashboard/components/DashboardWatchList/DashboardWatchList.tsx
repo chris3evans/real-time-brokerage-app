@@ -1,5 +1,5 @@
 import { Card } from "@/components/Card/Card";
-import styles from "./DashboardWatchlist.module.scss";
+import styles from "./DashboardWatchList.module.scss";
 import { StockItem } from "@/components/StockItem/StockItem";
 import { MOCK_STOCK_WATCHLIST_DATA } from "@/mock-data/stock-watchlist.mockdata";
 import { Button } from "@/components/Button/Button";
