@@ -4,5 +4,15 @@
 
   .portfolio-performance-heading {
     margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .duration-selector {
+      display: grid;
+      grid-auto-columns: max-content;
+      grid-auto-flow: column;
+      column-gap: 1rem;
+    }
   }
 }
