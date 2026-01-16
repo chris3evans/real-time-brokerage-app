@@ -18,7 +18,10 @@ export const DashboardPortfolioPerformance = () => {
           <Button label="5Y" style="outline" />
         </div>
       </div>
-      <AreaChartComponent chartData={PORTFOLIO_PERFORMANCE_MOCKDATA} />
+      <AreaChartComponent
+        tooltipLabel="Portfolio Value"
+        chartData={PORTFOLIO_PERFORMANCE_MOCKDATA}
+      />
     </Card>
   );
 };

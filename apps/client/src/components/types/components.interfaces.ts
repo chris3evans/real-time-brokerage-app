@@ -24,4 +24,5 @@ export interface LineGraphPoint {
 
 export interface AreaChartComponentProps {
   chartData: LineGraphPoint[];
+  tooltipLabel: string;
 }

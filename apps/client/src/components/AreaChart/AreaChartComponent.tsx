@@ -10,7 +10,10 @@ import {
 } from "recharts";
 import type { AreaChartComponentProps } from "../types/components.interfaces";
 
-export const AreaChartComponent = ({ chartData }: AreaChartComponentProps) => {
+export const AreaChartComponent = ({
+  chartData,
+  tooltipLabel,
+}: AreaChartComponentProps) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart
@@ -36,7 +39,7 @@ export const AreaChartComponent = ({ chartData }: AreaChartComponentProps) => {
           }}
         />
         <Tooltip
-          formatter={(v) => [`$${v}`, "Portfolio Value"]}
+          formatter={(v) => [`$${v}`, tooltipLabel]}
           itemStyle={{
             color: AppColour.BLACK,
           }}
