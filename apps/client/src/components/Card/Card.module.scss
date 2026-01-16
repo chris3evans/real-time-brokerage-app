@@ -1,7 +1,7 @@
 @use "../../styles/variables" as variables;
 
 .card {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1.5rem 1rem 2rem;
   border-radius: 2.5rem;
   background-color: variables.$secondary-dark-1;
   color: variables.$white;
