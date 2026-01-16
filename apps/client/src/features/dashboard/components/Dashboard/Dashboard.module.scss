@@ -3,7 +3,8 @@
 .dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, min-content);
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
   background-color: variables.$secondary-dark-2;
   padding: 2rem;
   gap: 2rem;

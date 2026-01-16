@@ -8,6 +8,7 @@ export interface ButtonComponentProps {
 
 export interface CardComponentProps {
   children: React.ReactNode;
+  cardTitle?: string;
   className?: string;
 }
 
@@ -25,4 +26,12 @@ export interface LineGraphPoint {
 export interface AreaChartComponentProps {
   chartData: LineGraphPoint[];
   tooltipLabel: string;
+}
+
+export interface StockItemProps {
+  name: string;
+  ticker: string;
+  currentPrice: number;
+  priceChange: number;
+  marketCap?: number;
 }

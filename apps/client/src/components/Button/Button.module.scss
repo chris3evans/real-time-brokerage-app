@@ -6,15 +6,25 @@
   padding: 1rem 2rem;
   border-radius: 2rem;
   width: 100%;
+  transition: all 0.3s;
 
   &.filled {
     background-color: variables.$primary;
     color: variables.$white;
+
+    &:hover {
+      background-color: variables.$primary-dark-2;
+    }
   }
 
   &.outline {
     background-color: transparent;
     border: 0.2rem solid variables.$primary;
     color: variables.$primary;
+
+    &:hover {
+      background-color: variables.$primary;
+      color: variables.$white;
+    }
   }
 }
