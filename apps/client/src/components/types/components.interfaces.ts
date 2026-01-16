@@ -27,3 +27,10 @@ export interface AreaChartComponentProps {
   chartData: LineGraphPoint[];
   tooltipLabel: string;
 }
+
+export interface StockItemProps {
+  ticker: string;
+  currentPrice: number;
+  priceChange: number;
+  marketCap?: number;
+}
