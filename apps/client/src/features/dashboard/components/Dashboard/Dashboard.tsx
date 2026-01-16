@@ -2,7 +2,8 @@ import { DashboardBalance } from "@dashboard-balance/DashboardBalance";
 import { useEffect, useState } from "react";
 import styles from "./Dashboard.module.scss";
 import { DashboardMarketOverview } from "@/features/dashboard/components/DashboardMarketOverview/DashboardMarketOverview";
-import { DashboardPortfolioPerformance } from "../DashboardPortfolioPerformance/DashboardPortfolioPerformance";
+import { DashboardPortfolioPerformance } from "@dashboard-portfolio-performance/DashboardPortfolioPerformance";
+import { DashboardWatchList } from "@dashboard-watchlist/DashboardWatchList";
 
 export const Dashboard = () => {
   const [balanceAmount, setBalanceAmount] = useState<number>(0);
@@ -21,6 +22,8 @@ export const Dashboard = () => {
       />
       <DashboardMarketOverview />
       <DashboardPortfolioPerformance />
+      {/* Dashboard Portfolio Overview */}
+      <DashboardWatchList />
     </div>
   );
 };
