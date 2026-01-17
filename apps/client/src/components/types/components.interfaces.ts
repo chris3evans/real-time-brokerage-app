@@ -6,6 +6,11 @@ export interface ButtonComponentProps {
   style?: ButtonStyle;
 }
 
+export interface ButtonSetComponentProps {
+  buttons: ButtonComponentProps[];
+  className?: string;
+}
+
 export interface CardComponentProps {
   children: React.ReactNode;
   cardTitle?: string;

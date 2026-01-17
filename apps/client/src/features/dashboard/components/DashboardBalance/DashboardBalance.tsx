@@ -1,8 +1,8 @@
 import type { DashboardBalanceProps } from "@dashboard-types/dashboard.interfaces";
 import styles from "./DashboardBalance.module.scss";
-import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
 import { formatChangeColour } from "@/utlities/utilities.service";
+import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 
 export const DashboardBalance = ({
   balanceAmount,
@@ -16,10 +16,13 @@ export const DashboardBalance = ({
           {`${balanceReturn > 0 ? " +" : ""}${balanceReturn}`} (7.12%)
         </span>
       </div>
-      <div className={styles["balance-buttons"]}>
-        <Button label={"Deposit"} />
-        <Button label={"Withdraw"} style={"outline"} />
-      </div>
+      <ButtonSet
+        className={styles["balance-buttons"]}
+        buttons={[
+          { label: "Deposit" },
+          { label: "Withdraw", style: "outline" },
+        ]}
+      />
     </Card>
   );
 };

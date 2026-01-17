@@ -2,16 +2,19 @@ import { Card } from "@/components/Card/Card";
 import styles from "./DashboardWatchList.module.scss";
 import { StockItem } from "@/components/StockItem/StockItem";
 import { MOCK_STOCK_WATCHLIST_DATA } from "@/mock-data/stock-watchlist.mockdata";
-import { Button } from "@/components/Button/Button";
+import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 
 export const DashboardWatchList = () => {
   return (
     <Card cardTitle="Watchlist" className={styles["dashboard-watchlist"]}>
-      <div className={styles["list-filters"]}>
-        <Button label="Price" />
-        <Button label="Gains" style="outline" />
-        <Button label="Losses" style="outline" />
-      </div>
+      <ButtonSet
+        className={styles["list-filters"]}
+        buttons={[
+          { label: "Price" },
+          { label: "Gains", style: "outline" },
+          { label: "Losses", style: "outline" },
+        ]}
+      />
       <div className={styles["stock-list"]}>
         {MOCK_STOCK_WATCHLIST_DATA.map((stock, i) => (
           <StockItem
