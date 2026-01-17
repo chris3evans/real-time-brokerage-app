@@ -1,5 +1,5 @@
 import type React from "react";
-import type { ButtonStyle } from "./components.types";
+import type { ButtonStyle, SortOrder } from "./components.types";
 
 export interface ButtonComponentProps {
   label: string;
@@ -15,6 +15,16 @@ export interface CardComponentProps {
   children: React.ReactNode;
   cardTitle?: string;
   className?: string;
+}
+
+export interface ListSorter {
+  name: string;
+  active: boolean;
+  sortOrder: SortOrder;
+}
+
+export interface ListSortersComponentProps {
+  sorters: ListSorter[];
 }
 
 export interface MarketIndicatorProps {
