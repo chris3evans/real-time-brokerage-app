@@ -2,21 +2,22 @@ import { Card } from "@/components/Card/Card";
 import styles from "./DashboardWatchList.module.scss";
 import { StockItem } from "@/components/StockItem/StockItem";
 import { MOCK_STOCK_WATCHLIST_DATA } from "@/mock-data/stock-watchlist.mockdata";
-import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
+import type { ButtonComponentProps } from "@/components/types/components.interfaces";
+import { HeadingWithButtons } from "@/components/HeadingWithButtons/HeadingWithButtons";
 
 export const DashboardWatchList = () => {
+  const watchlistFilterButtons: ButtonComponentProps[] = [
+    { label: "Price" },
+    { label: "Gainers", style: "outline" },
+    { label: "Losers", style: "outline" },
+  ];
+
   return (
     <Card className={styles["dashboard-watchlist"]}>
-      <div className={styles["portfolio-watchlist-heading"]}>
-        <h4>Watchlist</h4>
-        <ButtonSet
-          buttons={[
-            { label: "Price" },
-            { label: "Gainers", style: "outline" },
-            { label: "Losers", style: "outline" },
-          ]}
-        />
-      </div>
+      <HeadingWithButtons
+        heading="Watchlist"
+        buttons={watchlistFilterButtons}
+      />
       <div className={styles["stock-list"]}>
         {MOCK_STOCK_WATCHLIST_DATA.map((stock, i) => (
           <StockItem

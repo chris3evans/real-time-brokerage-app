@@ -1,6 +1,5 @@
 import { Card } from "@/components/Card/Card";
 import styles from "./DashboardPortfolioOverview.module.scss";
-import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 import { StockItem } from "@/components/StockItem/StockItem";
 import { MOCK_STOCK_PORTFOLIO_DATA } from "@/mock-data/stock-portfolio.mockdata";
 import { ListSorters } from "@/components/ListSorters/ListSorters";
@@ -8,6 +7,7 @@ import type {
   ButtonComponentProps,
   ListSorter,
 } from "@/components/types/components.interfaces";
+import { HeadingWithButtons } from "@/components/HeadingWithButtons/HeadingWithButtons";
 
 export const DashboardPortfolioOverview = () => {
   const filterButtons: ButtonComponentProps[] = [
@@ -45,10 +45,10 @@ export const DashboardPortfolioOverview = () => {
 
   return (
     <Card className={styles["dashboard-portfolio-overview"]}>
-      <div className={styles["portfolio-overview-heading"]}>
-        <h4>Portfolio Performance</h4>
-        <ButtonSet buttons={filterButtons} />
-      </div>
+      <HeadingWithButtons
+        heading="Portfolio Overview"
+        buttons={filterButtons}
+      />
       <div className={styles["stock-list"]}>
         <ListSorters sorters={sorterButtons} />
         {MOCK_STOCK_PORTFOLIO_DATA.map((stock, i) => (

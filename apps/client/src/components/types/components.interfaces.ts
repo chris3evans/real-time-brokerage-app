@@ -17,6 +17,11 @@ export interface CardComponentProps {
   className?: string;
 }
 
+export interface HeadingWithButtonsProps {
+  heading: string;
+  buttons: ButtonComponentProps[];
+}
+
 export interface ListSorter {
   name: string;
   active: boolean;
