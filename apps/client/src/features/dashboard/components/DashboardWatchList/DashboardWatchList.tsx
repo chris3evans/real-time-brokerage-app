@@ -8,11 +8,10 @@ export const DashboardWatchList = () => {
   return (
     <Card cardTitle="Watchlist" className={styles["dashboard-watchlist"]}>
       <ButtonSet
-        className={styles["list-filters"]}
         buttons={[
           { label: "Price" },
-          { label: "Gains", style: "outline" },
-          { label: "Losses", style: "outline" },
+          { label: "Gainers", style: "outline" },
+          { label: "Losers", style: "outline" },
         ]}
       />
       <div className={styles["stock-list"]}>

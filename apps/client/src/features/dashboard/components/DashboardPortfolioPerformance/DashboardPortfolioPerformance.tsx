@@ -10,7 +10,6 @@ export const DashboardPortfolioPerformance = () => {
       <div className={styles["portfolio-performance-heading"]}>
         <h4>Portfolio Performance</h4>
         <ButtonSet
-          className={styles["duration-selector"]}
           buttons={[
             { label: "1D" },
             { label: "1W", style: "outline" },

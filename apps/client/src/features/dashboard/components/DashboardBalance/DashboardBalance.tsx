@@ -17,7 +17,6 @@ export const DashboardBalance = ({
         </span>
       </div>
       <ButtonSet
-        className={styles["balance-buttons"]}
         buttons={[
           { label: "Deposit" },
           { label: "Withdraw", style: "outline" },
