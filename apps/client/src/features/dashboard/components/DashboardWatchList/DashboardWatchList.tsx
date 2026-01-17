@@ -6,14 +6,17 @@ import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 
 export const DashboardWatchList = () => {
   return (
-    <Card cardTitle="Watchlist" className={styles["dashboard-watchlist"]}>
-      <ButtonSet
-        buttons={[
-          { label: "Price" },
-          { label: "Gainers", style: "outline" },
-          { label: "Losers", style: "outline" },
-        ]}
-      />
+    <Card className={styles["dashboard-watchlist"]}>
+      <div className={styles["portfolio-watchlist-heading"]}>
+        <h4>Watchlist</h4>
+        <ButtonSet
+          buttons={[
+            { label: "Price" },
+            { label: "Gainers", style: "outline" },
+            { label: "Losers", style: "outline" },
+          ]}
+        />
+      </div>
       <div className={styles["stock-list"]}>
         {MOCK_STOCK_WATCHLIST_DATA.map((stock, i) => (
           <StockItem

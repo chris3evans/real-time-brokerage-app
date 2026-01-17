@@ -5,9 +5,16 @@
   grid-row: 3 / 4;
   height: 35rem;
   overflow-y: hidden;
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-  row-gap: 2rem;
+  // display: grid;
+  // grid-template-rows: repeat(2, min-content);
+  // row-gap: 2rem;
+
+  .portfolio-watchlist-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
 
   .stock-list {
     display: grid;
@@ -16,6 +23,6 @@
     row-gap: 0.25rem;
     @include mixin.app-scrollbar;
     overflow-y: scroll;
-    height: 20.25rem;
+    height: 25rem;
   }
 }
