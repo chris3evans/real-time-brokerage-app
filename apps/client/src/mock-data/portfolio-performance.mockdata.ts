@@ -1,4 +1,4 @@
-import type { LineGraphPoint } from "@/features/dashboard/types/dashboard.interfaces";
+import type { LineGraphPoint } from "@/components/types/components.interfaces";
 
 export const PORTFOLIO_PERFORMANCE_MOCKDATA: LineGraphPoint[] = [
   { time: "1", value: 5200.5 },

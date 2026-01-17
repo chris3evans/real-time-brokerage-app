@@ -1,0 +1,16 @@
+@use "../../styles/variables" as variables;
+
+.stock-item {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  column-gap: auto;
+  padding: 0.5rem 0rem;
+  align-items: center;
+
+  .stock-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

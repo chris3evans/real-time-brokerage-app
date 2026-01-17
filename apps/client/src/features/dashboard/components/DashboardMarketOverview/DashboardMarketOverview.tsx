@@ -4,8 +4,10 @@ import { MarketIndicator } from "@/components/MarketIndicator/MarketIndicator";
 
 export const DashboardMarketOverview = () => {
   return (
-    <Card className={styles["dashboard-market-overview"]}>
-      <h4>Market Overview</h4>
+    <Card
+      cardTitle="Market Overview"
+      className={styles["dashboard-market-overview"]}
+    >
       <div className={styles["market-indicator-list"]}>
         <MarketIndicator name={"S&P 500"} price={6900} change={100} />
         <MarketIndicator name={"Dow Jones"} price={49500} change={350} />

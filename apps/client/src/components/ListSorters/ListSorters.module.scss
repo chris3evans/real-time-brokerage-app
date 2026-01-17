@@ -1,0 +1,16 @@
+@use "../../styles/variables" as variables;
+
+.sorters {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  column-gap: 0.2rem;
+
+  .sorter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: variables.$secondary-dark-2;
+    padding: 0.5rem 0rem;
+  }
+}

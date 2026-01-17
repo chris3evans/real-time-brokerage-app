@@ -1,0 +1,18 @@
+@use "../../../../styles/mixins" as mixin;
+
+.dashboard-watchlist {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+  height: 35rem;
+  overflow-y: hidden;
+
+  .stock-list {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-auto-flow: row;
+    row-gap: 0.25rem;
+    @include mixin.app-scrollbar;
+    overflow-y: scroll;
+    height: 25rem;
+  }
+}

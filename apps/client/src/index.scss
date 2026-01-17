@@ -1,4 +1,5 @@
-@import './styles/_typography.scss';
+@use "./styles/variables.scss" as variables;
+@import "./styles/_typography.scss";
 
 *,
 body,
@@ -29,6 +30,25 @@ h5 {
   font-size: $text-heading-5;
 }
 
-span, p, div, button {
+span,
+p,
+div,
+button {
   font-size: $text-paragraph;
+}
+
+.positive-change {
+  color: variables.$profit-color;
+}
+.negative-change {
+  color: variables.$loss-color;
+}
+.investable {
+  background-color: variables.$black;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: variables.$primary-dark-2;
+  }
 }
