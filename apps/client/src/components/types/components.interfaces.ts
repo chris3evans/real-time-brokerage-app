@@ -38,5 +38,10 @@ export interface StockItemProps {
   ticker: string;
   currentPrice: number;
   priceChange: number;
-  marketCap?: number;
+}
+
+export interface StockPositionItem extends StockItemProps {
+  units?: number;
+  positionPrincipal?: number;
+  positionValue?: number;
 }

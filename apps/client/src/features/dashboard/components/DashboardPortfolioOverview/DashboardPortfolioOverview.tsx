@@ -1,8 +1,8 @@
 import { Card } from "@/components/Card/Card";
 import styles from "./DashboardPortfolioOverview.module.scss";
 import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
-import { MOCK_STOCK_WATCHLIST_DATA } from "@/mock-data/stock-watchlist.mockdata";
 import { StockItem } from "@/components/StockItem/StockItem";
+import { MOCK_STOCK_PORTFOLIO_DATA } from "@/mock-data/stock-portfolio.mockdata";
 
 export const DashboardPortfolioOverview = () => {
   return (
@@ -18,13 +18,16 @@ export const DashboardPortfolioOverview = () => {
         />
       </div>
       <div className={styles["stock-list"]}>
-        {MOCK_STOCK_WATCHLIST_DATA.map((stock, i) => (
+        {MOCK_STOCK_PORTFOLIO_DATA.map((stock, i) => (
           <StockItem
             key={i}
             name={stock.name}
             ticker={stock.ticker}
             currentPrice={stock.currentPrice}
             priceChange={stock.priceChange}
+            units={stock.units}
+            positionPrincipal={stock.positionPrincipal}
+            positionValue={stock.positionValue}
           />
         ))}
       </div>
