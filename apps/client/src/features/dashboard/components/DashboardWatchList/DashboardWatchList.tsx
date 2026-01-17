@@ -7,15 +7,15 @@ import { Button } from "@/components/Button/Button";
 export const DashboardWatchList = () => {
   return (
     <Card cardTitle="Watchlist" className={styles["dashboard-watchlist"]}>
-      {/* Filter buttons */}
       <div className={styles["list-filters"]}>
         <Button label="Price" />
         <Button label="Gains" style="outline" />
         <Button label="Losses" style="outline" />
       </div>
       <div className={styles["stock-list"]}>
-        {MOCK_STOCK_WATCHLIST_DATA.map((stock) => (
+        {MOCK_STOCK_WATCHLIST_DATA.map((stock, i) => (
           <StockItem
+            key={i}
             name={stock.name}
             ticker={stock.ticker}
             currentPrice={stock.currentPrice}
