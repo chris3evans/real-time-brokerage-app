@@ -47,7 +47,8 @@
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
       "@components-types/*": ["src/components/types/*"],
       "@components/*": ["src/components/*"],
-      "@utilities": ["src/utilities/utilities"]
+      "@utilities": ["src/utilities/utilities"],
+      "@store-dashboard/*": ["src/store/dashboard/*"]
     }
   },
   "include": ["src"]

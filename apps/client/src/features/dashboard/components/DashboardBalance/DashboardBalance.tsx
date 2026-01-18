@@ -3,11 +3,17 @@ import styles from "./DashboardBalance.module.scss";
 import { Card } from "@/components/Card/Card";
 import { formatChangeColour } from "@/utlities/utilities.service";
 import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store";
 
 export const DashboardBalance = ({
-  balanceAmount,
+  // balanceAmount,
   balanceReturn,
 }: DashboardBalanceProps) => {
+  const balanceAmount = useSelector(
+    (state: RootState) => state.dashboard.balanceAmount,
+  );
+
   return (
     <Card cardTitle="Account Balance" className={styles["dashboard-balance"]}>
       <div className={styles["balance"]}>
