@@ -8,10 +8,14 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "target": "ESNext",
-    "module": "NodeNext",        
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "baseUrl": ".",
+    "composite": true,
     "skipLibCheck": true,
+    "paths": {
+      "@project/shared-types": ["../../packages/shared-types/src/index.ts"]
+    },
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -37,10 +41,11 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "esModuleInterop": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-  }
+    "moduleDetection": "force"
+  },
+  "references": [{ "path": "../../packages/shared-types" }]
 }

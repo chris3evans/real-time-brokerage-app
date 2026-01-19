@@ -1,4 +1,4 @@
-import type { StockPositionItem } from "@/components/types/components.interfaces";
+import type { StockPositionItem } from "@project/shared-types";
 
 export const MOCK_STOCK_PORTFOLIO_DATA: StockPositionItem[] = [
   {

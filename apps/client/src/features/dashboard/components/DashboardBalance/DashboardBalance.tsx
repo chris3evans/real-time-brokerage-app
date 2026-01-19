@@ -3,15 +3,14 @@ import styles from "./DashboardBalance.module.scss";
 import { Card } from "@/components/Card/Card";
 import { formatChangeColour } from "@/utlities/utilities.service";
 import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store";
+import { useAppSelector } from "@/store/hooks";
 
 export const DashboardBalance = ({
   // balanceAmount,
   balanceReturn,
 }: DashboardBalanceProps) => {
-  const balanceAmount = useSelector(
-    (state: RootState) => state.dashboard.balanceAmount,
+  const balanceAmount = useAppSelector(
+    (state) => state.dashboard.balanceAmount,
   );
 
   return (

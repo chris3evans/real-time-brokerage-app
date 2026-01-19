@@ -1,56 +1,59 @@
-import Fastify from 'fastify';
-import cors from '@fastify/cors';
-import 'dotenv/config'
-// import { PrismaClient } from '@prisma/client/extension';
-import { PrismaClient } from './generated/client/index.js'
+import Fastify from "fastify";
+import cors from "@fastify/cors";
+import "dotenv/config";
+import { PrismaClient } from "./generated/client/index.js";
 
 const fastify = Fastify({ logger: true });
-// const prisma = new PrismaClient()
-const globalForPrisma = global as unknown as { prisma: PrismaClient }
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
 export const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
-    log: ['query', 'error', 'warn'], // Useful for debugging
-  })
+    log: ["query", "error", "warn"], // Useful for debugging
+  });
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
-fastify.get('/status', async () => {
-  return { status: 'Server is running YAYYY!' };
+fastify.get("/status", async () => {
+  return { status: "Server is running YAYYY!" };
 });
 
 fastify.register(cors, {
   origin: [
-      "http://localhost:5173",                             
-      "https://real-time-brokerage-app-client.vercel.app",  
-      /\.vercel\.app$/                                     
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    "http://localhost:5173",
+    "https://real-time-brokerage-app-client.vercel.app",
+    /\.vercel\.app$/,
+  ],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 });
 
 const start = async () => {
   try {
-    await fastify.listen({ port: Number(process.env.PORT) || 3001, host: '0.0.0.0' });
-    console.log(`Server is running on port ${process.env.PORT || 3001} AND IS FULL STACK`);
+    await fastify.listen({
+      port: Number(process.env.PORT) || 3001,
+      host: "0.0.0.0",
+    });
+    console.log(
+      `Server is running on port ${process.env.PORT || 3001} AND IS FULL STACK`,
+    );
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
   }
 };
 
-fastify.get('/profile', async (request, response) => {
+fastify.get("/profile", async (request, response) => {
   try {
-  const user = await prisma.user.findFirst({
-    where: { username: 'TestTrader'}
-  });
+    const user = await prisma.user.findFirst({
+      where: { username: "TestTrader" },
+    });
 
-  return user;
+    return user;
   } catch (error) {
     console.error("DETAILED PRISMA ERROR:", error);
     return response.status(500).send({ error: "Database fetch failed" });
   }
-})
+});
 
 start();
