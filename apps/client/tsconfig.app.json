@@ -55,6 +55,6 @@
       "@project/shared-types": ["../../packages/shared-types/src/index.ts"]
     }
   },
-  "include": ["src"],
-  "references": [{ "path": "../../packages/shared-types" }]
+  "include": ["src", "../../packages/shared-types/src"]
+  // "references": [{ "path": "../../packages/shared-types" }]
 }

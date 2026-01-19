@@ -1,6 +1,6 @@
-import type { StockPositionItem } from "../types/components.interfaces";
 import styles from "./StockItem.module.scss";
 import { formatChangeColour } from "@/utlities/utilities.service";
+import type { StockPositionItem } from "@project/shared-types";
 import clsx from "clsx";
 
 export const StockItem = ({
