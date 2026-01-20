@@ -15,7 +15,7 @@ export const dashboardBalanceSlice = createSlice({
   initialState,
   reducers: {
     setBalanceAmount: (state, action: PayloadAction<number>) => {
-      state.balanceAmount = action.payload;
+      state.balanceAmount = state.balanceAmount + action.payload;
     },
   },
 });

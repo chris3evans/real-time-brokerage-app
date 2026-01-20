@@ -11,8 +11,7 @@ export interface StockPositionItem extends StockItemProps {
   positionValue?: number;
 }
 
-export interface MarketIndicatorProps {
-  name: string;
-  price: number;
-  change: number;
+export interface LineGraphPoint {
+  time: string;
+  value: number;
 }

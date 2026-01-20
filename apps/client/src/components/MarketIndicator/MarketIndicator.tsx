@@ -1,13 +1,13 @@
 import styles from "./MarketIndicator.module.scss";
 import { formatChangeColour } from "@/utlities/utilities.service";
-import type { MarketIndicatorProps } from "@project/shared-types";
 import clsx from "clsx";
+import { MarketIndicatorComponentProps } from "@components/types/components.interfaces";
 
 export const MarketIndicator = ({
   name,
   price,
   change,
-}: MarketIndicatorProps) => {
+}: MarketIndicatorComponentProps) => {
   const percentageChange = ((change / (price - change)) * 100).toFixed(2);
 
   return (
