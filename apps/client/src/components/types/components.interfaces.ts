@@ -1,5 +1,7 @@
 import type React from "react";
 import type { ButtonStyle, SortOrder } from "./components.types";
+import type { Clickable } from "@/types/app.interfaces";
+import { LineGraphPoint } from "@project/shared-types";
 
 export interface ButtonComponentProps {
   label: string;
@@ -17,7 +19,7 @@ export interface CardComponentProps {
   className?: string;
 }
 
-export interface HeadingWithButtonsProps {
+export interface HeadingWithButtonsComponentProps {
   heading: string;
   buttons: ButtonComponentProps[];
 }
@@ -32,31 +34,13 @@ export interface ListSortersComponentProps {
   sorters: ListSorter[];
 }
 
-export interface MarketIndicatorProps {
-  name: string;
-  price: number;
-  change: number;
-}
-
-export interface LineGraphPoint {
-  time: string;
-  value: number;
-}
-
 export interface AreaChartComponentProps {
   chartData: LineGraphPoint[];
   tooltipLabel: string;
 }
 
-export interface StockItemProps {
+export interface MarketIndicatorComponentProps extends Clickable {
   name: string;
-  ticker: string;
-  currentPrice: number;
-  priceChange: number;
-}
-
-export interface StockPositionItem extends StockItemProps {
-  units?: number;
-  positionPrincipal?: number;
-  positionValue?: number;
+  price: number;
+  change: number;
 }

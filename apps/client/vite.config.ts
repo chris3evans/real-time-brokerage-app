@@ -1,10 +1,25 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
+import checker from "vite-plugin-checker";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths({
-    projects: ['./tsconfig.app.json']
-  })],
-})
+  plugins: [
+    react(),
+    tsconfigPaths({
+      projects: ["./tsconfig.app.json"],
+    }),
+    checker({
+      root: "../../",
+      typescript: {
+        tsconfigPath: "./tsconfig.app.json",
+        buildMode: false,
+      },
+      overlay: {
+        initialIsOpen: true,
+        position: "tr",
+      },
+    }),
+  ],
+});

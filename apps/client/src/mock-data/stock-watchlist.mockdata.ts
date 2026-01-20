@@ -1,4 +1,4 @@
-import type { StockItemProps } from "@/components/types/components.interfaces";
+import type { StockItemProps } from "@project/shared-types";
 
 export const MOCK_STOCK_WATCHLIST_DATA: StockItemProps[] = [
   {

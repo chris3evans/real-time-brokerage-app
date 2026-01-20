@@ -1,4 +1,4 @@
 export interface DashboardBalanceProps {
-  balanceAmount: number;
+  // balanceAmount: number;
   balanceReturn: number;
 }
