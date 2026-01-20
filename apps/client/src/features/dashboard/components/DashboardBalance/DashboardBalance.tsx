@@ -1,16 +1,15 @@
-import type { DashboardBalanceProps } from "@dashboard-types/dashboard.interfaces";
 import styles from "./DashboardBalance.module.scss";
 import { Card } from "@/components/Card/Card";
 import { formatChangeColour } from "@/utlities/utilities.service";
 import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 import { useAppSelector } from "@/store/hooks";
 
-export const DashboardBalance = ({
-  // balanceAmount,
-  balanceReturn,
-}: DashboardBalanceProps) => {
+export const DashboardBalance = () => {
   const balanceAmount = useAppSelector(
     (state) => state.dashboard.balanceAmount,
+  );
+  const balanceReturn = useAppSelector(
+    (state) => state.dashboard.balanceReturn,
   );
 
   return (

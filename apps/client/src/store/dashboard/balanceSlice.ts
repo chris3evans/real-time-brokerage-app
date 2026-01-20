@@ -7,7 +7,7 @@ export interface BalanceState {
 
 const initialState: BalanceState = {
   balanceAmount: 950,
-  balanceReturn: 0,
+  balanceReturn: 100,
 };
 
 export const dashboardBalanceSlice = createSlice({
@@ -16,6 +16,9 @@ export const dashboardBalanceSlice = createSlice({
   reducers: {
     setBalanceAmount: (state, action: PayloadAction<number>) => {
       state.balanceAmount = state.balanceAmount + action.payload;
+    },
+    setBalanceReturn: (state, action: PayloadAction<number>) => {
+      state.balanceReturn = action.payload;
     },
   },
 });
