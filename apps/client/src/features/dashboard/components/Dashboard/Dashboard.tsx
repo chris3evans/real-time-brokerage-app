@@ -4,10 +4,10 @@ import { DashboardMarketOverview } from "@/features/dashboard/components/Dashboa
 import { DashboardPortfolioPerformance } from "@dashboard-portfolio-performance/DashboardPortfolioPerformance";
 import { DashboardWatchList } from "@dashboard-watchlist/DashboardWatchList";
 import { DashboardPortfolioOverview } from "@dashboard-portfolio-overview/DashboardPortfolioOverview";
-import { useTestCall } from "@/hooks/dashboard.hooks";
+import { useCrudeOil } from "@/hooks/dashboard.hooks";
 
 export const Dashboard = () => {
-  const { data, isLoading, isError, error } = useTestCall();
+  const { data, isLoading, isError, error } = useCrudeOil();
 
   if (isLoading) return <div>DATA IS LOADING PLEASE WAIT!!!!</div>;
 
@@ -19,6 +19,8 @@ export const Dashboard = () => {
     );
   }
 
+  console.log(data, "CRUDE OIL DATA");
+
   return (
     <div className={styles["dashboard"]}>
       <DashboardBalance />
@@ -26,9 +28,6 @@ export const Dashboard = () => {
       <DashboardPortfolioPerformance />
       <DashboardPortfolioOverview />
       <DashboardWatchList />
-      {data?.map((stock) => (
-        <div>{stock.symbol}</div>
-      ))}
     </div>
   );
 };
