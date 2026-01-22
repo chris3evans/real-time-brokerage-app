@@ -4,10 +4,10 @@ import { DashboardMarketOverview } from "@/features/dashboard/components/Dashboa
 import { DashboardPortfolioPerformance } from "@dashboard-portfolio-performance/DashboardPortfolioPerformance";
 import { DashboardWatchList } from "@dashboard-watchlist/DashboardWatchList";
 import { DashboardPortfolioOverview } from "@dashboard-portfolio-overview/DashboardPortfolioOverview";
-import { useCrudeOil } from "@/hooks/dashboard.hooks";
+import { useMarketIndicators } from "@/hooks/dashboard.hooks";
 
 export const Dashboard = () => {
-  const { data, isLoading, isError, error } = useCrudeOil();
+  const { data, isLoading, isError, error } = useMarketIndicators();
 
   if (isLoading) return <div>DATA IS LOADING PLEASE WAIT!!!!</div>;
 
@@ -19,7 +19,7 @@ export const Dashboard = () => {
     );
   }
 
-  console.log(data, "CRUDE OIL DATA");
+  console.log(data, "MOCK DATA");
 
   return (
     <div className={styles["dashboard"]}>

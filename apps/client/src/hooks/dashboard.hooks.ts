@@ -1,12 +1,11 @@
-import { getCrudeOilData } from "@/api-services/dashboard.api-service";
+import { getMarketIndicators } from "@/api-services/dashboard.mock-api-service";
 import { useQuery } from "@tanstack/react-query";
 
-export const useCrudeOil = () => {
+export const useMarketIndicators = () => {
   return useQuery({
-    queryKey: ["crude-oil"],
-    queryFn: getCrudeOilData,
-    refetchInterval: false,
-    refetchOnWindowFocus: false,
-    staleTime: Infinity,
+    queryKey: ["market-indicators"],
+    queryFn: getMarketIndicators,
+    refetchInterval: 5000,
+    refetchOnWindowFocus: true,
   });
 };
