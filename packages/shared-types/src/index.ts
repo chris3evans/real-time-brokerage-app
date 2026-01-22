@@ -15,3 +15,9 @@ export interface LineGraphPoint {
   time: string;
   value: number;
 }
+
+export interface MarketIndicatorData {
+  name: string;
+  value: number;
+  change: number;
+}
