@@ -14,10 +14,13 @@ export const MarketIndicator = ({
     <div className={clsx(styles["indicator"], "investable")}>
       <h5>{name}</h5>
       <div className={styles["indicator-value"]}>
-        <span className={styles["indicator-price"]}>{price} </span>
         <span
-          className={`${styles["indicator-change"]} ${formatChangeColour(change)}`}
+          key={price}
+          className={clsx(styles["indicator-price"], "text-flash")}
         >
+          {price}
+        </span>
+        <span key={change} className={formatChangeColour(change)}>
           {change} ({percentageChange})
         </span>
       </div>

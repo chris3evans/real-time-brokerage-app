@@ -5,7 +5,7 @@ export const useMarketIndicators = () => {
   return useQuery({
     queryKey: ["market-indicators"],
     queryFn: getMarketIndicators,
-    refetchInterval: 5000,
+    refetchInterval: 10000,
     refetchOnWindowFocus: true,
   });
 };

@@ -1,0 +1,28 @@
+@use "../styles/variables" as variables;
+
+@keyframes flashPositive {
+  0% {
+    color: rgba(variables.$profit-color, 0.5);
+  }
+  100% {
+    color: variables.$profit-color;
+  }
+}
+
+@keyframes flashNegative {
+  0% {
+    color: rgba(variables.$loss-color, 0.5);
+  }
+  100% {
+    color: variables.$loss-color;
+  }
+}
+
+@keyframes flashWhite {
+  0% {
+    color: rgba(variables.$white, 0.5);
+  }
+  100% {
+    color: variables.$white;
+  }
+}
