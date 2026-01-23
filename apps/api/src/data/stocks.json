@@ -1,0 +1,196 @@
+{
+  "NVDA": {
+    "name": "NVIDIA",
+    "ticker": "NVDA",
+    "price": 125.1
+  },
+  "AAPL": { "name": "Apple", "ticker": "AAPL", "price": 185.2 },
+  "MSFT": {
+    "name": "Microsoft",
+    "ticker": "MSFT",
+    "price": 415.65
+  },
+  "AMZN": {
+    "name": "Amazon",
+    "ticker": "AMZN",
+    "price": 175.12
+  },
+  "GOOGL": {
+    "name": "Alphabet (Class A)",
+    "ticker": "GOOGL",
+    "price": 160.85
+  },
+  "META": {
+    "name": "Meta Platforms",
+    "ticker": "META",
+    "price": 485.3
+  },
+  "TSLA": { "name": "Tesla", "ticker": "TSLA", "price": 240.5 },
+  "BRK.B": {
+    "name": "Berkshire Hathaway",
+    "ticker": "BRK.B",
+    "price": 410.15
+  },
+  "AVGO": { "name": "Broadcom", "ticker": "AVGO", "price": 1350.2 },
+  "LLY": {
+    "name": "Eli Lilly and",
+    "ticker": "LLY",
+    "price": 750.4
+  },
+  "JPM": {
+    "name": "JPMorgan Chase",
+    "ticker": "JPM",
+    "price": 195.1
+  },
+  "V": { "name": "Visa", "ticker": "V", "price": 275.4 },
+  "XOM": {
+    "name": "Exxon Mobil",
+    "ticker": "XOM",
+    "price": 115.25
+  },
+  "UNH": {
+    "name": "UnitedHealth Group",
+    "ticker": "UNH",
+    "price": 490.1
+  },
+  "MA": {
+    "name": "Mastercard",
+    "ticker": "MA",
+    "price": 450.75
+  },
+  "PG": {
+    "name": "Procter Gamble",
+    "ticker": "PG",
+    "price": 160.3
+  },
+  "COST": {
+    "name": "Costco Wholesale",
+    "ticker": "COST",
+    "price": 725.15
+  },
+  "HD": { "name": "Home Depot", "ticker": "HD", "price": 345.6 },
+  "JNJ": {
+    "name": "Johnson Johnson",
+    "ticker": "JNJ",
+    "price": 155.45
+  },
+  "ORCL": {
+    "name": "Oracle",
+    "ticker": "ORCL",
+    "price": 125.9
+  },
+  "AMD": {
+    "name": "Advanced Micro Devices",
+    "ticker": "AMD",
+    "price": 170.2
+  },
+  "NFLX": { "name": "Netflix", "ticker": "NFLX", "price": 610.45 },
+  "BAC": {
+    "name": "Bank of America",
+    "ticker": "BAC",
+    "price": 37.15
+  },
+  "KO": { "name": "Coca-Cola", "ticker": "KO", "price": 60.25 },
+  "PEP": { "name": "PepsiCo", "ticker": "PEP", "price": 175.4 },
+  "CVX": {
+    "name": "Chevron",
+    "ticker": "CVX",
+    "price": 155.1
+  },
+  "ADBE": { "name": "Adobe", "ticker": "ADBE", "price": 525.6 },
+  "CRM": {
+    "name": "Salesforce",
+    "ticker": "CRM",
+    "price": 290.15
+  },
+  "WMT": { "name": "Walmart", "ticker": "WMT", "price": 60.8 },
+  "DIS": {
+    "name": "Walt Disney",
+    "ticker": "DIS",
+    "price": 115.4
+  },
+  "ACN": { "name": "Accenture", "ticker": "ACN", "price": 335.2 },
+  "CSCO": {
+    "name": "Cisco Systems",
+    "ticker": "CSCO",
+    "price": 48.9
+  },
+  "VZ": {
+    "name": "Verizon",
+    "ticker": "VZ",
+    "price": 40.15
+  },
+  "INTC": {
+    "name": "Intel",
+    "ticker": "INTC",
+    "price": 42.5
+  },
+  "ABT": {
+    "name": "Abbott",
+    "ticker": "ABT",
+    "price": 110.3
+  },
+  "DHR": {
+    "name": "Danaher",
+    "ticker": "DHR",
+    "price": 245.8
+  },
+  "CAT": {
+    "name": "Caterpillar",
+    "ticker": "CAT",
+    "price": 335.45
+  },
+  "GE": { "name": "GE Aerospace", "ticker": "GE", "price": 155.2 },
+  "IBM": { "name": "IBM", "ticker": "IBM", "price": 190.4 },
+  "PLTR": {
+    "name": "Palantir",
+    "ticker": "PLTR",
+    "price": 24.15
+  },
+  "AXP": {
+    "name": "American Express",
+    "ticker": "AXP",
+    "price": 220.1
+  },
+  "UBER": {
+    "name": "Uber",
+    "ticker": "UBER",
+    "price": 75.3
+  },
+  "SBUX": {
+    "name": "Starbucks",
+    "ticker": "SBUX",
+    "price": 90.45
+  },
+  "LOW": {
+    "name": "Lowe's",
+    "ticker": "LOW",
+    "price": 230.2
+  },
+  "SPGI": {
+    "name": "S&P Global",
+    "ticker": "SPGI",
+    "price": 430.6
+  },
+  "INTU": { "name": "Intuit", "ticker": "INTU", "price": 625.4 },
+  "QCOM": {
+    "name": "QUALCOMM",
+    "ticker": "QCOM",
+    "price": 165.2
+  },
+  "TXN": {
+    "name": "Texas Instruments",
+    "ticker": "TXN",
+    "price": 175.45
+  },
+  "AMAT": {
+    "name": "Applied Materials",
+    "ticker": "AMAT",
+    "price": 205.1
+  },
+  "MU": {
+    "name": "Micron",
+    "ticker": "MU",
+    "price": 115.3
+  }
+}

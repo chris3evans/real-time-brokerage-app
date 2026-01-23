@@ -3,7 +3,13 @@ export interface StockItemProps {
   ticker: string;
   currentPrice: number;
   priceChange: number;
+  priceChangePercentage: number;
 }
+
+export type MarketData = Record<
+  string,
+  { name: string; ticker: string; price: number }
+>;
 
 export interface StockPositionItem extends StockItemProps {
   units?: number;
