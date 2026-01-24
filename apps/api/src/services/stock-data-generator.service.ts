@@ -3,7 +3,7 @@ import marketData from "../data/stocks.json" with { type: "json" };
 
 const BASE_MARKET_DATA = marketData as MarketData;
 
-export const getLivePrice = (ticker: string): StockItemProps | null => {
+export const getStock = (ticker: string): StockItemProps | null => {
   const stock = BASE_MARKET_DATA[ticker.toLocaleUpperCase()];
 
   if (!stock) return null;
@@ -23,6 +23,6 @@ export const getLivePrice = (ticker: string): StockItemProps | null => {
   };
 };
 
-export const getAllStockPrices = (): (StockItemProps | null)[] => {
-  return Object.keys(BASE_MARKET_DATA).map((ticker) => getLivePrice(ticker));
+export const getAllStocks = (): (StockItemProps | null)[] => {
+  return Object.keys(BASE_MARKET_DATA).map((ticker) => getStock(ticker));
 };

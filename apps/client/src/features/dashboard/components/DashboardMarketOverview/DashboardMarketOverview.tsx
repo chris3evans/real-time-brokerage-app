@@ -4,9 +4,7 @@ import { MarketIndicator } from "@/components/MarketIndicator/MarketIndicator";
 import { useMarketIndicators } from "@/hooks/dashboard.hooks";
 
 export const DashboardMarketOverview = () => {
-  const { data, isLoading } = useMarketIndicators();
-
-  console.log(isLoading);
+  const { data } = useMarketIndicators();
 
   return (
     <Card
@@ -15,7 +13,12 @@ export const DashboardMarketOverview = () => {
     >
       <div className={styles["market-indicator-list"]}>
         {data?.map((mi) => (
-          <MarketIndicator name={mi.name} price={mi.value} change={mi.change} />
+          <MarketIndicator
+            key={mi.name}
+            name={mi.name}
+            price={mi.value}
+            change={mi.change}
+          />
         ))}
       </div>
     </Card>

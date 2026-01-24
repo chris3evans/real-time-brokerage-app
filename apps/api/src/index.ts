@@ -2,6 +2,7 @@ import Fastify from "fastify";
 import cors from "@fastify/cors";
 import "dotenv/config";
 import { PrismaClient } from "./generated/client/index.js";
+import { stockRoutes } from "./routes/stocks.routes.js";
 
 const server = Fastify({ logger: true });
 server.register(cors, {
@@ -14,34 +15,11 @@ server.register(cors, {
   allowedHeaders: ["Content-Type", "Authorization"],
 });
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
-
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log: ["query", "error", "warn"], // Useful for debugging
-  });
-
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
-
 server.get("/status", async () => {
   return { status: "Server is running YAYYY!" };
 });
 
-const start = async () => {
-  try {
-    await server.listen({
-      port: Number(process.env.PORT) || 3001,
-      host: "0.0.0.0",
-    });
-    console.log(
-      `Server is running on port ${process.env.PORT || 3001} AND IS FULL STACK`,
-    );
-  } catch (err) {
-    server.log.error(err);
-    process.exit(1);
-  }
-};
+server.register(stockRoutes, { prefix: "/api/stocks" });
 
 server.get("/profile", async (request, response) => {
   try {
@@ -56,4 +34,25 @@ server.get("/profile", async (request, response) => {
   }
 });
 
+const start = async () => {
+  try {
+    await server.listen({
+      port: Number(process.env.PORT) || 3001,
+      host: "0.0.0.0",
+    });
+  } catch (err) {
+    server.log.error(err);
+    process.exit(1);
+  }
+};
 start();
+
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
+    log: ["query", "error", "warn"], // Useful for debugging
+  });
+
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
