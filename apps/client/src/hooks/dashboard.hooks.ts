@@ -1,11 +1,23 @@
-// import { getMarketIndicators } from "@/api-services/dashboard.mock-api-service";
-// import { useQuery } from "@tanstack/react-query";
+import {
+  getMarketIndicators,
+  getStocks,
+} from "@/api-services/dashboard.api-service";
+import { useQuery } from "@tanstack/react-query";
 
-// export const useMarketIndicators = () => {
-//   return useQuery({
-//     queryKey: ["market-indicators"],
-//     queryFn: getMarketIndicators,
-//     refetchInterval: 10000,
-//     refetchOnWindowFocus: true,
-//   });
-// };
+export const useGetStocks = () => {
+  return useQuery({
+    queryKey: ["get-stocks"],
+    queryFn: getStocks,
+    refetchInterval: 2000,
+    refetchOnWindowFocus: true,
+  });
+};
+
+export const useGetMarketIndicators = () => {
+  return useQuery({
+    queryFn: getMarketIndicators,
+    queryKey: ["get-market-indicators"],
+    refetchInterval: 2000,
+    refetchOnWindowFocus: true,
+  });
+};
