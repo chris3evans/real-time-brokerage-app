@@ -57,6 +57,7 @@ export const DashboardPortfolioOverview = () => {
             name={stock.name}
             ticker={stock.ticker}
             currentPrice={stock.currentPrice}
+            priceChangePercentage={stock.priceChangePercentage}
             priceChange={stock.priceChange}
             units={stock.units}
             positionPrincipal={stock.positionPrincipal}

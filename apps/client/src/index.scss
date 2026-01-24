@@ -1,4 +1,5 @@
 @use "./styles/variables.scss" as variables;
+@use "./styles/animations.scss" as animations;
 @import "./styles/_typography.scss";
 
 *,
@@ -37,12 +38,6 @@ button {
   font-size: $text-paragraph;
 }
 
-.positive-change {
-  color: variables.$profit-color;
-}
-.negative-change {
-  color: variables.$loss-color;
-}
 .investable {
   background-color: variables.$black;
   cursor: pointer;
@@ -51,4 +46,17 @@ button {
   &:hover {
     background-color: variables.$primary-dark-2;
   }
+}
+
+.positive-change {
+  color: variables.$profit-color;
+  animation: flashPositive 1s ease-out;
+}
+.negative-change {
+  color: variables.$loss-color;
+  animation: flashNegative 1s ease-out;
+}
+.text-flash {
+  color: variables.$white;
+  animation: flashWhite 1s ease-out;
 }

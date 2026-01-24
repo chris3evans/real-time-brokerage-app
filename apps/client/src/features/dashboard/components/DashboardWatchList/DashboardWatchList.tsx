@@ -26,6 +26,7 @@ export const DashboardWatchList = () => {
             ticker={stock.ticker}
             currentPrice={stock.currentPrice}
             priceChange={stock.priceChange}
+            priceChangePercentage={stock.priceChangePercentage}
           />
         ))}
       </div>

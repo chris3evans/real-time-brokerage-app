@@ -4,21 +4,8 @@ import { DashboardMarketOverview } from "@/features/dashboard/components/Dashboa
 import { DashboardPortfolioPerformance } from "@dashboard-portfolio-performance/DashboardPortfolioPerformance";
 import { DashboardWatchList } from "@dashboard-watchlist/DashboardWatchList";
 import { DashboardPortfolioOverview } from "@dashboard-portfolio-overview/DashboardPortfolioOverview";
-import { useTestCall } from "@/hooks/dashboard.hooks";
 
 export const Dashboard = () => {
-  const { data, isLoading, isError, error } = useTestCall();
-
-  if (isLoading) return <div>DATA IS LOADING PLEASE WAIT!!!!</div>;
-
-  if (isError) {
-    return (
-      <div>
-        Error: {error instanceof Error ? error.message : "Unknown error"}
-      </div>
-    );
-  }
-
   return (
     <div className={styles["dashboard"]}>
       <DashboardBalance />
@@ -26,9 +13,6 @@ export const Dashboard = () => {
       <DashboardPortfolioPerformance />
       <DashboardPortfolioOverview />
       <DashboardWatchList />
-      {data?.map((stock) => (
-        <div>{stock.symbol}</div>
-      ))}
     </div>
   );
 };

@@ -41,6 +41,7 @@ export interface AreaChartComponentProps {
 
 export interface MarketIndicatorComponentProps extends Clickable {
   name: string;
-  price: number;
-  change: number;
+  currentValue: number;
+  valueChange: number;
+  valueChangePercentage: number;
 }

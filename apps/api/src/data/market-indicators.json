@@ -1,0 +1,13 @@
+{
+  "SP500": { "name": "S&P 500", "value": 6875.62 },
+  "DOW": { "name": "Dow Jones", "value": 49077.23 },
+  "NASDAQ": { "name": "NASDAQ", "value": 23224.83 },
+  "FTSE100": { "name": "FTSE 100", "value": 10150.05 },
+  "NIKKEI225": { "name": "NIKKEI 225", "value": 53701.0 },
+  "GOLD": { "name": "Gold", "value": 4799.79 },
+  "SILVER": { "name": "Silver", "value": 94.12 },
+  "OIL": { "name": "Crude Oil", "value": 65.24 },
+  "GBPUSD": { "name": "GBP/USD", "value": 1.3499 },
+  "EURUSD": { "name": "EUR/USD", "value": 1.1747 },
+  "YENUSD": { "name": "YEN/USD", "value": 158.28 }
+}
