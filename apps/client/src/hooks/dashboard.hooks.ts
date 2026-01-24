@@ -8,7 +8,7 @@ export const useGetStocks = () => {
   return useQuery({
     queryKey: ["get-stocks"],
     queryFn: getStocks,
-    refetchInterval: 2000,
+    refetchInterval: 5000,
     refetchOnWindowFocus: true,
   });
 };
@@ -17,7 +17,7 @@ export const useGetMarketIndicators = () => {
   return useQuery({
     queryFn: getMarketIndicators,
     queryKey: ["get-market-indicators"],
-    refetchInterval: 2000,
+    refetchInterval: 5000,
     refetchOnWindowFocus: true,
   });
 };

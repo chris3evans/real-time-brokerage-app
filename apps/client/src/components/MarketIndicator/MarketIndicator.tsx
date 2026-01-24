@@ -5,23 +5,22 @@ import { MarketIndicatorComponentProps } from "@components/types/components.inte
 
 export const MarketIndicator = ({
   name,
-  price,
-  change,
+  currentValue,
+  valueChange,
+  valueChangePercentage,
 }: MarketIndicatorComponentProps) => {
-  const percentageChange = ((change / (price - change)) * 100).toFixed(2);
-
   return (
     <div className={clsx(styles["indicator"], "investable")}>
       <h5>{name}</h5>
       <div className={styles["indicator-value"]}>
         <span
-          key={price}
+          key={currentValue}
           className={clsx(styles["indicator-price"], "text-flash")}
         >
-          {price}
+          {currentValue}
         </span>
-        <span key={change} className={formatChangeColour(change)}>
-          {change} ({percentageChange})
+        <span key={valueChange} className={formatChangeColour(valueChange)}>
+          {valueChange} ({valueChangePercentage})
         </span>
       </div>
     </div>

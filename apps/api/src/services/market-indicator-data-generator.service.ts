@@ -8,11 +8,12 @@ export const getMarketIndicator = (name: string): MarketIndicator | null => {
 
   if (!indicator) return null;
 
-  const volatility = indicator.value * 0.01;
-  const changePercentage = Math.floor(Math.random() - 0.5) * 2 * volatility;
-  const valueChange = +(indicator.value * changePercentage).toFixed(2);
+  const volatility = Math.random() * 0.01;
+  const valueChange = +(indicator.value * volatility).toFixed(2);
   const currentValue = +(indicator.value + valueChange).toFixed(2);
-  const valueChangePercentage = +(changePercentage * 100).toFixed(2);
+  const valueChangePercentage = +((valueChange / currentValue) * 100).toFixed(
+    2,
+  );
 
   return {
     name: indicator.name,

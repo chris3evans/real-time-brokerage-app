@@ -1,10 +1,12 @@
 import { Card } from "@/components/Card/Card";
 import styles from "./DashboardMarketOverview.module.scss";
-// import { MarketIndicator } from "@/components/MarketIndicator/MarketIndicator";
-// import { useMarketIndicators } from "@/hooks/dashboard.hooks";
+import { useGetMarketIndicators } from "@/hooks/dashboard.hooks";
+import { MarketIndicator } from "@/components/MarketIndicator/MarketIndicator";
 
 export const DashboardMarketOverview = () => {
-  // const { data } = useMarketIndicators();
+  const { data: marketIndicators } = useGetMarketIndicators();
+
+  console.log(marketIndicators);
 
   return (
     <Card
@@ -12,14 +14,15 @@ export const DashboardMarketOverview = () => {
       className={styles["dashboard-market-overview"]}
     >
       <div className={styles["market-indicator-list"]}>
-        {/* {data?.map((mi) => (
+        {marketIndicators?.map((mi) => (
           <MarketIndicator
             key={mi.name}
             name={mi.name}
-            price={mi.value}
-            change={mi.change}
+            currentValue={mi.currentValue}
+            valueChange={mi.valueChange}
+            valueChangePercentage={mi.valueChangePercentage}
           />
-        ))} */}
+        ))}
       </div>
     </Card>
   );
