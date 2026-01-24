@@ -1,10 +1,10 @@
-import { MarketData, StockItemProps } from "@project/shared-types";
-import marketData from "../data/stocks.json" with { type: "json" };
+import { StockData, StockItem } from "@project/shared-types";
+import stockData from "../data/stocks.json" with { type: "json" };
 
-const BASE_MARKET_DATA = marketData as MarketData;
+const BASE_STOCK_DATA = stockData as StockData;
 
-export const getStock = (ticker: string): StockItemProps | null => {
-  const stock = BASE_MARKET_DATA[ticker.toLocaleUpperCase()];
+export const getStock = (ticker: string): StockItem | null => {
+  const stock = BASE_STOCK_DATA[ticker.toLocaleUpperCase()];
 
   if (!stock) return null;
 
@@ -23,6 +23,6 @@ export const getStock = (ticker: string): StockItemProps | null => {
   };
 };
 
-export const getAllStocks = (): (StockItemProps | null)[] => {
-  return Object.keys(BASE_MARKET_DATA).map((ticker) => getStock(ticker));
+export const getAllStocks = (): (StockItem | null)[] => {
+  return Object.keys(BASE_STOCK_DATA).map((ticker) => getStock(ticker));
 };

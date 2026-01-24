@@ -9,6 +9,7 @@ import { useEffect } from "react";
 export const Dashboard = () => {
   useEffect(() => {
     testFetch();
+    testMarketIndicatorFetch();
   }, []);
 
   const testFetch = async () => {
@@ -23,6 +24,22 @@ export const Dashboard = () => {
       console.log(data, "TEST FETCH RESULT");
     } catch (error) {
       console.log(error, "ERROR");
+    }
+  };
+
+  const testMarketIndicatorFetch = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:3001/api/market-indicators",
+      );
+      if (!response.ok) {
+        throw new Error(response.status + " test failed!");
+      }
+
+      const result = await response.json();
+      console.log(result, "MARKET INDICATOR SERVER RESPONSE");
+    } catch (error) {
+      console.log(error, "ERROR 2");
     }
   };
 

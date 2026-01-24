@@ -3,6 +3,7 @@ import cors from "@fastify/cors";
 import "dotenv/config";
 import { PrismaClient } from "./generated/client/index.js";
 import { stockRoutes } from "./routes/stocks.routes.js";
+import { marketIndicatorRoutes } from "./routes/market-indicators.routes.js";
 
 const server = Fastify({ logger: true });
 server.register(cors, {
@@ -20,6 +21,7 @@ server.get("/status", async () => {
 });
 
 server.register(stockRoutes, { prefix: "/api/stocks" });
+server.register(marketIndicatorRoutes, { prefix: "/api/market-indicators" });
 
 server.get("/profile", async (request, response) => {
   try {

@@ -1,6 +1,6 @@
-import type { StockItemProps } from "@project/shared-types";
+import type { StockItem } from "@project/shared-types";
 
-export const MOCK_STOCK_WATCHLIST_DATA: StockItemProps[] = [
+export const MOCK_STOCK_WATCHLIST_DATA: StockItem[] = [
   {
     currentPrice: 150.25,
     priceChange: 2.15,
