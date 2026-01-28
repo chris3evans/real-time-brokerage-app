@@ -3,11 +3,23 @@ import clsx from "clsx";
 import { IconButton } from "@/components/IconButton/IconButton";
 import { Menu } from "lucide-react";
 import { AppColour } from "@/types/app.enums";
+import { useState } from "react";
+import { useAppDispatch } from "@/store/hooks";
+import { setSideNavigationOpen } from "@/store/navigation/sideNavigationSlice";
 
 export const SideNavigation = () => {
+  const dispatch = useAppDispatch();
+
+  const [showNavigation, setShowNavigation] = useState<boolean>(false);
+
+  const toggleNavigation = (): void => {
+    setShowNavigation(!showNavigation);
+    dispatch(setSideNavigationOpen(showNavigation));
+  };
+
   return (
     <div className={styles["side-navigation"]}>
-      <IconButton>
+      <IconButton onClick={() => toggleNavigation()}>
         <Menu color={AppColour.WHITE} />
       </IconButton>
       <div className={styles["navigation-items"]}>

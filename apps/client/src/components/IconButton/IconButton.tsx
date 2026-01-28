@@ -3,10 +3,13 @@ import styles from "./IconButton.module.scss";
 import clsx from "clsx";
 
 export const IconButton = ({
+  onClick,
   children,
   className,
 }: IconButtonComponentProps) => {
   return (
-    <div className={clsx(className, styles["icon-button"])}>{children}</div>
+    <div onClick={onClick} className={clsx(className, styles["icon-button"])}>
+      {children}
+    </div>
   );
 };

@@ -8,7 +8,7 @@ export interface ButtonComponentProps {
   style?: ButtonStyle;
 }
 
-export interface IconButtonComponentProps {
+export interface IconButtonComponentProps extends Clickable {
   children: React.ReactNode;
   className?: string;
 }

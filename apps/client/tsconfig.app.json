@@ -55,6 +55,7 @@
       "@components/*": ["src/components/*"],
       "@utilities": ["src/utilities/utilities"],
       "@store-dashboard/*": ["src/store/dashboard/*"],
+      "@store-navigation/*": ["src/store/navigation/*"],
       "@project/shared-types": ["../../packages/shared-types/src/index.ts"]
     }
   },
