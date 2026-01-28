@@ -1,7 +1,7 @@
 import styles from "./SideNavigation.module.scss";
 import clsx from "clsx";
 import { IconButton } from "@/components/IconButton/IconButton";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AppColour } from "@/types/app.enums";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
@@ -22,8 +22,15 @@ export const SideNavigation = () => {
 
   return (
     <div className={styles["side-navigation"]}>
-      <IconButton onClick={() => toggleNavigation()}>
-        <Menu color={AppColour.WHITE} />
+      <IconButton
+        className={styles["navigation-button"]}
+        onClick={() => toggleNavigation()}
+      >
+        {sideNavigationOpen ? (
+          <X color={AppColour.WHITE} />
+        ) : (
+          <Menu color={AppColour.WHITE} />
+        )}
       </IconButton>
       <div className={styles["navigation-items"]}>
         <div
