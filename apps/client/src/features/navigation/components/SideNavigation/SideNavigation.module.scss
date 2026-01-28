@@ -1,0 +1,16 @@
+@use "../../../../styles/variables" as variables;
+
+.side-navigation {
+  background-color: variables.$secondary-dark-2;
+
+  .navigation-items {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-auto-flow: row;
+    row-gap: 1rem;
+
+    .navigation-item {
+      padding: 1rem;
+    }
+  }
+}

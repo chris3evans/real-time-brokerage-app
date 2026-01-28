@@ -48,6 +48,9 @@
         "src/features/dashboard/components/DashboardWatchList/*"
       ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
+      "@navigation/*": ["src/features/navigation/*"],
+      "@navigation-components/*": ["src/features/navigation/components/*"],
+      "@navigation-types/*": ["src/features/navigation/types/*"],
       "@components-types/*": ["src/components/types/*"],
       "@components/*": ["src/components/*"],
       "@utilities": ["src/utilities/utilities"],
