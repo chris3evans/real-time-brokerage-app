@@ -10,7 +10,7 @@ export const MarketIndicator = ({
   valueChangePercentage,
 }: MarketIndicatorComponentProps) => {
   return (
-    <div className={clsx(styles["indicator"], "investable")}>
+    <div className={clsx(styles["indicator"], "actionable")}>
       <h5>{name}</h5>
       <div className={styles["indicator-value"]}>
         <span

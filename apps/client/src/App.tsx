@@ -1,25 +1,15 @@
-// import { useEffect, useState } from "react";
-import { Dashboard } from "@dashboard/Dashboard";
+import { SideNavigation } from "@navigation-components/SideNavigation/SideNavigation";
+import styles from "./App.module.scss";
+import { Outlet } from "react-router-dom";
 
 // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 function App() {
-  // const [message, setMessage] = useState("Loading...");
-
-  // useEffect(() => {
-  //   fetch(API_URL + "/profile")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setMessage(data.username);
-  //     })
-  //     .catch(() => setMessage("API is not responding"));
-  // }, []);
-
   return (
-    <div className="container">
-      {/* <p>API Status: <strong>{message}</strong></p> */}
-      <Dashboard />
+    <div className={styles["app-container"]}>
+      <SideNavigation />
+      {/* <Dashboard /> */}
+      <Outlet />
     </div>
   );
 }

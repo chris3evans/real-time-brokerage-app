@@ -13,7 +13,7 @@ export const StockItem = ({
   positionValue,
 }: StockPositionItem) => {
   return (
-    <div className={clsx(styles["stock-item"], "investable")}>
+    <div className={clsx(styles["stock-item"], "actionable")}>
       <div className={styles["stock-info"]}>
         <h5>{ticker}</h5>
         <span>{name}</span>

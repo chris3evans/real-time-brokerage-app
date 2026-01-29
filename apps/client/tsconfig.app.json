@@ -48,10 +48,20 @@
         "src/features/dashboard/components/DashboardWatchList/*"
       ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
+      "@search/*": ["src/features/search/components/Search/*"],
+      "@search-types/*": ["src/features/search/types/*"],
+      "@portfolio/*": ["src/features/portfolio/components/Portfolio/*"],
+      "@portfolio-types/*": ["src/features/portfolio/types/*"],
+      "@settings/*": ["src/features/settings/components/Settings/*"],
+      "@settings-types/*": ["src/features/settings/types/*"],
+      "@navigation/*": ["src/features/navigation/*"],
+      "@navigation-components/*": ["src/features/navigation/components/*"],
+      "@navigation-types/*": ["src/features/navigation/types/*"],
       "@components-types/*": ["src/components/types/*"],
       "@components/*": ["src/components/*"],
       "@utilities": ["src/utilities/utilities"],
       "@store-dashboard/*": ["src/store/dashboard/*"],
+      "@store-navigation/*": ["src/store/navigation/*"],
       "@project/shared-types": ["../../packages/shared-types/src/index.ts"]
     }
   },

@@ -38,10 +38,11 @@ button {
   font-size: $text-paragraph;
 }
 
-.investable {
+.actionable {
   background-color: variables.$black;
   cursor: pointer;
   transition: all 0.3s;
+  color: variables.$white;
 
   &:hover {
     background-color: variables.$primary-dark-2;

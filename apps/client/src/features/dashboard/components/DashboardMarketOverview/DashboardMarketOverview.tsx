@@ -4,9 +4,11 @@ import { useGetMarketIndicators } from "@/hooks/dashboard.hooks";
 import { MarketIndicator } from "@/components/MarketIndicator/MarketIndicator";
 
 export const DashboardMarketOverview = () => {
-  const { data: marketIndicators } = useGetMarketIndicators();
+  const { data: marketIndicators, isLoading, error } = useGetMarketIndicators();
 
-  console.log(marketIndicators);
+  if (isLoading) return <div>Loading Market Indicators</div>;
+
+  if (error) return <div>Could not load market indicators: {}</div>;
 
   return (
     <Card
