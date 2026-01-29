@@ -1,12 +1,12 @@
 import styles from "./SideNavigation.module.scss";
-import clsx from "clsx";
 import { IconButton } from "@/components/IconButton/IconButton";
 import { Menu, X } from "lucide-react";
 import { AppColour } from "@/types/app.enums";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setSideNavigationOpen } from "@/store/navigation/sideNavigationSlice";
-import { NavLink } from "react-router-dom";
+import { NavigationLink } from "@navigation-types/navigation.interfaces";
+import { NavigationItem } from "@navigation-components/NavigationItem/NavigationItem";
 
 export const SideNavigation = () => {
   const dispatch = useAppDispatch();
@@ -18,8 +18,15 @@ export const SideNavigation = () => {
 
   const toggleNavigation = (): void => {
     setShowNavigation(!showNavigation);
-    dispatch(setSideNavigationOpen(showNavigation));
+    dispatch(setSideNavigationOpen(!showNavigation));
   };
+
+  const sideNavigationItems: NavigationLink[] = [
+    { destination: "/dashboard", label: "Dashboard" },
+    { destination: "/search", label: "Search" },
+    { destination: "/portfolio", label: "Portfolio" },
+    { destination: "/settings", label: "Settings" },
+  ];
 
   return (
     <div className={styles["side-navigation"]}>
@@ -27,65 +34,20 @@ export const SideNavigation = () => {
         className={styles["navigation-button"]}
         onClick={() => toggleNavigation()}
       >
-        {sideNavigationOpen ? (
+        {!sideNavigationOpen ? (
           <X color={AppColour.WHITE} />
         ) : (
           <Menu color={AppColour.WHITE} />
         )}
       </IconButton>
       <div className={styles["navigation-items"]}>
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            clsx(
-              styles["navigation-item"],
-              "actionable",
-              sideNavigationOpen ? "" : styles["hide"],
-              isActive && styles["active"],
-            )
-          }
-        >
-          Dashboard
-        </NavLink>
-        <NavLink
-          to="/search"
-          className={({ isActive }) =>
-            clsx(
-              styles["navigation-item"],
-              "actionable",
-              sideNavigationOpen ? "" : styles["hide"],
-              isActive && styles["active"],
-            )
-          }
-        >
-          Search
-        </NavLink>
-        <NavLink
-          to="/portfolio"
-          className={({ isActive }) =>
-            clsx(
-              styles["navigation-item"],
-              "actionable",
-              sideNavigationOpen ? "" : styles["hide"],
-              isActive && styles["active"],
-            )
-          }
-        >
-          Portfolio
-        </NavLink>
-        <NavLink
-          to="/settings"
-          className={({ isActive }) =>
-            clsx(
-              styles["navigation-item"],
-              "actionable",
-              sideNavigationOpen ? "" : styles["hide"],
-              isActive && styles["active"],
-            )
-          }
-        >
-          Settings
-        </NavLink>
+        {sideNavigationItems.map((ni) => (
+          <NavigationItem
+            destination={ni.destination}
+            open={sideNavigationOpen}
+            label={ni.label}
+          />
+        ))}
       </div>
     </div>
   );

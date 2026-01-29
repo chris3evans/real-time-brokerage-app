@@ -5,7 +5,7 @@ export interface SideNavigationState {
 }
 
 const initialState: SideNavigationState = {
-  sideNavigationOpen: false,
+  sideNavigationOpen: true,
 };
 
 export const sideNavigationSlice = createSlice({
