@@ -48,6 +48,8 @@
         "src/features/dashboard/components/DashboardWatchList/*"
       ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
+      "@search/*": ["src/features/search/components/Search/*"],
+      "@search-types/*": ["src/features/search/types/*"],
       "@navigation/*": ["src/features/navigation/*"],
       "@navigation-components/*": ["src/features/navigation/components/*"],
       "@navigation-types/*": ["src/features/navigation/types/*"],

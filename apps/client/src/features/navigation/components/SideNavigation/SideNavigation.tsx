@@ -6,6 +6,7 @@ import { AppColour } from "@/types/app.enums";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setSideNavigationOpen } from "@/store/navigation/sideNavigationSlice";
+import { NavLink } from "react-router-dom";
 
 export const SideNavigation = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +34,8 @@ export const SideNavigation = () => {
         )}
       </IconButton>
       <div className={styles["navigation-items"]}>
-        <div
+        <NavLink
+          to="/dashboard"
           className={clsx(
             styles["navigation-item"],
             "actionable",
@@ -41,8 +43,9 @@ export const SideNavigation = () => {
           )}
         >
           Dashboard
-        </div>
-        <div
+        </NavLink>
+        <NavLink
+          to="/search"
           className={clsx(
             styles["navigation-item"],
             "actionable",
@@ -50,8 +53,9 @@ export const SideNavigation = () => {
           )}
         >
           Search
-        </div>
-        <div
+        </NavLink>
+        <NavLink
+          to="/portfolio"
           className={clsx(
             styles["navigation-item"],
             "actionable",
@@ -59,8 +63,9 @@ export const SideNavigation = () => {
           )}
         >
           Portfolio
-        </div>
-        <div
+        </NavLink>
+        <NavLink
+          to="/settings"
           className={clsx(
             styles["navigation-item"],
             "actionable",
@@ -68,7 +73,7 @@ export const SideNavigation = () => {
           )}
         >
           Settings
-        </div>
+        </NavLink>
       </div>
     </div>
   );
