@@ -23,11 +23,16 @@
     .navigation-item {
       padding: 1rem;
       transition: all 0.3s;
+      text-decoration: none;
 
       &.hide {
         padding: 1rem 0rem;
         width: 0;
         overflow: hidden;
+      }
+
+      &.active {
+        background-color: variables.$primary-dark-2;
       }
     }
   }

@@ -14,7 +14,7 @@ export const SideNavigation = () => {
     (state) => state.navigation.sideNavigationOpen,
   );
 
-  const [showNavigation, setShowNavigation] = useState<boolean>(false);
+  const [showNavigation, setShowNavigation] = useState<boolean>(true);
 
   const toggleNavigation = (): void => {
     setShowNavigation(!showNavigation);
@@ -36,41 +36,53 @@ export const SideNavigation = () => {
       <div className={styles["navigation-items"]}>
         <NavLink
           to="/dashboard"
-          className={clsx(
-            styles["navigation-item"],
-            "actionable",
-            sideNavigationOpen ? "" : styles["hide"],
-          )}
+          className={({ isActive }) =>
+            clsx(
+              styles["navigation-item"],
+              "actionable",
+              sideNavigationOpen ? "" : styles["hide"],
+              isActive && styles["active"],
+            )
+          }
         >
           Dashboard
         </NavLink>
         <NavLink
           to="/search"
-          className={clsx(
-            styles["navigation-item"],
-            "actionable",
-            sideNavigationOpen ? "" : styles["hide"],
-          )}
+          className={({ isActive }) =>
+            clsx(
+              styles["navigation-item"],
+              "actionable",
+              sideNavigationOpen ? "" : styles["hide"],
+              isActive && styles["active"],
+            )
+          }
         >
           Search
         </NavLink>
         <NavLink
           to="/portfolio"
-          className={clsx(
-            styles["navigation-item"],
-            "actionable",
-            sideNavigationOpen ? "" : styles["hide"],
-          )}
+          className={({ isActive }) =>
+            clsx(
+              styles["navigation-item"],
+              "actionable",
+              sideNavigationOpen ? "" : styles["hide"],
+              isActive && styles["active"],
+            )
+          }
         >
           Portfolio
         </NavLink>
         <NavLink
           to="/settings"
-          className={clsx(
-            styles["navigation-item"],
-            "actionable",
-            sideNavigationOpen ? "" : styles["hide"],
-          )}
+          className={({ isActive }) =>
+            clsx(
+              styles["navigation-item"],
+              "actionable",
+              sideNavigationOpen ? "" : styles["hide"],
+              isActive && styles["active"],
+            )
+          }
         >
           Settings
         </NavLink>
