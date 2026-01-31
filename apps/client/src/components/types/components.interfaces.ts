@@ -29,6 +29,12 @@ export interface ViewComponentProps {
   className?: string;
 }
 
+export interface StockListComponentProps {
+  children: React.ReactNode;
+  className?: string;
+  autoHeight?: boolean;
+}
+
 export interface HeadingWithButtonsComponentProps {
   heading: string;
   buttons: ButtonComponentProps[];

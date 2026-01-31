@@ -1,5 +1,6 @@
 import { StockItem } from "@/components/StockItem/StockItem";
 import styles from "./AssetSearcher.module.scss";
+import { StockList } from "@/components/StockList/StockList";
 
 export const AssetSearcher = () => {
   return (
@@ -11,7 +12,7 @@ export const AssetSearcher = () => {
           placeholder="Search for a stock, index, or commodity..."
         />
       </div>
-      <div className={styles["search-suggestions"]}>
+      <StockList autoHeight={true}>
         <StockItem
           key={1}
           name={"Apple"}
@@ -36,7 +37,7 @@ export const AssetSearcher = () => {
           priceChangePercentage={1}
           priceChange={2.4}
         />
-      </div>
+      </StockList>
     </div>
   );
 };
