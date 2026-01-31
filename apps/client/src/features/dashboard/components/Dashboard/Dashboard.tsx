@@ -1,5 +1,4 @@
 import { DashboardBalance } from "@dashboard-balance/DashboardBalance";
-// import styles from "./Dashboard.module.scss";
 import { DashboardMarketOverview } from "@/features/dashboard/components/DashboardMarketOverview/DashboardMarketOverview";
 import { DashboardPortfolioPerformance } from "@dashboard-portfolio-performance/DashboardPortfolioPerformance";
 import { DashboardWatchList } from "@dashboard-watchlist/DashboardWatchList";
@@ -9,13 +8,11 @@ import { View } from "@components/View/View";
 export const Dashboard = () => {
   return (
     <View>
-      {/* <div className={styles["dashboard"]}> */}
       <DashboardBalance />
       <DashboardMarketOverview />
       <DashboardPortfolioPerformance />
       <DashboardPortfolioOverview />
       <DashboardWatchList />
-      {/* </div> */}
     </View>
   );
 };
