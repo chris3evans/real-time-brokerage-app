@@ -1,0 +1,11 @@
+@use "../../styles/variables" as variables;
+
+.view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
+  background-color: variables.$secondary-dark-2;
+  padding: 2rem;
+  gap: 2rem;
+}

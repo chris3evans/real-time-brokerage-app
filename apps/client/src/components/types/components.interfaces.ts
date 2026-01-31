@@ -24,6 +24,11 @@ export interface CardComponentProps {
   className?: string;
 }
 
+export interface ViewComponentProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
 export interface HeadingWithButtonsComponentProps {
   heading: string;
   buttons: ButtonComponentProps[];
