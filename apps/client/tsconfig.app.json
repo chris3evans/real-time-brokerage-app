@@ -49,6 +49,7 @@
       ],
       "@dashboard-types/*": ["src/features/dashboard/types/*"],
       "@search/*": ["src/features/search/components/Search/*"],
+      "@search-components/*": ["src/features/search/components/*"],
       "@search-types/*": ["src/features/search/types/*"],
       "@portfolio/*": ["src/features/portfolio/components/Portfolio/*"],
       "@portfolio-types/*": ["src/features/portfolio/types/*"],

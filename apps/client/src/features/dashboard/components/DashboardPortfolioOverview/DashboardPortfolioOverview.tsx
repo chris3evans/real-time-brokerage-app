@@ -8,6 +8,7 @@ import type {
   ListSorter,
 } from "@/components/types/components.interfaces";
 import { HeadingWithButtons } from "@/components/HeadingWithButtons/HeadingWithButtons";
+import { StockList } from "@/components/StockList/StockList";
 
 export const DashboardPortfolioOverview = () => {
   const filterButtons: ButtonComponentProps[] = [
@@ -49,7 +50,7 @@ export const DashboardPortfolioOverview = () => {
         heading="Portfolio Overview"
         buttons={filterButtons}
       />
-      <div className={styles["stock-list"]}>
+      <StockList>
         <ListSorters sorters={sorterButtons} />
         {MOCK_STOCK_PORTFOLIO_DATA.map((stock, i) => (
           <StockItem
@@ -64,7 +65,7 @@ export const DashboardPortfolioOverview = () => {
             positionValue={stock.positionValue}
           />
         ))}
-      </div>
+      </StockList>
     </Card>
   );
 };

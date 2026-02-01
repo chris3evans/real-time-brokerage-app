@@ -34,7 +34,8 @@ h5 {
 span,
 p,
 div,
-button {
+button,
+input {
   font-size: $text-paragraph;
 }
 
@@ -60,4 +61,13 @@ button {
 .text-flash {
   color: variables.$white;
   animation: flashWhite 1s ease-out;
+}
+
+.loading-api-error,
+.api-error {
+  color: variables.$loss-color;
+  text-align: center;
+  padding: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }

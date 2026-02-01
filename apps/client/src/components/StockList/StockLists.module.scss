@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as mixins;
+
+.stock-list {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
+  row-gap: 0.25rem;
+  overflow-y: auto;
+  @include mixins.app-scrollbar;
+}
+
+.fixed-height {
+  height: 25rem;
+}
+
+.auto-height {
+  min-height: auto;
+  max-height: 25rem;
+}

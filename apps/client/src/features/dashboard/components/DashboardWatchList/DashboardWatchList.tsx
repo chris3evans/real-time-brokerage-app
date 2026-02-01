@@ -4,6 +4,7 @@ import { StockItem } from "@/components/StockItem/StockItem";
 import { MOCK_STOCK_WATCHLIST_DATA } from "@/mock-data/stock-watchlist.mockdata";
 import type { ButtonComponentProps } from "@/components/types/components.interfaces";
 import { HeadingWithButtons } from "@/components/HeadingWithButtons/HeadingWithButtons";
+import { StockList } from "@/components/StockList/StockList";
 
 export const DashboardWatchList = () => {
   const watchlistFilterButtons: ButtonComponentProps[] = [
@@ -18,7 +19,7 @@ export const DashboardWatchList = () => {
         heading="Watchlist"
         buttons={watchlistFilterButtons}
       />
-      <div className={styles["stock-list"]}>
+      <StockList>
         {MOCK_STOCK_WATCHLIST_DATA.map((stock, i) => (
           <StockItem
             key={i}
@@ -29,7 +30,7 @@ export const DashboardWatchList = () => {
             priceChangePercentage={stock.priceChangePercentage}
           />
         ))}
-      </div>
+      </StockList>
     </Card>
   );
 };
