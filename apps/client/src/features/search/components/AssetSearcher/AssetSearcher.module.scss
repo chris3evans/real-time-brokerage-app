@@ -14,3 +14,10 @@
     }
   }
 }
+
+.no-search-results,
+.loading-search-results {
+  color: variables.$white;
+  text-align: center;
+  padding: 1rem;
+}
