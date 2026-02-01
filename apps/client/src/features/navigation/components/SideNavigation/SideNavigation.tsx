@@ -41,8 +41,9 @@ export const SideNavigation = () => {
         )}
       </IconButton>
       <div className={styles["navigation-items"]}>
-        {sideNavigationItems.map((ni) => (
+        {sideNavigationItems.map((ni, i) => (
           <NavigationItem
+            key={i}
             destination={ni.destination}
             open={sideNavigationOpen}
             label={ni.label}

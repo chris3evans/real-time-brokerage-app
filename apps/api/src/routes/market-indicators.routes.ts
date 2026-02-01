@@ -12,8 +12,7 @@ export const marketIndicatorRoutes = (
 ) => {
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     try {
-      const marketIndicators = marketIndicatorService.getAllMarketIndicators();
-      return reply.code(200).send(marketIndicators);
+      return marketIndicatorService.getAllMarketIndicators();
     } catch (error) {
       fastify.log.error(error);
       return reply.code(500).send({

@@ -2,7 +2,7 @@
 
 .navigation-item {
   padding: 1rem;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
   background-color: variables.$secondary-dark-1;
   color: variables.$white;

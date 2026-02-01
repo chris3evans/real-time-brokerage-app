@@ -3,16 +3,17 @@ import stockData from "../data/stocks.json" with { type: "json" };
 
 const BASE_STOCK_DATA = stockData as StockData;
 
-export const getStock = (ticker: string): StockItem | null => {
+export const getStock = (ticker: string): StockItem => {
   const stock = BASE_STOCK_DATA[ticker.toLocaleUpperCase()];
 
-  if (!stock) return null;
+  // if (!stock) return;
 
-  const volatility = stock.price * 0.01;
-  const changePercentage = (Math.random() - 0.5) * 2 * volatility;
-  const priceChange = +(stock.price * changePercentage).toFixed(2);
-  const currentPrice = +(priceChange + stock.price).toFixed(2);
-  const priceChangePercentage = +(changePercentage * 100).toFixed(2);
+  const volatility = Math.random() * 0.01;
+  const priceChange = +(stock.price * volatility).toFixed(2);
+  const currentPrice = +(stock.price + priceChange).toFixed(2);
+  const priceChangePercentage = +((priceChange / currentPrice) * 100).toFixed(
+    2,
+  );
 
   return {
     name: stock.name,
@@ -23,6 +24,19 @@ export const getStock = (ticker: string): StockItem | null => {
   };
 };
 
-export const getAllStocks = (): (StockItem | null)[] => {
+export const getAllStocks = (): (StockItem | undefined)[] => {
   return Object.keys(BASE_STOCK_DATA).map((ticker) => getStock(ticker));
+};
+
+export const getAllMatchingStocks = (searchInput: string): StockItem[] => {
+  const uppercaseSearchInput = searchInput.toLocaleUpperCase();
+
+  return Object.entries(BASE_STOCK_DATA)
+    .filter(
+      ([ticker, stock]) =>
+        ticker.includes(uppercaseSearchInput) ||
+        stock.name.toLocaleUpperCase().includes(uppercaseSearchInput),
+    )
+    .map(([ticker, _]) => getStock(ticker))
+    .sort((a, b) => a.name.localeCompare(b.name));
 };

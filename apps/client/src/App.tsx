@@ -8,7 +8,6 @@ function App() {
   return (
     <div className={styles["app-container"]}>
       <SideNavigation />
-      {/* <Dashboard /> */}
       <Outlet />
     </div>
   );
