@@ -1,196 +1,114 @@
 {
-  "NVDA": {
-    "name": "NVIDIA",
-    "ticker": "NVDA",
-    "price": 125.1
-  },
+  "NVDA": { "name": "NVIDIA", "ticker": "NVDA", "price": 125.1 },
   "AAPL": { "name": "Apple", "ticker": "AAPL", "price": 185.2 },
-  "MSFT": {
-    "name": "Microsoft",
-    "ticker": "MSFT",
-    "price": 415.65
-  },
-  "AMZN": {
-    "name": "Amazon",
-    "ticker": "AMZN",
-    "price": 175.12
-  },
-  "GOOGL": {
-    "name": "Alphabet (Class A)",
-    "ticker": "GOOGL",
-    "price": 160.85
-  },
-  "META": {
-    "name": "Meta Platforms",
-    "ticker": "META",
-    "price": 485.3
-  },
+  "MSFT": { "name": "Microsoft", "ticker": "MSFT", "price": 415.65 },
+  "AMZN": { "name": "Amazon", "ticker": "AMZN", "price": 175.12 },
+  "GOOGL": { "name": "Alphabet (Class A)", "ticker": "GOOGL", "price": 160.85 },
+  "META": { "name": "Meta Platforms", "ticker": "META", "price": 485.3 },
   "TSLA": { "name": "Tesla", "ticker": "TSLA", "price": 240.5 },
-  "BRK.B": {
-    "name": "Berkshire Hathaway",
-    "ticker": "BRK.B",
-    "price": 410.15
-  },
+  "BRK.B": { "name": "Berkshire Hathaway", "ticker": "BRK.B", "price": 410.15 },
   "AVGO": { "name": "Broadcom", "ticker": "AVGO", "price": 1350.2 },
-  "LLY": {
-    "name": "Eli Lilly and",
-    "ticker": "LLY",
-    "price": 750.4
-  },
-  "JPM": {
-    "name": "JPMorgan Chase",
-    "ticker": "JPM",
-    "price": 195.1
-  },
+  "LLY": { "name": "Eli Lilly", "ticker": "LLY", "price": 750.4 },
+  "JPM": { "name": "JPMorgan Chase", "ticker": "JPM", "price": 195.1 },
   "V": { "name": "Visa", "ticker": "V", "price": 275.4 },
-  "XOM": {
-    "name": "Exxon Mobil",
-    "ticker": "XOM",
-    "price": 115.25
-  },
-  "UNH": {
-    "name": "UnitedHealth Group",
-    "ticker": "UNH",
-    "price": 490.1
-  },
-  "MA": {
-    "name": "Mastercard",
-    "ticker": "MA",
-    "price": 450.75
-  },
-  "PG": {
-    "name": "Procter Gamble",
-    "ticker": "PG",
-    "price": 160.3
-  },
-  "COST": {
-    "name": "Costco Wholesale",
-    "ticker": "COST",
-    "price": 725.15
-  },
+  "XOM": { "name": "Exxon Mobil", "ticker": "XOM", "price": 115.25 },
+  "UNH": { "name": "UnitedHealth Group", "ticker": "UNH", "price": 490.1 },
+  "MA": { "name": "Mastercard", "ticker": "MA", "price": 450.75 },
+  "PG": { "name": "Procter Gamble", "ticker": "PG", "price": 160.3 },
+  "COST": { "name": "Costco Wholesale", "ticker": "COST", "price": 725.15 },
   "HD": { "name": "Home Depot", "ticker": "HD", "price": 345.6 },
-  "JNJ": {
-    "name": "Johnson Johnson",
-    "ticker": "JNJ",
-    "price": 155.45
-  },
-  "ORCL": {
-    "name": "Oracle",
-    "ticker": "ORCL",
-    "price": 125.9
-  },
-  "AMD": {
-    "name": "Advanced Micro Devices",
-    "ticker": "AMD",
-    "price": 170.2
-  },
+  "JNJ": { "name": "Johnson Johnson", "ticker": "JNJ", "price": 155.45 },
+  "ORCL": { "name": "Oracle", "ticker": "ORCL", "price": 125.9 },
+  "AMD": { "name": "Advanced Micro Devices", "ticker": "AMD", "price": 170.2 },
   "NFLX": { "name": "Netflix", "ticker": "NFLX", "price": 610.45 },
-  "BAC": {
-    "name": "Bank of America",
-    "ticker": "BAC",
-    "price": 37.15
-  },
+  "BAC": { "name": "Bank of America", "ticker": "BAC", "price": 37.15 },
   "KO": { "name": "Coca-Cola", "ticker": "KO", "price": 60.25 },
   "PEP": { "name": "PepsiCo", "ticker": "PEP", "price": 175.4 },
-  "CVX": {
-    "name": "Chevron",
-    "ticker": "CVX",
-    "price": 155.1
-  },
+  "CVX": { "name": "Chevron", "ticker": "CVX", "price": 155.1 },
   "ADBE": { "name": "Adobe", "ticker": "ADBE", "price": 525.6 },
-  "CRM": {
-    "name": "Salesforce",
-    "ticker": "CRM",
-    "price": 290.15
-  },
+  "CRM": { "name": "Salesforce", "ticker": "CRM", "price": 290.15 },
   "WMT": { "name": "Walmart", "ticker": "WMT", "price": 60.8 },
-  "DIS": {
-    "name": "Walt Disney",
-    "ticker": "DIS",
-    "price": 115.4
-  },
+  "DIS": { "name": "Walt Disney", "ticker": "DIS", "price": 115.4 },
   "ACN": { "name": "Accenture", "ticker": "ACN", "price": 335.2 },
-  "CSCO": {
-    "name": "Cisco Systems",
-    "ticker": "CSCO",
-    "price": 48.9
-  },
-  "VZ": {
-    "name": "Verizon",
-    "ticker": "VZ",
-    "price": 40.15
-  },
-  "INTC": {
-    "name": "Intel",
-    "ticker": "INTC",
-    "price": 42.5
-  },
-  "ABT": {
-    "name": "Abbott",
-    "ticker": "ABT",
-    "price": 110.3
-  },
-  "DHR": {
-    "name": "Danaher",
-    "ticker": "DHR",
-    "price": 245.8
-  },
-  "CAT": {
-    "name": "Caterpillar",
-    "ticker": "CAT",
-    "price": 335.45
-  },
+  "CSCO": { "name": "Cisco Systems", "ticker": "CSCO", "price": 48.9 },
+  "VZ": { "name": "Verizon", "ticker": "VZ", "price": 40.15 },
+  "INTC": { "name": "Intel", "ticker": "INTC", "price": 42.5 },
+  "ABT": { "name": "Abbott", "ticker": "ABT", "price": 110.3 },
+  "DHR": { "name": "Danaher", "ticker": "DHR", "price": 245.8 },
+  "CAT": { "name": "Caterpillar", "ticker": "CAT", "price": 335.45 },
   "GE": { "name": "GE Aerospace", "ticker": "GE", "price": 155.2 },
   "IBM": { "name": "IBM", "ticker": "IBM", "price": 190.4 },
-  "PLTR": {
-    "name": "Palantir",
-    "ticker": "PLTR",
-    "price": 24.15
-  },
-  "AXP": {
-    "name": "American Express",
-    "ticker": "AXP",
-    "price": 220.1
-  },
-  "UBER": {
-    "name": "Uber",
-    "ticker": "UBER",
-    "price": 75.3
-  },
-  "SBUX": {
-    "name": "Starbucks",
-    "ticker": "SBUX",
-    "price": 90.45
-  },
-  "LOW": {
-    "name": "Lowe's",
-    "ticker": "LOW",
-    "price": 230.2
-  },
-  "SPGI": {
-    "name": "S&P Global",
-    "ticker": "SPGI",
-    "price": 430.6
-  },
+  "PLTR": { "name": "Palantir", "ticker": "PLTR", "price": 24.15 },
+  "AXP": { "name": "American Express", "ticker": "AXP", "price": 220.1 },
+  "UBER": { "name": "Uber", "ticker": "UBER", "price": 75.3 },
+  "SBUX": { "name": "Starbucks", "ticker": "SBUX", "price": 90.45 },
+  "LOW": { "name": "Lowe's", "ticker": "LOW", "price": 230.2 },
+  "SPGI": { "name": "S&P Global", "ticker": "SPGI", "price": 430.6 },
   "INTU": { "name": "Intuit", "ticker": "INTU", "price": 625.4 },
-  "QCOM": {
-    "name": "QUALCOMM",
-    "ticker": "QCOM",
-    "price": 165.2
+  "QCOM": { "name": "QUALCOMM", "ticker": "QCOM", "price": 165.2 },
+  "TXN": { "name": "Texas Instruments", "ticker": "TXN", "price": 175.45 },
+  "AMAT": { "name": "Applied Materials", "ticker": "AMAT", "price": 205.1 },
+  "MU": { "name": "Micron", "ticker": "MU", "price": 115.3 },
+  "T": { "name": "AT&T", "ticker": "T", "price": 18.45 },
+  "PFE": { "name": "Pfizer", "ticker": "PFE", "price": 27.9 },
+  "PM": { "name": "Philip Morris", "ticker": "PM", "price": 102.15 },
+  "NKE": { "name": "Nike", "ticker": "NKE", "price": 94.2 },
+  "UNP": { "name": "Union Pacific", "ticker": "UNP", "price": 245.3 },
+  "HON": { "name": "Honeywell", "ticker": "HON", "price": 198.55 },
+  "RTX": { "name": "RTX Corporation", "ticker": "RTX", "price": 105.4 },
+  "GS": { "name": "Goldman Sachs", "ticker": "GS", "price": 460.12 },
+  "MS": { "name": "Morgan Stanley", "ticker": "MS", "price": 98.45 },
+  "TMO": {
+    "name": "Thermo Fisher Scientific",
+    "ticker": "TMO",
+    "price": 575.2
   },
-  "TXN": {
-    "name": "Texas Instruments",
-    "ticker": "TXN",
-    "price": 175.45
+  "ISRG": { "name": "Intuitive Surgical", "ticker": "ISRG", "price": 420.15 },
+  "NOW": { "name": "ServiceNow", "ticker": "NOW", "price": 780.45 },
+  "BKNG": { "name": "Booking Holdings", "ticker": "BKNG", "price": 3650.1 },
+  "MDLZ": { "name": "Mondelez International", "ticker": "MDLZ", "price": 72.3 },
+  "ABNB": { "name": "Airbnb", "ticker": "ABNB", "price": 145.6 },
+  "LRCX": { "name": "Lam Research", "ticker": "LRCX", "price": 980.25 },
+  "SYK": { "name": "Stryker", "ticker": "SYK", "price": 340.55 },
+  "TJX": { "name": "TJX Companies", "ticker": "TJX", "price": 108.9 },
+  "SCHW": { "name": "Charles Schwab", "ticker": "SCHW", "price": 74.25 },
+  "VRTX": {
+    "name": "Vertex Pharmaceuticals",
+    "ticker": "VRTX",
+    "price": 465.3
   },
-  "AMAT": {
-    "name": "Applied Materials",
-    "ticker": "AMAT",
-    "price": 205.1
+  "EL": { "name": "Estée Lauder", "ticker": "EL", "price": 125.15 },
+  "C": { "name": "Citigroup", "ticker": "C", "price": 62.4 },
+  "BLK": { "name": "BlackRock", "ticker": "BLK", "price": 815.75 },
+  "ADP": { "name": "ADP", "ticker": "ADP", "price": 245.9 },
+  "BA": { "name": "Boeing", "ticker": "BA", "price": 175.2 },
+  "LMT": { "name": "Lockheed Martin", "ticker": "LMT", "price": 465.8 },
+  "UPS": { "name": "UPS", "ticker": "UPS", "price": 140.45 },
+  "MDT": { "name": "Medtronic", "ticker": "MDT", "price": 85.15 },
+  "AMGN": { "name": "Amgen", "ticker": "AMGN", "price": 310.25 },
+  "ADI": { "name": "Analog Devices", "ticker": "ADI", "price": 225.4 },
+  "DE": { "name": "John Deere", "ticker": "DE", "price": 380.15 },
+  "CVS": { "name": "CVS Health", "ticker": "CVS", "price": 75.9 },
+  "ZTS": { "name": "Zoetis", "ticker": "ZTS", "price": 170.45 },
+  "MMC": { "name": "Marsh & McLennan", "ticker": "MMC", "price": 215.1 },
+  "FI": { "name": "Fiserv", "ticker": "FI", "price": 155.6 },
+  "GILD": { "name": "Gilead Sciences", "ticker": "GILD", "price": 68.25 },
+  "BMY": { "name": "Bristol Myers Squibb", "ticker": "BMY", "price": 42.15 },
+  "BSX": { "name": "Boston Scientific", "ticker": "BSX", "price": 75.8 },
+  "CB": { "name": "Chubb", "ticker": "CB", "price": 255.4 },
+  "REGN": { "name": "Regeneron", "ticker": "REGN", "price": 940.15 },
+  "EOG": { "name": "EOG Resources", "ticker": "EOG", "price": 125.75 },
+  "KLAC": { "name": "KLA Corporation", "ticker": "KLAC", "price": 710.2 },
+  "HCA": { "name": "HCA Healthcare", "ticker": "HCA", "price": 325.45 },
+  "CDNS": {
+    "name": "Cadence Design Systems",
+    "ticker": "CDNS",
+    "price": 295.1
   },
-  "MU": {
-    "name": "Micron",
-    "ticker": "MU",
-    "price": 115.3
-  }
+  "SNPS": { "name": "Synopsys", "ticker": "SNPS", "price": 545.6 },
+  "PANW": { "name": "Palo Alto Networks", "ticker": "PANW", "price": 315.2 },
+  "SHW": { "name": "Sherwin-Williams", "ticker": "SHW", "price": 330.15 },
+  "WM": { "name": "Waste Management", "ticker": "WM", "price": 205.4 },
+  "MO": { "name": "Altria Group", "ticker": "MO", "price": 45.1 },
+  "MELI": { "name": "MercadoLibre", "ticker": "MELI", "price": 1650.75 }
 }
