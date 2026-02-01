@@ -55,6 +55,10 @@
       "@portfolio-types/*": ["src/features/portfolio/types/*"],
       "@settings/*": ["src/features/settings/components/Settings/*"],
       "@settings-types/*": ["src/features/settings/types/*"],
+      "@asset-profile-components/*": [
+        "src/features/asset-profile/components/*"
+      ],
+      "@asset-profile-types/*": ["src/features/asset-profile/types/*"],
       "@navigation/*": ["src/features/navigation/*"],
       "@navigation-components/*": ["src/features/navigation/components/*"],
       "@navigation-types/*": ["src/features/navigation/types/*"],
