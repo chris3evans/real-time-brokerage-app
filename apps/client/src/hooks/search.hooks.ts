@@ -6,5 +6,6 @@ export const useGetStockSearchResults = (searchInput: string) => {
     queryFn: () => getStocksBySearch(searchInput),
     queryKey: ["stock-search-results", searchInput],
     enabled: searchInput.length > 0,
+    refetchInterval: 5000,
   });
 };
