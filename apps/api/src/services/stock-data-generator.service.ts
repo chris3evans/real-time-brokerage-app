@@ -29,9 +29,13 @@ export const getAllStocks = (): (StockItem | undefined)[] => {
 };
 
 export const getAllMatchingStocks = (searchInput: string): StockItem[] => {
-  const potentialStockTicker = searchInput.toLocaleUpperCase();
+  const uppercaseSearchInput = searchInput.toLocaleUpperCase();
 
-  return Object.keys(BASE_STOCK_DATA)
-    .filter((ticker) => ticker.includes(potentialStockTicker))
-    .map((ticker) => getStock(ticker));
+  return Object.entries(BASE_STOCK_DATA)
+    .filter(
+      ([ticker, stock]) =>
+        ticker.includes(uppercaseSearchInput) ||
+        stock.name.toLocaleUpperCase().includes(uppercaseSearchInput),
+    )
+    .map(([ticker, _]) => getStock(ticker));
 };
