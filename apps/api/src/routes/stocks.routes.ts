@@ -12,8 +12,7 @@ export const stockRoutes = (
 ) => {
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     try {
-      const stocks = stockService.getAllStocks();
-      return reply.code(200).send(stocks);
+      return stockService.getAllStocks();
     } catch (error) {
       fastify.log.error(error);
       return reply.code(500).send({
@@ -22,4 +21,22 @@ export const stockRoutes = (
       });
     }
   });
+
+  fastify.get(
+    "/stock-results",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { q } = request.query as { q?: string };
+      console.log(q, 1);
+      if (!q) return [];
+      try {
+        console.log(2);
+        return stockService.getAllMatchingStocks(q);
+      } catch (error) {
+        return reply.code(500).send({
+          error: "Internal Server Error",
+          message: "Could not attempt to find matching stocks",
+        });
+      }
+    },
+  );
 };

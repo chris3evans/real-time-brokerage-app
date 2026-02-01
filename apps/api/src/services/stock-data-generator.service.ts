@@ -3,10 +3,10 @@ import stockData from "../data/stocks.json" with { type: "json" };
 
 const BASE_STOCK_DATA = stockData as StockData;
 
-export const getStock = (ticker: string): StockItem | null => {
+export const getStock = (ticker: string): StockItem | undefined => {
   const stock = BASE_STOCK_DATA[ticker.toLocaleUpperCase()];
 
-  if (!stock) return null;
+  if (!stock) return undefined;
 
   const volatility = stock.price * 0.01;
   const changePercentage = (Math.random() - 0.5) * 2 * volatility;
@@ -23,6 +23,15 @@ export const getStock = (ticker: string): StockItem | null => {
   };
 };
 
-export const getAllStocks = (): (StockItem | null)[] => {
+export const getAllStocks = (): (StockItem | undefined)[] => {
   return Object.keys(BASE_STOCK_DATA).map((ticker) => getStock(ticker));
+};
+
+export const getAllMatchingStocks = (searchInput: string): StockItem[] => {
+  const potentialStockTicker = searchInput.toLocaleUpperCase();
+  console.log(potentialStockTicker);
+
+  return Object.keys(BASE_STOCK_DATA)
+    .filter((ticker) => ticker.includes(potentialStockTicker))
+    .map((ticker) => getStock(ticker));
 };
