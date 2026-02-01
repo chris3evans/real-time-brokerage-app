@@ -26,10 +26,8 @@ export const stockRoutes = (
     "/stock-results",
     async (request: FastifyRequest, reply: FastifyReply) => {
       const { q } = request.query as { q?: string };
-      console.log(q, 1);
       if (!q) return [];
       try {
-        console.log(2);
         return stockService.getAllMatchingStocks(q);
       } catch (error) {
         return reply.code(500).send({

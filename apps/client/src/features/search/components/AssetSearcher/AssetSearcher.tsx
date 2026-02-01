@@ -5,11 +5,8 @@ import { useGetStockSearchResults } from "@/hooks/search.hooks";
 import { useState } from "react";
 
 export const AssetSearcher = () => {
-  // const searchResults = useGetStockSearchResults();
   const [query, setQuery] = useState<string>("");
   const { data } = useGetStockSearchResults(query);
-
-  console.log(data, "DATA");
 
   return (
     <div className={styles["asset-searcher"]}>
@@ -22,30 +19,16 @@ export const AssetSearcher = () => {
         />
       </div>
       <StockList autoHeight={true}>
-        <StockItem
-          key={1}
-          name={"Apple"}
-          ticker={"AAPL"}
-          currentPrice={250}
-          priceChangePercentage={1}
-          priceChange={2.5}
-        />
-        <StockItem
-          key={2}
-          name={"Google"}
-          ticker={"GOOG"}
-          currentPrice={330}
-          priceChangePercentage={1}
-          priceChange={3.3}
-        />
-        <StockItem
-          key={3}
-          name={"Amazon"}
-          ticker={"AMZN"}
-          currentPrice={240}
-          priceChangePercentage={1}
-          priceChange={2.4}
-        />
+        {data?.map((si, i) => (
+          <StockItem
+            key={i}
+            name={si.name}
+            ticker={si.ticker}
+            currentPrice={si.currentPrice}
+            priceChange={si.priceChange}
+            priceChangePercentage={si.priceChangePercentage}
+          />
+        ))}
       </StockList>
     </div>
   );
