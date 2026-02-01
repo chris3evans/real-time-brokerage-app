@@ -37,5 +37,6 @@ export const getAllMatchingStocks = (searchInput: string): StockItem[] => {
         ticker.includes(uppercaseSearchInput) ||
         stock.name.toLocaleUpperCase().includes(uppercaseSearchInput),
     )
-    .map(([ticker, _]) => getStock(ticker));
+    .map(([ticker, _]) => getStock(ticker))
+    .sort((a, b) => a.name.localeCompare(b.name));
 };

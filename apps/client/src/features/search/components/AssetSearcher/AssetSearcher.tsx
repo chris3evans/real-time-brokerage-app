@@ -8,6 +8,8 @@ export const AssetSearcher = () => {
   const [query, setQuery] = useState<string>("");
   const { data } = useGetStockSearchResults(query);
 
+  console.log(data);
+
   return (
     <div className={styles["asset-searcher"]}>
       <div className={styles["search-bar"]}>
