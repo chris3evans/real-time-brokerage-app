@@ -4,6 +4,7 @@ import { Dashboard } from "@dashboard/Dashboard";
 import { Search } from "@search/Search";
 import { Portfolio } from "@portfolio/Portfolio";
 import { Settings } from "@settings/Settings";
+import { AssetProfile } from "./features/asset-profile/components/AssetProfile/AssetProfile";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "search",
         element: <Search />,
+      },
+      {
+        path: "asset-profile",
+        element: <AssetProfile />,
       },
       {
         path: "portfolio",

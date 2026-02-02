@@ -3,6 +3,7 @@ import styles from "./AssetSearcher.module.scss";
 import { StockList } from "@/components/StockList/StockList";
 import { useGetStockSearchResults } from "@/hooks/search.hooks";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export const AssetSearcher = () => {
   const [query, setQuery] = useState<string>("");
@@ -22,14 +23,15 @@ export const AssetSearcher = () => {
       {data && (
         <StockList autoHeight={true}>
           {data?.map((si, i) => (
-            <StockItem
-              key={i}
-              name={si.name}
-              ticker={si.ticker}
-              currentPrice={si.currentPrice}
-              priceChange={si.priceChange}
-              priceChangePercentage={si.priceChangePercentage}
-            />
+            <NavLink to="/asset-profile" key={i}>
+              <StockItem
+                name={si.name}
+                ticker={si.ticker}
+                currentPrice={si.currentPrice}
+                priceChange={si.priceChange}
+                priceChangePercentage={si.priceChangePercentage}
+              />
+            </NavLink>
           ))}
         </StockList>
       )}
