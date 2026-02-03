@@ -24,7 +24,7 @@ export const AssetSearcher = () => {
         <StockList autoHeight={true}>
           {data?.map((si, i) => (
             <NavLink
-              to={`/asset-profile/${si.name}`}
+              to={`/asset-profile/${si.ticker}`}
               key={i}
               className="stock-navigation-link"
             >
