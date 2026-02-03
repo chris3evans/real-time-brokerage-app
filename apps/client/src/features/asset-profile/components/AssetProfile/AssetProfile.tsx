@@ -2,6 +2,7 @@ import { View } from "@/components/View/View";
 import { useParams } from "react-router-dom";
 import { AssetProfileHeader } from "../AssetProfileHeader/AssetProfileHeader";
 import { useGetStock } from "@/hooks/search.hooks";
+import { AssetDetails } from "@asset-profile-components/AssetDetails/AssetDetail";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
@@ -17,7 +18,7 @@ export const AssetProfile = () => {
         changePercentage={stock?.priceChangePercentage ?? 0}
       />
       {/* Price history graph */}
-      {/* LEFT (2/3) - Asset details */}
+      <AssetDetails />
       {/* RIGHT (1/3) - Buy / Sell asset buttons */}
     </View>
   );
