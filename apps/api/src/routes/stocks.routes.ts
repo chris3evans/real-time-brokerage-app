@@ -23,6 +23,23 @@ export const stockRoutes = (
   });
 
   fastify.get(
+    "/stock",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { q } = request.query as { q?: string };
+      if (!q) return reply.code(400).send({ error: "Missing query parameter" });
+      try {
+        return stockService.getStock(q);
+      } catch (error) {
+        fastify.log.error(error);
+        return reply.code(500).send({
+          error: "Internal Server Error",
+          message: `Could not get data for ${q}`,
+        });
+      }
+    },
+  );
+
+  fastify.get(
     "/stock-results",
     async (request: FastifyRequest, reply: FastifyReply) => {
       const { q } = request.query as { q?: string };

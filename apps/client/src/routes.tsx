@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
         element: <Search />,
       },
       {
-        path: "asset-profile/:name",
+        path: "asset-profile/:ticker",
         element: <AssetProfile />,
       },
       {
