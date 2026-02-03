@@ -14,10 +14,13 @@ export const AssetProfileHeader = ({
     <div className={styles["header"]}>
       <h4>{assetName}</h4>
       <span>{assetTicker}</span>
-      <h1>${currentPrice}</h1>
-      <div className={clsx(styles["change"], formatChangeColour(change))}>
+      <h1 className="text-flash">${currentPrice}</h1>
+      <div
+        key={change}
+        className={clsx(styles["change"], formatChangeColour(change))}
+      >
         <span>
-          {change > 0 ? "+" : ""}
+          {change > 0 ? "+$" : ""}
           {change}
         </span>
         <span>({changePercentage}%)</span>
