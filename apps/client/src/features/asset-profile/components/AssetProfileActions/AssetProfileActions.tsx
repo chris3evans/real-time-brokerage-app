@@ -1,16 +1,12 @@
 import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 import styles from "./AssetProfileActions.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Box, Modal, Typography } from "@mui/material";
 
 export const AssetProfileActions = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
-
-  useEffect(() => {
-    console.log(modalOpen);
-  }, [modalOpen]);
 
   const style = {
     position: "absolute",
@@ -30,11 +26,10 @@ export const AssetProfileActions = () => {
         className={styles["buttons-vertical"]}
         buttons={[
           { label: "Buy" },
-          { label: "Sell", style: "outline" },
+          { label: "Sell", style: "outline", onClick: () => openModal() },
           { label: "Add to Watchlist", style: "outline" },
         ]}
       />
-      <div onClick={openModal}>TEST ME!</div>
       <Modal open={modalOpen} onClose={closeModal}>
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">

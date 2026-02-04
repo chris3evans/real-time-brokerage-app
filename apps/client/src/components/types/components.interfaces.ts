@@ -3,7 +3,7 @@ import type { ButtonStyle, SortOrder } from "./components.types";
 import type { Clickable } from "@/types/app.interfaces";
 import { LineGraphPoint } from "@project/shared-types";
 
-export interface ButtonComponentProps {
+export interface ButtonComponentProps extends Clickable {
   label: string;
   style?: ButtonStyle;
 }
