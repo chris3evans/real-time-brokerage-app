@@ -1,13 +1,14 @@
 @use "./styles/variables.scss" as variables;
 @use "./styles/animations.scss" as animations;
-@import "./styles/_typography.scss";
+@use "./styles/_typography.scss" as typography;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 *,
 body,
 html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Inter, sans-serif;
   box-sizing: border-box;
 }
 
@@ -16,19 +17,19 @@ html {
 }
 
 h1 {
-  font-size: $text-heading-1;
+  font-size: typography.$text-heading-1;
 }
 h2 {
-  font-size: $text-heading-2;
+  font-size: typography.$text-heading-2;
 }
 h3 {
-  font-size: $text-heading-3;
+  font-size: typography.$text-heading-3;
 }
 h4 {
-  font-size: $text-heading-4;
+  font-size: typography.$text-heading-4;
 }
 h5 {
-  font-size: $text-heading-5;
+  font-size: typography.$text-heading-5;
 }
 
 span,
@@ -36,7 +37,7 @@ p,
 div,
 button,
 input {
-  font-size: $text-paragraph;
+  font-size: typography.$text-paragraph;
 }
 
 .actionable {

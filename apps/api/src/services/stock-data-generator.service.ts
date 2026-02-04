@@ -1,7 +1,14 @@
-import { StockData, StockItem } from "@project/shared-types";
+import {
+  AssetDetails,
+  AssetDetailsList,
+  StockData,
+  StockItem,
+} from "@project/shared-types";
 import stockData from "../data/stocks.json" with { type: "json" };
+import stockDetails from "../data/stock-details.json" with { type: "json" };
 
 const BASE_STOCK_DATA = stockData as StockData;
+const BASE_STOCK_DETAILS_LIST = stockDetails as AssetDetailsList;
 
 export const getStock = (ticker: string): StockItem => {
   const stock = BASE_STOCK_DATA[ticker.toLocaleUpperCase()];
@@ -39,4 +46,8 @@ export const getAllMatchingStocks = (searchInput: string): StockItem[] => {
     )
     .map(([ticker, _]) => getStock(ticker))
     .sort((a, b) => a.name.localeCompare(b.name));
+};
+
+export const getStockDetails = (ticker: string): AssetDetails => {
+  return BASE_STOCK_DETAILS_LIST[ticker.toLocaleUpperCase()];
 };
