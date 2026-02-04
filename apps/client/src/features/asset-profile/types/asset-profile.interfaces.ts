@@ -5,3 +5,7 @@ export interface AssetProfileComponentProps {
   change: number;
   changePercentage: number;
 }
+
+export interface AssetDetailsComponentProps {
+  assetTicker: string;
+}

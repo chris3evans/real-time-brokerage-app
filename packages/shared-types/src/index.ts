@@ -17,6 +17,8 @@ export interface StockPositionItem extends StockItem {
   positionValue?: number;
 }
 
+export type AssetDetailsList = Record<string, AssetDetails>;
+
 export interface AssetDetails {
   overview: string;
   marketCap: number;

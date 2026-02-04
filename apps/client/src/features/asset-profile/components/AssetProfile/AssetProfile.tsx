@@ -18,7 +18,7 @@ export const AssetProfile = () => {
         changePercentage={stock?.priceChangePercentage ?? 0}
       />
       {/* Price history graph */}
-      <AssetDetails />
+      <AssetDetails assetTicker={stock?.ticker ?? ""} />
       {/* RIGHT (1/3) - Buy / Sell asset buttons */}
     </View>
   );
