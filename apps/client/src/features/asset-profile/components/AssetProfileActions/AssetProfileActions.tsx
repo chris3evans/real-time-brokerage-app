@@ -9,7 +9,7 @@ export const AssetProfileActions = () => {
         buttons={[
           { label: "Buy" },
           { label: "Sell", style: "outline" },
-          { label: "Add to Watch List", style: "outline" },
+          { label: "Add to Watchlist", style: "outline" },
         ]}
       />
     </div>
