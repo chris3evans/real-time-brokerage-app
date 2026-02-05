@@ -1,5 +1,6 @@
+import { Button } from "@/components/Button/Button";
 import { BuySellModalComponentProps } from "@/components/types/components.interfaces";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 
 export const BuySellModal = ({
   modalOpen,
@@ -10,7 +11,7 @@ export const BuySellModal = ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: "auto",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
@@ -19,13 +20,17 @@ export const BuySellModal = ({
 
   return (
     <Modal open={modalOpen} onClose={closeModal}>
+      {/* Header - buy x shares / $x of AMAZON */}
+      {/* Share amount | switch button | money amount */}
+      {/* Confirm buy */}
       <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Text in a modal
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-        </Typography>
+        <h4>Buy 10 shares of Amazon (AMZN)</h4>
+
+        <input type="number" placeholder="num shares" />
+        <button>Alternate</button>
+        <input type="number" placeholder="num shares" />
+
+        <Button label="Confirm Buy" />
       </Box>
     </Modal>
   );
