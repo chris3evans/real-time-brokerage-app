@@ -7,7 +7,12 @@ export const ButtonSet = ({ buttons, className }: ButtonSetComponentProps) => {
   return (
     <div className={clsx(styles["button-container"], className)}>
       {buttons.map((button, i) => (
-        <Button key={i} label={button.label} style={button.style} />
+        <Button
+          onClick={button.onClick}
+          key={i}
+          label={button.label}
+          style={button.style}
+        />
       ))}
     </div>
   );

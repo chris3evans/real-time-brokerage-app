@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AssetProfileHeader } from "../AssetProfileHeader/AssetProfileHeader";
 import { useGetStock } from "@/hooks/search.hooks";
 import { AssetDetails } from "@asset-profile-components/AssetDetails/AssetDetail";
+import { AssetProfileActions } from "@asset-profile-components/AssetProfileActions/AssetProfileActions";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
@@ -19,7 +20,7 @@ export const AssetProfile = () => {
       />
       {/* Price history graph */}
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
-      {/* RIGHT (1/3) - Buy / Sell asset buttons */}
+      <AssetProfileActions />
     </View>
   );
 };

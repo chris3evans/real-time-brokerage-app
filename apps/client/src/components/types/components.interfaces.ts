@@ -3,7 +3,7 @@ import type { ButtonStyle, SortOrder } from "./components.types";
 import type { Clickable } from "@/types/app.interfaces";
 import { LineGraphPoint } from "@project/shared-types";
 
-export interface ButtonComponentProps {
+export interface ButtonComponentProps extends Clickable {
   label: string;
   style?: ButtonStyle;
 }
@@ -60,4 +60,9 @@ export interface MarketIndicatorComponentProps extends Clickable {
   currentValue: number;
   valueChange: number;
   valueChangePercentage: number;
+}
+
+export interface BuySellModalComponentProps {
+  modalOpen: boolean;
+  closeModal: () => void;
 }

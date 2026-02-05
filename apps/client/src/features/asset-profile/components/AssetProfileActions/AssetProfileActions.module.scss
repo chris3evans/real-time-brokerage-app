@@ -1,0 +1,14 @@
+.asset-actions {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+  width: 75%;
+  margin: auto;
+}
+
+.buttons-vertical {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+}
