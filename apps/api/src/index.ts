@@ -4,8 +4,13 @@ import "dotenv/config";
 import { PrismaClient } from "./generated/client/index.js";
 import { stockRoutes } from "./routes/stocks.routes.js";
 import { marketIndicatorRoutes } from "./routes/market-indicators.routes.js";
+import { WebSocketServer } from "ws";
+// import websocket from "@fastify/websocket";
 
 const server = Fastify({ logger: true });
+
+// server.register(websocket);
+
 server.register(cors, {
   origin: [
     "http://localhost:5173",
@@ -41,6 +46,31 @@ const start = async () => {
     await server.listen({
       port: Number(process.env.PORT) || 3001,
       host: "0.0.0.0",
+    });
+
+    const wss = new WebSocketServer({ server: server.server });
+
+    wss.on("connection", (ws) => {
+      console.log("Client connected directly to WSS");
+
+      ws.on("message", (message) => {
+        console.log("received: %s", message);
+      });
+
+      const interval = setInterval(() => {
+        if (ws.readyState === 1) {
+          // 1 = OPEN
+          const fakeUpdate = {
+            ticker: "AAPL",
+            price: 150 + Math.random() * 10,
+          };
+          ws.send(JSON.stringify(fakeUpdate));
+        }
+      }, 1000);
+
+      ws.on("close", () => {
+        clearInterval(interval);
+      });
     });
   } catch (err) {
     server.log.error(err);
