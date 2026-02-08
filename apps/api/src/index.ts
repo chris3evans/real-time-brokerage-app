@@ -9,6 +9,8 @@ import { WebSocketServer } from "ws";
 
 const server = Fastify({ logger: true });
 
+const wss = new WebSocketServer({ server: server.server });
+
 // server.register(websocket);
 
 server.register(cors, {
@@ -41,6 +43,23 @@ server.get("/profile", async (request, response) => {
   }
 });
 
+wss.on("connection", (ws) => {
+  const interval = setInterval(() => {
+    if (ws.readyState === 1) {
+      // const fakeUpdate = {
+      //   ticker: "AAPL",
+      //   price: 150 + Math.random() * 10,
+      // };
+      // ws.send(JSON.stringify(fakeUpdate));
+      ws.send(JSON.stringify({ price: Math.random() }));
+    }
+  }, 1000);
+
+  ws.on("close", () => {
+    clearInterval(interval);
+  });
+});
+
 const start = async () => {
   try {
     await server.listen({
@@ -48,30 +67,30 @@ const start = async () => {
       host: "0.0.0.0",
     });
 
-    const wss = new WebSocketServer({ server: server.server });
+    // const wss = new WebSocketServer({ server: server.server });
 
-    wss.on("connection", (ws) => {
-      console.log("Client connected directly to WSS");
+    // wss.on("connection", (ws) => {
+    //   console.log("Client connected directly to WSS");
 
-      ws.on("message", (message) => {
-        console.log("received: %s", message);
-      });
+    //   ws.on("message", (message) => {
+    //     console.log("received: %s", message);
+    //   });
 
-      const interval = setInterval(() => {
-        if (ws.readyState === 1) {
-          // 1 = OPEN
-          const fakeUpdate = {
-            ticker: "AAPL",
-            price: 150 + Math.random() * 10,
-          };
-          ws.send(JSON.stringify(fakeUpdate));
-        }
-      }, 1000);
+    //   const interval = setInterval(() => {
+    //     if (ws.readyState === 1) {
+    //       // 1 = OPEN
+    //       const fakeUpdate = {
+    //         ticker: "AAPL",
+    //         price: 150 + Math.random() * 10,
+    //       };
+    //       ws.send(JSON.stringify(fakeUpdate));
+    //     }
+    //   }, 1000);
 
-      ws.on("close", () => {
-        clearInterval(interval);
-      });
-    });
+    //   ws.on("close", () => {
+    //     clearInterval(interval);
+    //   });
+    // });
   } catch (err) {
     server.log.error(err);
     process.exit(1);
