@@ -5,7 +5,14 @@ import {
   FastifyRequest,
 } from "fastify";
 import * as stockService from "../services/stock-data-generator.service";
-import { AssetDetails, StockItem } from "@project/shared-types";
+import {
+  AssetDetails,
+  Duration,
+  LineGraphPoint,
+  StockData,
+  StockItem,
+  Trend,
+} from "@project/shared-types";
 
 export const stockRoutes = (
   fastify: FastifyInstance,
@@ -87,54 +94,27 @@ export const stockRoutes = (
     },
   );
 
-  // fastify.get(
-  //   "/stream",
-  //   { websocket: true },
-  //   (connection: { socket: WebSocket }, req: FastifyRequest) => {
-  //     console.log("Client connected to stock stream");
+  fastify.post(
+    "/asset-price-history",
+    async (
+      request: FastifyRequest,
+      reply: FastifyReply,
+    ): Promise<LineGraphPoint[] | undefined> => {
+      const body = request.body as {
+        stock: StockData;
+        trend: Trend;
+        duration: Duration;
+      };
+      const { stock, trend, duration } = body;
 
-  //     if (!connection.socket) {
-  //       console.error("CRITICAL: Socket is undefined!");
-  //       return;
-  //     }
-
-  //     const interval = setInterval(() => {
-  //       if (!connection.socket) {
-  //         console.warn("Socket vanished before sending data");
-  //         clearInterval(interval);
-  //         return;
-  //       }
-
-  //       if (connection.socket.readyState === WebSocket.OPEN) {
-  //         const fakePriceUpdate = {
-  //           ticker: "AAPL",
-  //           price: 150 + Math.random() * 10,
-  //           timestamp: Date.now(),
-  //         };
-  //         connection.socket.send(JSON.stringify(fakePriceUpdate));
-  //       } else if (connection.socket.readyState >= WebSocket.CLOSING) {
-  //         clearInterval(interval);
-  //       }
-  //     }, 1000);
-
-  //     if (connection.socket) {
-  //       connection.socket.on("message", (message: Buffer) => {
-  //         console.log(`Received: ${message.toString()}`);
-  //       });
-
-  //       connection.socket.on("close", () => {
-  //         console.log("Client disconnected");
-  //         clearInterval(interval);
-  //       });
-
-  //       connection.socket.on("error", (err) => {
-  //         console.error("Socket error:", err);
-  //         clearInterval(interval);
-  //       });
-  //     } else {
-  //       console.error("Socket was undefined when trying to attach listeners");
-  //       clearInterval(interval);
-  //     }
-  //   },
-  // );
+      try {
+        return stockService.generatePriceHistory(stock, trend, duration);
+      } catch (error) {
+        return reply.code(500).send({
+          error: "Internal Server Error",
+          message: `Could not get the asset price history for ${Object.keys(stock)}`,
+        });
+      }
+    },
+  );
 };

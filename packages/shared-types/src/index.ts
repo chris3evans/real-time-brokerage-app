@@ -56,3 +56,13 @@ export interface WebSocketMessage {
   type: string;
   ticker?: string;
 }
+
+export type Trend = "up" | "down" | "neutral";
+export type Duration =
+  | "second"
+  | "minute"
+  | "hour"
+  | "day"
+  | "week"
+  | "month"
+  | "year";

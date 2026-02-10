@@ -1,8 +1,11 @@
 import {
   AssetDetails,
   AssetDetailsList,
+  Duration,
+  LineGraphPoint,
   StockData,
   StockItem,
+  Trend,
 } from "@project/shared-types";
 import stockData from "../data/stocks.json" with { type: "json" };
 import stockDetails from "../data/stock-details.json" with { type: "json" };
@@ -50,4 +53,27 @@ export const getAllMatchingStocks = (searchInput: string): StockItem[] => {
 
 export const getStockDetails = (ticker: string): AssetDetails => {
   return BASE_STOCK_DETAILS_LIST[ticker.toLocaleUpperCase()];
+};
+
+export const generatePriceHistory = (
+  stock: StockData,
+  trend: Trend,
+  duration: Duration,
+): LineGraphPoint[] => {
+  const [[ticker, stockInfo]] = Object.entries(stock);
+  const priceNow = stockInfo.price;
+  const timeStampNow = new Date();
+
+  const historicalPriceData: LineGraphPoint[] = [];
+
+  // will get 100 points of historical data
+  for (let i = 0; i < 100; i++) {
+    historicalPriceData.push({
+      time: "",
+      value: priceNow,
+    });
+  }
+
+  // console.log(historicalPriceData, "historical price data");
+  return historicalPriceData;
 };

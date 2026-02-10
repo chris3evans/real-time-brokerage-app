@@ -1,14 +1,20 @@
 import { View } from "@/components/View/View";
 import { useParams } from "react-router-dom";
 import { AssetProfileHeader } from "../AssetProfileHeader/AssetProfileHeader";
-import { useGetStock } from "@/hooks/search.hooks";
+import { useGetAssetPriceHistory, useGetStock } from "@/hooks/search.hooks";
 import { AssetDetails } from "@asset-profile-components/AssetDetails/AssetDetail";
 import { AssetProfileActions } from "@asset-profile-components/AssetProfileActions/AssetProfileActions";
 import { useEffect, useRef, useState } from "react";
+// import { StockData } from "@project/shared-types";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
   const { data: stock } = useGetStock(ticker ?? "");
+  const { data: priceHistory } = useGetAssetPriceHistory(
+    { GOOG: { ticker: "GOOG", name: "Alphabet", price: 1 } },
+    "up",
+    "week",
+  );
 
   const [data, setData] = useState<{ price: number } | null>(null);
 
@@ -64,6 +70,7 @@ export const AssetProfile = () => {
       />
       {/* Price history graph */}
       <div>{data?.price}</div>
+      <div>{priceHistory?.map((pricePoint) => pricePoint.value)}</div>
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
       <AssetProfileActions />
     </View>
