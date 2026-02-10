@@ -17,6 +17,15 @@ export const AssetProfile = () => {
   useEffect(() => {
     ws.current = new WebSocket("ws://localhost:3001");
 
+    ws.current.onopen = () => {
+      ws.current?.send(
+        JSON.stringify({
+          type: "SUBSCRIBE",
+          ticker: ticker,
+        }),
+      );
+    };
+
     ws.current.onmessage = (event) => {
       const update = JSON.parse(event.data);
       setData(update);

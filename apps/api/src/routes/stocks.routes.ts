@@ -6,7 +6,6 @@ import {
 } from "fastify";
 import * as stockService from "../services/stock-data-generator.service";
 import { AssetDetails, StockItem } from "@project/shared-types";
-import { WebSocket } from "ws";
 
 export const stockRoutes = (
   fastify: FastifyInstance,

@@ -51,3 +51,8 @@ export interface MarketIndicator {
   valueChange: number;
   valueChangePercentage: number;
 }
+
+export interface WebSocketMessage {
+  type: string;
+  ticker?: string;
+}

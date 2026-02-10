@@ -5,13 +5,9 @@ import { PrismaClient } from "./generated/client/index.js";
 import { stockRoutes } from "./routes/stocks.routes.js";
 import { marketIndicatorRoutes } from "./routes/market-indicators.routes.js";
 import { WebSocketServer } from "ws";
-// import websocket from "@fastify/websocket";
+import { handleStockMessages } from "./websocket/stock.ws.js";
 
 const server = Fastify({ logger: true });
-
-const wss = new WebSocketServer({ server: server.server });
-
-// server.register(websocket);
 
 server.register(cors, {
   origin: [
@@ -43,23 +39,6 @@ server.get("/profile", async (request, response) => {
   }
 });
 
-wss.on("connection", (ws) => {
-  const interval = setInterval(() => {
-    if (ws.readyState === 1) {
-      // const fakeUpdate = {
-      //   ticker: "AAPL",
-      //   price: 150 + Math.random() * 10,
-      // };
-      // ws.send(JSON.stringify(fakeUpdate));
-      ws.send(JSON.stringify({ price: Math.random() }));
-    }
-  }, 1000);
-
-  ws.on("close", () => {
-    clearInterval(interval);
-  });
-});
-
 const start = async () => {
   try {
     await server.listen({
@@ -67,30 +46,10 @@ const start = async () => {
       host: "0.0.0.0",
     });
 
-    // const wss = new WebSocketServer({ server: server.server });
-
-    // wss.on("connection", (ws) => {
-    //   console.log("Client connected directly to WSS");
-
-    //   ws.on("message", (message) => {
-    //     console.log("received: %s", message);
-    //   });
-
-    //   const interval = setInterval(() => {
-    //     if (ws.readyState === 1) {
-    //       // 1 = OPEN
-    //       const fakeUpdate = {
-    //         ticker: "AAPL",
-    //         price: 150 + Math.random() * 10,
-    //       };
-    //       ws.send(JSON.stringify(fakeUpdate));
-    //     }
-    //   }, 1000);
-
-    //   ws.on("close", () => {
-    //     clearInterval(interval);
-    //   });
-    // });
+    const wss = new WebSocketServer({ server: server.server });
+    wss.on("connection", (ws) => {
+      handleStockMessages(ws);
+    });
   } catch (err) {
     server.log.error(err);
     process.exit(1);
