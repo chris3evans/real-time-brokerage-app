@@ -27,12 +27,31 @@ export const AssetProfile = () => {
     };
 
     ws.current.onmessage = (event) => {
-      const update = JSON.parse(event.data);
-      setData(update);
-      console.log(data);
+      try {
+        const update = JSON.parse(event.data);
+        setData(update);
+        console.log(data);
+      } catch (error) {
+        console.error("Error parsing incoming web socket data", error);
+      }
     };
-    return () => ws.current?.close();
-  }, []);
+
+    ws.current.onerror = (error) => {
+      console.error("Web socker error: ", error);
+    };
+
+    return () => {
+      if (ws.current?.readyState === WebSocket.OPEN) {
+        ws.current.send(
+          JSON.stringify({
+            type: "UNSUBSCRIBE",
+            ticker: ticker,
+          }),
+        );
+      }
+      ws.current?.close();
+    };
+  }, [ticker]);
 
   return (
     <View>

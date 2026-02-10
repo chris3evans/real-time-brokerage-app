@@ -32,6 +32,7 @@ export const handleStockMessages = (ws: WebSocket) => {
             console.log(`Unsubscribing from ${data.ticker}`);
             subscriptions.delete(data.ticker);
           }
+          break;
         default:
           console.warn("Unkown message type:", data.type);
       }
