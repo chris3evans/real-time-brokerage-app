@@ -36,7 +36,7 @@ export interface AssetDetails {
 }
 
 export interface LineGraphPoint {
-  time: string;
+  timeString: string;
   value: number;
 }
 

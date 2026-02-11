@@ -4,60 +4,60 @@ import { AssetProfileHeader } from "../AssetProfileHeader/AssetProfileHeader";
 import { useGetAssetPriceHistory, useGetStock } from "@/hooks/search.hooks";
 import { AssetDetails } from "@asset-profile-components/AssetDetails/AssetDetail";
 import { AssetProfileActions } from "@asset-profile-components/AssetProfileActions/AssetProfileActions";
-import { useEffect, useRef, useState } from "react";
-// import { StockData } from "@project/shared-types";
+import { useEffect } from "react";
+import { DashboardPortfolioPerformance } from "@/features/dashboard/components/DashboardPortfolioPerformance/DashboardPortfolioPerformance";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
   const { data: stock } = useGetStock(ticker ?? "");
   const { data: priceHistory } = useGetAssetPriceHistory(
-    { GOOG: { ticker: "GOOG", name: "Alphabet", price: 1 } },
+    ticker ?? "",
     "up",
     "week",
   );
 
-  const [data, setData] = useState<{ price: number } | null>(null);
+  // const [data, setData] = useState<{ price: number } | null>(null);
 
-  const ws = useRef<WebSocket | null>(null);
+  // const ws = useRef<WebSocket | null>(null);
 
   useEffect(() => {
-    ws.current = new WebSocket("ws://localhost:3001");
+    // console.log(priceHistory, "price history");
+    // ws.current = new WebSocket("ws://localhost:3001");
 
-    ws.current.onopen = () => {
-      ws.current?.send(
-        JSON.stringify({
-          type: "SUBSCRIBE",
-          ticker: ticker,
-        }),
-      );
-    };
+    // ws.current.onopen = () => {
+    //   ws.current?.send(
+    //     JSON.stringify({
+    //       type: "SUBSCRIBE",
+    //       ticker: ticker,
+    //     }),
+    //   );
+    // };
 
-    ws.current.onmessage = (event) => {
-      try {
-        const update = JSON.parse(event.data);
-        setData(update);
-        console.log(data);
-      } catch (error) {
-        console.error("Error parsing incoming web socket data", error);
-      }
-    };
+    // ws.current.onmessage = (event) => {
+    //   try {
+    //     const update = JSON.parse(event.data);
+    //     setData(update);
+    //   } catch (error) {
+    //     console.error("Error parsing incoming web socket data", error);
+    //   }
+    // };
 
-    ws.current.onerror = (error) => {
-      console.error("Web socker error: ", error);
-    };
+    // ws.current.onerror = (error) => {
+    //   console.error("Web socker error: ", error);
+    // };
 
     return () => {
-      if (ws.current?.readyState === WebSocket.OPEN) {
-        ws.current.send(
-          JSON.stringify({
-            type: "UNSUBSCRIBE",
-            ticker: ticker,
-          }),
-        );
-      }
-      ws.current?.close();
+      //   if (ws.current?.readyState === WebSocket.OPEN) {
+      //     ws.current.send(
+      //       JSON.stringify({
+      //         type: "UNSUBSCRIBE",
+      //         ticker: ticker,
+      //       }),
+      //     );
+      //   }
+      //   ws.current?.close();
     };
-  }, [ticker]);
+  }, [priceHistory]);
 
   return (
     <View>
@@ -68,9 +68,9 @@ export const AssetProfile = () => {
         change={stock?.priceChange ?? 0}
         changePercentage={stock?.priceChangePercentage ?? 0}
       />
-      {/* Price history graph */}
-      <div>{data?.price}</div>
-      <div>{priceHistory?.map((pricePoint) => pricePoint.value)}</div>
+      <DashboardPortfolioPerformance chartData={priceHistory ?? []} />
+      {/* <div>{data?.price}</div> */}
+      {/* <div>{priceHistory?.map((pricePoint) => pricePoint.value)}</div> */}
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
       <AssetProfileActions />
     </View>

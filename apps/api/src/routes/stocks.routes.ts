@@ -101,18 +101,18 @@ export const stockRoutes = (
       reply: FastifyReply,
     ): Promise<LineGraphPoint[] | undefined> => {
       const body = request.body as {
-        stock: StockData;
+        ticker: string;
         trend: Trend;
         duration: Duration;
       };
-      const { stock, trend, duration } = body;
+      const { ticker, trend, duration } = body;
 
       try {
-        return stockService.generatePriceHistory(stock, trend, duration);
+        return stockService.generatePriceHistory(ticker, trend, duration);
       } catch (error) {
         return reply.code(500).send({
           error: "Internal Server Error",
-          message: `Could not get the asset price history for ${Object.keys(stock)}`,
+          message: `Could not get the asset price history for ${ticker}`,
         });
       }
     },

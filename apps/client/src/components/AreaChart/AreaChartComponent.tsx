@@ -14,6 +14,7 @@ export const AreaChartComponent = ({
   chartData,
   tooltipLabel,
 }: AreaChartComponentProps) => {
+  console.log(chartData, "received chart data");
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart
@@ -26,7 +27,7 @@ export const AreaChartComponent = ({
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           interval={1}
-          dataKey="time"
+          dataKey="timeString"
           label={{ value: "Time", position: "insideBottom", offset: 0 }}
         />
         <YAxis

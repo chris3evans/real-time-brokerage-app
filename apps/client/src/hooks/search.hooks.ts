@@ -4,7 +4,7 @@ import {
   getAssetDetails,
   getAssetPriceHistory,
 } from "@/api-services/search.api-service";
-import { StockData, Trend, Duration } from "@project/shared-types";
+import { Trend, Duration } from "@project/shared-types";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetStockSearchResults = (searchInput: string) => {
@@ -34,13 +34,14 @@ export const useGetAssetDetails = (ticker: string) => {
 };
 
 export const useGetAssetPriceHistory = (
-  stock: StockData,
+  ticker: string,
   trend: Trend,
   duration: Duration,
 ) => {
   return useQuery({
-    queryFn: () => getAssetPriceHistory(stock, trend, duration),
-    queryKey: ["get-asset-price-history", Object.keys(stock)[0]],
-    enabled: Object.values(stock)[0].ticker.length > 0,
+    queryFn: () => getAssetPriceHistory(ticker, trend, duration),
+    queryKey: ["get-asset-price-history", ticker],
+    enabled: ticker.length > 0,
+    refetchOnWindowFocus: false,
   });
 };

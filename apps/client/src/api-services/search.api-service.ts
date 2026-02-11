@@ -1,7 +1,6 @@
 import {
   AssetDetails,
   LineGraphPoint,
-  StockData,
   StockItem,
   Trend,
   Duration,
@@ -30,7 +29,7 @@ export const getAssetDetails = async (
 };
 
 export const getAssetPriceHistory = async (
-  stock: StockData,
+  ticker: string,
   trend: Trend,
   duration: Duration,
 ): Promise<LineGraphPoint[]> => {
@@ -41,7 +40,7 @@ export const getAssetPriceHistory = async (
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      stock,
+      ticker,
       trend,
       duration,
     }),

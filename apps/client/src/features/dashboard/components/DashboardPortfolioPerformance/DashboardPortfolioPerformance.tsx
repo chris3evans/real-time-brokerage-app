@@ -1,11 +1,13 @@
 import { Card } from "@/components/Card/Card";
 import styles from "./DashboardPortfolioPerformance.module.scss";
-import { PORTFOLIO_PERFORMANCE_MOCKDATA } from "@/mock-data/portfolio-performance.mockdata";
 import { AreaChartComponent } from "@/components/AreaChart/AreaChartComponent";
 import type { ButtonComponentProps } from "@/components/types/components.interfaces";
 import { HeadingWithButtons } from "@/components/HeadingWithButtons/HeadingWithButtons";
+import { DashboardPortfolioPerformanceComponentProps } from "@dashboard-types/dashboard.interfaces";
 
-export const DashboardPortfolioPerformance = () => {
+export const DashboardPortfolioPerformance = ({
+  chartData,
+}: DashboardPortfolioPerformanceComponentProps) => {
   const portfolioPerformanceDurationButtons: ButtonComponentProps[] = [
     { label: "1D" },
     { label: "1W", style: "outline" },
@@ -23,7 +25,7 @@ export const DashboardPortfolioPerformance = () => {
       />
       <AreaChartComponent
         tooltipLabel="Portfolio Value"
-        chartData={PORTFOLIO_PERFORMANCE_MOCKDATA}
+        chartData={chartData}
       />
     </Card>
   );

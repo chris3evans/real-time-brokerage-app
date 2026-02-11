@@ -10,7 +10,7 @@ export const Dashboard = () => {
     <View>
       <DashboardBalance />
       <DashboardMarketOverview />
-      <DashboardPortfolioPerformance />
+      <DashboardPortfolioPerformance chartData={[]} />
       <DashboardPortfolioOverview />
       <DashboardWatchList />
     </View>

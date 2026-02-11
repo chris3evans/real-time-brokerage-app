@@ -56,24 +56,90 @@ export const getStockDetails = (ticker: string): AssetDetails => {
 };
 
 export const generatePriceHistory = (
-  stock: StockData,
+  ticker: string,
   trend: Trend,
   duration: Duration,
 ): LineGraphPoint[] => {
-  const [[ticker, stockInfo]] = Object.entries(stock);
-  const priceNow = stockInfo.price;
-  const timeStampNow = new Date();
+  const stock = BASE_STOCK_DATA[ticker];
+  const priceNow = stock.price;
+  const timeStampNow = Date.now();
+  let durationMs: number = 0;
+
+  switch (duration) {
+    case "second":
+      durationMs = 1000;
+      break;
+    case "minute":
+      durationMs = 60000;
+      break;
+    case "hour":
+      durationMs = 3600000;
+      break;
+    case "day":
+      durationMs = 86400000;
+      break;
+    case "week":
+      durationMs = 604800000;
+      break;
+    case "month":
+      durationMs = 2592000000;
+      break;
+    case "year":
+      durationMs = 31536000000;
+      break;
+    default:
+      durationMs = 1000;
+  }
 
   const historicalPriceData: LineGraphPoint[] = [];
 
   // will get 100 points of historical data
   for (let i = 0; i < 100; i++) {
     historicalPriceData.push({
-      time: "",
+      timeString: formatTimestampToDate(
+        timeStampNow - (i + 1) * durationMs,
+        duration,
+      ),
       value: priceNow,
     });
   }
 
-  // console.log(historicalPriceData, "historical price data");
   return historicalPriceData;
+};
+
+export const formatTimestampToDate = (
+  timestamp: number,
+  duration: Duration,
+): string => {
+  const date = new Date(timestamp);
+  switch (duration) {
+    case "second":
+      // Formats as HH:mm:ss
+      return date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+    case "minute":
+      // Formats as HH:mm
+      return date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    case "hour":
+      // Formats as HH:00 (Hours only, minutes set to 00)
+      return `${date.getHours().toString().padStart(2, "0")}:00`;
+    case "day":
+    case "week":
+      // Formats as "13 feb"
+      return date.toLocaleDateString([], { day: "numeric", month: "short" });
+    case "month":
+      // Formats as "feb 26" (using the current year 2026 based on your prompt)
+      return `${date.toLocaleDateString([], { month: "short" })} ${date.getFullYear().toString().slice(-2)}`;
+    case "year":
+      // Formats as "2026"
+      return date.getFullYear().toString();
+    default:
+      return "";
+  }
 };
