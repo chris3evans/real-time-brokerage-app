@@ -9,6 +9,7 @@ export const PriceHistoryPerformance = ({
   chartData,
   heading,
   tooltipLabel,
+  trend,
 }: PriceHistoryPerformanceComponentProps) => {
   const portfolioPerformanceDurationButtons: ButtonComponentProps[] = [
     { label: "1D" },
@@ -25,7 +26,11 @@ export const PriceHistoryPerformance = ({
         heading={heading}
         buttons={portfolioPerformanceDurationButtons}
       />
-      <AreaChartComponent tooltipLabel={tooltipLabel} chartData={chartData} />
+      <AreaChartComponent
+        trend={trend}
+        tooltipLabel={tooltipLabel}
+        chartData={chartData}
+      />
     </Card>
   );
 };

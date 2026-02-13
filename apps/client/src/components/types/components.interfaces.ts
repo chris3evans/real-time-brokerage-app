@@ -1,7 +1,7 @@
 import type React from "react";
 import type { ButtonStyle, SortOrder } from "./components.types";
 import type { Clickable } from "@/types/app.interfaces";
-import { LineGraphPoint } from "@project/shared-types";
+import { LineGraphPoint, Trend } from "@project/shared-types";
 
 export interface ButtonComponentProps extends Clickable {
   label: string;
@@ -53,6 +53,7 @@ export interface ListSortersComponentProps {
 export interface AreaChartComponentProps {
   chartData: LineGraphPoint[];
   tooltipLabel: string;
+  trend: Trend;
 }
 
 export interface MarketIndicatorComponentProps extends Clickable {

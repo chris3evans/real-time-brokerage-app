@@ -100,7 +100,7 @@ export const generatePriceHistory = (
     currentPrice = generateRandomUpwardValue(
       currentPrice,
       currentPrice * 0.01,
-      10,
+      15,
       trend,
     );
     historicalPriceData.push({
@@ -127,9 +127,11 @@ export const generateRandomUpwardValue = (
 
   switch (trendDirection) {
     case "up":
+      console.log("up");
       currentPrice -= trendFactor + randomness;
       break;
     case "down":
+      console.log("down");
       currentPrice += trendFactor + randomness;
       break;
     default:

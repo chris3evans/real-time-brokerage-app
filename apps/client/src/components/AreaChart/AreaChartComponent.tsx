@@ -13,6 +13,7 @@ import type { AreaChartComponentProps } from "../types/components.interfaces";
 export const AreaChartComponent = ({
   chartData,
   tooltipLabel,
+  trend,
 }: AreaChartComponentProps) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -47,8 +48,12 @@ export const AreaChartComponent = ({
         <Area
           type="monotone"
           dataKey="value"
-          stroke={AppColour.PRIMARY}
-          fill={AppColour.PRIMARY_LIGHT_1}
+          stroke={
+            trend === "up"
+              ? AppColour.PROFIT_GREEN_DARK
+              : AppColour.LOSS_RED_DARK
+          }
+          fill={trend === "up" ? AppColour.PROFIT_GREEN : AppColour.LOSS_RED}
         />
       </AreaChart>
     </ResponsiveContainer>
