@@ -46,6 +46,7 @@ export const AreaChartComponent = ({
           }}
         />
         <Area
+          isAnimationActive={false}
           type="monotone"
           dataKey="value"
           stroke={
