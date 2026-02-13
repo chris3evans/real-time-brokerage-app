@@ -14,7 +14,6 @@ export const AreaChartComponent = ({
   chartData,
   tooltipLabel,
 }: AreaChartComponentProps) => {
-  console.log(chartData, "received chart data");
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart

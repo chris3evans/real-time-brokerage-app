@@ -10,7 +10,11 @@ export const Dashboard = () => {
     <View>
       <DashboardBalance />
       <DashboardMarketOverview />
-      <PriceHistoryPerformance heading="Portfolio Performance" chartData={[]} />
+      <PriceHistoryPerformance
+        tooltipLabel="Value: "
+        heading="Portfolio Performance"
+        chartData={[]}
+      />
       <DashboardPortfolioOverview />
       <DashboardWatchList />
     </View>

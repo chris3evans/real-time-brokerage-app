@@ -71,6 +71,7 @@ export const AssetProfile = () => {
       <PriceHistoryPerformance
         heading={`${stock?.ticker} History`}
         chartData={priceHistory ?? []}
+        tooltipLabel="Price: "
       />
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
       <AssetProfileActions />

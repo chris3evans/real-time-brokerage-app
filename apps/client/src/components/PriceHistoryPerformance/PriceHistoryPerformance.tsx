@@ -8,6 +8,7 @@ import { PriceHistoryPerformanceComponentProps } from "@dashboard-types/dashboar
 export const PriceHistoryPerformance = ({
   chartData,
   heading,
+  tooltipLabel,
 }: PriceHistoryPerformanceComponentProps) => {
   const portfolioPerformanceDurationButtons: ButtonComponentProps[] = [
     { label: "1D" },
@@ -24,10 +25,7 @@ export const PriceHistoryPerformance = ({
         heading={heading}
         buttons={portfolioPerformanceDurationButtons}
       />
-      <AreaChartComponent
-        tooltipLabel="Portfolio Value"
-        chartData={chartData}
-      />
+      <AreaChartComponent tooltipLabel={tooltipLabel} chartData={chartData} />
     </Card>
   );
 };
