@@ -5,15 +5,15 @@ import { useGetAssetPriceHistory, useGetStock } from "@/hooks/search.hooks";
 import { AssetDetails } from "@asset-profile-components/AssetDetails/AssetDetail";
 import { AssetProfileActions } from "@asset-profile-components/AssetProfileActions/AssetProfileActions";
 import { useEffect } from "react";
-import { DashboardPortfolioPerformance } from "@/features/dashboard/components/DashboardPortfolioPerformance/DashboardPortfolioPerformance";
+import { PriceHistoryPerformance } from "@components/PriceHistoryPerformance/PriceHistoryPerformance";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
   const { data: stock } = useGetStock(ticker ?? "");
   const { data: priceHistory } = useGetAssetPriceHistory(
     ticker ?? "",
-    "down",
-    "year",
+    Math.random() > 0.5 ? "up" : "down",
+    "week",
   );
 
   // const [data, setData] = useState<{ price: number } | null>(null);
@@ -68,7 +68,10 @@ export const AssetProfile = () => {
         change={stock?.priceChange ?? 0}
         changePercentage={stock?.priceChangePercentage ?? 0}
       />
-      <DashboardPortfolioPerformance chartData={priceHistory ?? []} />
+      <PriceHistoryPerformance
+        heading={`${stock?.ticker} History`}
+        chartData={priceHistory ?? []}
+      />
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
       <AssetProfileActions />
     </View>

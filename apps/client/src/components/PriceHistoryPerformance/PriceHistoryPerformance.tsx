@@ -1,13 +1,14 @@
 import { Card } from "@/components/Card/Card";
-import styles from "./DashboardPortfolioPerformance.module.scss";
+import styles from "./PriceHistoryPerformance.module.scss";
 import { AreaChartComponent } from "@/components/AreaChart/AreaChartComponent";
 import type { ButtonComponentProps } from "@/components/types/components.interfaces";
 import { HeadingWithButtons } from "@/components/HeadingWithButtons/HeadingWithButtons";
-import { DashboardPortfolioPerformanceComponentProps } from "@dashboard-types/dashboard.interfaces";
+import { PriceHistoryPerformanceComponentProps } from "@dashboard-types/dashboard.interfaces";
 
-export const DashboardPortfolioPerformance = ({
+export const PriceHistoryPerformance = ({
   chartData,
-}: DashboardPortfolioPerformanceComponentProps) => {
+  heading,
+}: PriceHistoryPerformanceComponentProps) => {
   const portfolioPerformanceDurationButtons: ButtonComponentProps[] = [
     { label: "1D" },
     { label: "1W", style: "outline" },
@@ -20,7 +21,7 @@ export const DashboardPortfolioPerformance = ({
   return (
     <Card className={styles["portfolio-performance"]}>
       <HeadingWithButtons
-        heading="Portfolio Performance"
+        heading={heading}
         buttons={portfolioPerformanceDurationButtons}
       />
       <AreaChartComponent

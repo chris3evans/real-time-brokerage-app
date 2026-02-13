@@ -1,5 +1,6 @@
 import { LineGraphPoint } from "@project/shared-types";
 
-export interface DashboardPortfolioPerformanceComponentProps {
+export interface PriceHistoryPerformanceComponentProps {
   chartData: LineGraphPoint[];
+  heading: string;
 }
