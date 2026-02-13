@@ -93,18 +93,50 @@ export const generatePriceHistory = (
 
   const historicalPriceData: LineGraphPoint[] = [];
 
+  let currentPrice = priceNow;
+
   // will get 100 points of historical data
   for (let i = 0; i < 100; i++) {
+    currentPrice = generateRandomUpwardValue(
+      currentPrice,
+      currentPrice * 0.01,
+      10,
+      trend,
+    );
     historicalPriceData.push({
       timeString: formatTimestampToDate(
         timeStampNow - (i + 1) * durationMs,
         duration,
       ),
-      value: priceNow,
+      value: currentPrice,
     });
   }
 
-  return historicalPriceData;
+  return historicalPriceData.reverse();
+};
+
+export const generateRandomUpwardValue = (
+  price: number,
+  trendFactor: number,
+  volatility: number,
+  trendDirection: Trend,
+): number => {
+  let currentPrice = price;
+
+  const randomness = (Math.random() - 0.5) * 2 * volatility;
+
+  switch (trendDirection) {
+    case "up":
+      currentPrice -= trendFactor + randomness;
+      break;
+    case "down":
+      currentPrice += trendFactor + randomness;
+      break;
+    default:
+      currentPrice += randomness;
+  }
+
+  return +currentPrice.toFixed(2);
 };
 
 export const formatTimestampToDate = (

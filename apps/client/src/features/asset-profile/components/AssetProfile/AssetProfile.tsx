@@ -12,8 +12,8 @@ export const AssetProfile = () => {
   const { data: stock } = useGetStock(ticker ?? "");
   const { data: priceHistory } = useGetAssetPriceHistory(
     ticker ?? "",
-    "up",
-    "week",
+    "down",
+    "year",
   );
 
   // const [data, setData] = useState<{ price: number } | null>(null);
@@ -69,8 +69,6 @@ export const AssetProfile = () => {
         changePercentage={stock?.priceChangePercentage ?? 0}
       />
       <DashboardPortfolioPerformance chartData={priceHistory ?? []} />
-      {/* <div>{data?.price}</div> */}
-      {/* <div>{priceHistory?.map((pricePoint) => pricePoint.value)}</div> */}
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
       <AssetProfileActions />
     </View>
