@@ -1,11 +1,15 @@
 import type React from "react";
 import type { ButtonStyle, SortOrder } from "./components.types";
 import type { Clickable } from "@/types/app.interfaces";
-import { LineGraphPoint, Trend } from "@project/shared-types";
+import { LineGraphPoint, Trend, Duration } from "@project/shared-types";
 
 export interface ButtonComponentProps extends Clickable {
   label: string;
   style?: ButtonStyle;
+}
+
+export interface DurationButton extends ButtonComponentProps {
+  value: Duration;
 }
 
 export interface IconButtonComponentProps extends Clickable {
