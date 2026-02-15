@@ -18,7 +18,7 @@ export const PriceHistoryPerformance = ({
 
   useEffect(() => {
     handleDurationChange(activeDuration);
-  }, [activeDuration, handleDurationChange]);
+  }, [activeDuration]);
 
   const portfolioPerformanceDurationButtons: DurationButton[] = [
     {

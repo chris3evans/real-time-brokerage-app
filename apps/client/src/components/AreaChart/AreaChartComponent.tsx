@@ -26,7 +26,7 @@ export const AreaChartComponent = ({
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
-          interval={1}
+          interval={3}
           dataKey="timeString"
           label={{ value: "Time", position: "insideBottom", offset: 0 }}
         />
