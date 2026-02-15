@@ -4,12 +4,15 @@ import { AssetProfileHeader } from "../AssetProfileHeader/AssetProfileHeader";
 import { useGetAssetPriceHistory, useGetStock } from "@/hooks/search.hooks";
 import { AssetDetails } from "@asset-profile-components/AssetDetails/AssetDetail";
 import { AssetProfileActions } from "@asset-profile-components/AssetProfileActions/AssetProfileActions";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PriceHistoryPerformance } from "@components/PriceHistoryPerformance/PriceHistoryPerformance";
+import { Duration } from "@project/shared-types";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
   const { data: stock } = useGetStock(ticker ?? "");
+
+  const [activeDuration, setActiveDuration] = useState<Duration>("second");
 
   const trend = useMemo(() => {
     return Math.random() > 0.5 ? "up" : "down";
@@ -18,7 +21,7 @@ export const AssetProfile = () => {
   const { data: priceHistory } = useGetAssetPriceHistory(
     ticker ?? "",
     trend,
-    "week",
+    activeDuration,
   );
 
   // const [data, setData] = useState<{ price: number } | null>(null);
@@ -78,6 +81,7 @@ export const AssetProfile = () => {
         chartData={priceHistory ?? []}
         tooltipLabel="Price: "
         trend={trend}
+        handleDurationChange={setActiveDuration}
       />
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
       <AssetProfileActions />

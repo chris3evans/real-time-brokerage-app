@@ -40,7 +40,7 @@ export const useGetAssetPriceHistory = (
 ) => {
   return useQuery({
     queryFn: () => getAssetPriceHistory(ticker, trend, duration),
-    queryKey: ["get-asset-price-history", ticker],
+    queryKey: ["get-asset-price-history", ticker, duration],
     enabled: ticker.length > 0,
     refetchOnWindowFocus: false,
   });

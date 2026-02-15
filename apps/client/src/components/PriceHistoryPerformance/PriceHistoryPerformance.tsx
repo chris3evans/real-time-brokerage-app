@@ -12,12 +12,13 @@ export const PriceHistoryPerformance = ({
   heading,
   tooltipLabel,
   trend,
+  handleDurationChange,
 }: PriceHistoryPerformanceComponentProps) => {
   const [activeDuration, setActiveDuration] = useState<Duration>("second");
 
   useEffect(() => {
-    console.log(activeDuration, "active duration");
-  }, [activeDuration]);
+    handleDurationChange(activeDuration);
+  }, [activeDuration, handleDurationChange]);
 
   const portfolioPerformanceDurationButtons: DurationButton[] = [
     {

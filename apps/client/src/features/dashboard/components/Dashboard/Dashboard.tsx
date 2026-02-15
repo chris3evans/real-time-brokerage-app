@@ -15,6 +15,7 @@ export const Dashboard = () => {
         tooltipLabel="Value: "
         heading="Portfolio Performance"
         chartData={[]}
+        handleDurationChange={() => () => {}}
       />
       <DashboardPortfolioOverview />
       <DashboardWatchList />
