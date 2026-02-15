@@ -1,0 +1,8 @@
+@use "../../styles/variables" as variables;
+
+.custom-tooltip {
+  border-radius: 5px;
+  border: none;
+  color: variables.$black;
+  background-color: variables.$primary-light-2;
+}

@@ -9,6 +9,7 @@ import {
   Area,
 } from "recharts";
 import type { AreaChartComponentProps } from "../types/components.interfaces";
+import styles from "./AreaChartComponent.module.scss";
 
 export const AreaChartComponent = ({
   chartData,
@@ -40,7 +41,9 @@ export const AreaChartComponent = ({
           }}
         />
         <Tooltip
-          formatter={(v) => [`$${v}`, tooltipLabel]}
+          labelFormatter={(label) => `Time: ${label}`}
+          formatter={(v) => [`${tooltipLabel}: $${v} `]}
+          wrapperClassName={styles["custom-tooltip"]}
           itemStyle={{
             color: AppColour.BLACK,
           }}

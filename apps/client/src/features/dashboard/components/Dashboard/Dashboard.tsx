@@ -12,7 +12,7 @@ export const Dashboard = () => {
       <DashboardMarketOverview />
       <PriceHistoryPerformance
         trend="up"
-        tooltipLabel="Value: "
+        tooltipLabel="Value"
         heading="Portfolio Performance"
         chartData={[]}
         handleDurationChange={() => () => {}}

@@ -65,7 +65,7 @@ export const AssetProfile = () => {
       //   }
       //   ws.current?.close();
     };
-  }, [priceHistory]);
+  }, [priceHistory, activeDuration]);
 
   return (
     <View>
@@ -79,7 +79,7 @@ export const AssetProfile = () => {
       <PriceHistoryPerformance
         heading={`${stock?.ticker} History`}
         chartData={priceHistory ?? []}
-        tooltipLabel="Price: "
+        tooltipLabel="Price"
         trend={trend}
         handleDurationChange={setActiveDuration}
       />
