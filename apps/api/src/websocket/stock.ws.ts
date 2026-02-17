@@ -1,14 +1,24 @@
 import { WebSocket } from "ws";
 import * as stockService from "../services/stock-data-generator.service";
-import { WebSocketMessage } from "@project/shared-types";
+import { Trend, WebSocketMessage } from "@project/shared-types";
 
 export const handleStockMessages = (ws: WebSocket) => {
-  const subscriptions = new Map<string, number>();
+  const subscriptions = new Map<string, { price: number; trend: Trend }>();
 
   const interval = setInterval(() => {
     if (ws.readyState === WebSocket.OPEN) {
-      for (const [ticker, price] of subscriptions) {
-        ws.send(JSON.stringify({ price, ticker }));
+      for (const [ticker, stock] of subscriptions) {
+        const onePercent = stock.price * 0.01;
+        const randomFactor = (Math.random() - 0.5) * 2;
+        const variation = onePercent * randomFactor;
+        const newPrice = stock.price + variation;
+
+        ws.send(
+          JSON.stringify({
+            ticker,
+            price: newPrice,
+          }),
+        );
       }
     }
   }, 1000);
@@ -19,13 +29,21 @@ export const handleStockMessages = (ws: WebSocket) => {
 
       switch (data.type) {
         case "SUBSCRIBE":
-          if (data.ticker && data.price) {
+          if (
+            data.ticker &&
+            typeof data.price === "number" &&
+            !isNaN(data.price) &&
+            data.trend
+          ) {
             console.log(`Subscribing to ${data.ticker}`);
-            subscriptions.set(data.ticker, data.price);
+            subscriptions.set(data.ticker, {
+              price: data.price,
+              trend: data.trend,
+            });
           }
           break;
         case "UNSUBSCRIBE":
-          if (data.ticker && data.price) {
+          if (data.ticker && data.price && data.trend) {
             console.log(`Unsubscribing from ${data.ticker}`);
             subscriptions.delete(data.ticker);
           }

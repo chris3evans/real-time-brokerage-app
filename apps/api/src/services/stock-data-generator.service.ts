@@ -97,7 +97,7 @@ export const generatePriceHistory = (
 
   // will get 100 points of historical data
   for (let i = 0; i < 100; i++) {
-    currentPrice = generateRandomUpwardValue(
+    currentPrice = generateRandomValue(
       currentPrice,
       currentPrice * 0.01,
       15,
@@ -115,23 +115,21 @@ export const generatePriceHistory = (
   return historicalPriceData.reverse();
 };
 
-export const generateRandomUpwardValue = (
+export const generateRandomValue = (
   price: number,
   trendFactor: number,
   volatility: number,
   trendDirection: Trend,
 ): number => {
-  let currentPrice = price;
+  let currentPrice = isNaN(price) ? 0 : price;
 
   const randomness = (Math.random() - 0.5) * 2 * volatility;
 
   switch (trendDirection) {
     case "up":
-      console.log("up");
       currentPrice -= trendFactor + randomness;
       break;
     case "down":
-      console.log("down");
       currentPrice += trendFactor + randomness;
       break;
     default:
@@ -140,6 +138,7 @@ export const generateRandomUpwardValue = (
 
   currentPrice = Math.max(0, currentPrice);
 
+  console.log(+currentPrice.toFixed(2), "RETURNED_NEW_PRICE");
   return +currentPrice.toFixed(2);
 };
 

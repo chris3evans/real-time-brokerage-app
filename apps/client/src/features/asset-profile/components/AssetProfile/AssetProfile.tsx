@@ -29,23 +29,29 @@ export const AssetProfile = () => {
   const ws = useRef<WebSocket | null>(null);
 
   useEffect(() => {
+    if (ws.current) {
+      ws.current.close();
+    }
+
     ws.current = new WebSocket("ws://localhost:3001");
 
     ws.current.onopen = () => {
-      ws.current?.send(
-        JSON.stringify({
-          type: "SUBSCRIBE",
-          // ticker: ticker,
-          // stock: {
-          ticker: ticker,
-          price: priceHistory ? priceHistory[priceHistory.length - 1] : 0,
-          // },
-        }),
-      );
+      console.log("Web Socket Connected");
+      if (priceHistory) {
+        ws.current?.send(
+          JSON.stringify({
+            type: "SUBSCRIBE",
+            ticker: ticker,
+            price: priceHistory[priceHistory.length - 1].value,
+            trend: trend,
+          }),
+        );
+      }
     };
 
     ws.current.onmessage = (event) => {
       try {
+        console.log(event.data);
         const update = JSON.parse(event.data);
         setData(update);
         console.log(data, "WEBSOCKET DATA");
@@ -59,17 +65,19 @@ export const AssetProfile = () => {
     };
 
     return () => {
-      if (ws.current?.readyState === WebSocket.OPEN) {
-        ws.current.send(
-          JSON.stringify({
-            type: "UNSUBSCRIBE",
-            ticker: ticker,
-          }),
-        );
+      if (ws.current) {
+        if (ws.current.readyState === WebSocket.OPEN) {
+          ws.current.send(
+            JSON.stringify({
+              type: "UNSUBSCRIBE",
+              ticker: ticker,
+            }),
+          );
+        }
       }
       ws.current?.close();
     };
-  }, [priceHistory, activeDuration]);
+  }, [priceHistory /*, activeDuration*/, ticker]);
 
   return (
     <View>
