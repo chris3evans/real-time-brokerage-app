@@ -3,15 +3,12 @@ import * as stockService from "../services/stock-data-generator.service";
 import { WebSocketMessage } from "@project/shared-types";
 
 export const handleStockMessages = (ws: WebSocket) => {
-  const subscriptions = new Set<string>();
+  const subscriptions = new Map<string, number>();
 
   const interval = setInterval(() => {
     if (ws.readyState === WebSocket.OPEN) {
-      for (const ticker of subscriptions) {
-        // const stockData = stockService.getStock(ticker);
-
-        // ws.send(JSON.stringify(stockData));
-        ws.send(JSON.stringify({ price: Math.random() }));
+      for (const [ticker, price] of subscriptions) {
+        ws.send(JSON.stringify({ price, ticker }));
       }
     }
   }, 1000);
@@ -22,13 +19,13 @@ export const handleStockMessages = (ws: WebSocket) => {
 
       switch (data.type) {
         case "SUBSCRIBE":
-          if (data.ticker) {
+          if (data.ticker && data.price) {
             console.log(`Subscribing to ${data.ticker}`);
-            subscriptions.add(data.ticker);
+            subscriptions.set(data.ticker, data.price);
           }
           break;
         case "UNSUBSCRIBE":
-          if (data.ticker) {
+          if (data.ticker && data.price) {
             console.log(`Unsubscribing from ${data.ticker}`);
             subscriptions.delete(data.ticker);
           }

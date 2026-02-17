@@ -55,6 +55,7 @@ export interface MarketIndicator {
 export interface WebSocketMessage {
   type: string;
   ticker?: string;
+  price?: number;
 }
 
 export type Trend = "up" | "down";
