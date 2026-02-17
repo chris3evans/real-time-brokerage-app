@@ -138,6 +138,8 @@ export const generateRandomUpwardValue = (
       currentPrice += randomness;
   }
 
+  currentPrice = Math.max(0, currentPrice);
+
   return +currentPrice.toFixed(2);
 };
 
@@ -162,7 +164,10 @@ export const formatTimestampToDate = (
       });
     case "hour":
       // Formats as HH:00 (Hours only, minutes set to 00)
-      return `${date.getHours().toString().padStart(2, "0")}:00`;
+      return date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
     case "day":
     case "week":
       // Formats as "13 feb"
