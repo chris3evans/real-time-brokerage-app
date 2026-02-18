@@ -8,10 +8,10 @@ export const handleStockMessages = (ws: WebSocket) => {
   const interval = setInterval(() => {
     if (ws.readyState === WebSocket.OPEN) {
       for (const [ticker, stock] of subscriptions) {
-        const onePercent = stock.price * 0.01;
+        const onePercent = stock.price * 0.1;
         const randomFactor = (Math.random() - 0.5) * 2;
         const variation = onePercent * randomFactor;
-        const newPrice = stock.price + variation;
+        const newPrice = +(stock.price + variation).toFixed(2);
 
         ws.send(
           JSON.stringify({

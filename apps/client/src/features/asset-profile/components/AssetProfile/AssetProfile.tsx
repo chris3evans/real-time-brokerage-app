@@ -6,13 +6,14 @@ import { AssetDetails } from "@asset-profile-components/AssetDetails/AssetDetail
 import { AssetProfileActions } from "@asset-profile-components/AssetProfileActions/AssetProfileActions";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { PriceHistoryPerformance } from "@components/PriceHistoryPerformance/PriceHistoryPerformance";
-import { Duration } from "@project/shared-types";
+import { Duration, LineGraphPoint } from "@project/shared-types";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
   const { data: stock } = useGetStock(ticker ?? "");
 
   const [activeDuration, setActiveDuration] = useState<Duration>("second");
+  const [assetChartData, setAssetChartData] = useState<LineGraphPoint[]>([]);
 
   const trend = useMemo(() => {
     return Math.random() > 0.5 ? "up" : "down";
@@ -24,8 +25,6 @@ export const AssetProfile = () => {
     activeDuration,
   );
 
-  const [data, setData] = useState<{ price: number } | null>(null);
-
   const ws = useRef<WebSocket | null>(null);
 
   useEffect(() => {
@@ -36,8 +35,8 @@ export const AssetProfile = () => {
     ws.current = new WebSocket("ws://localhost:3001");
 
     ws.current.onopen = () => {
-      console.log("Web Socket Connected");
       if (priceHistory) {
+        setAssetChartData(priceHistory);
         ws.current?.send(
           JSON.stringify({
             type: "SUBSCRIBE",
@@ -51,10 +50,23 @@ export const AssetProfile = () => {
 
     ws.current.onmessage = (event) => {
       try {
-        console.log(event.data);
         const update = JSON.parse(event.data);
-        setData(update);
-        console.log(data, "WEBSOCKET DATA");
+
+        setAssetChartData((prevHistory) => {
+          if (!prevHistory || prevHistory.length === 0) {
+            return prevHistory;
+          }
+
+          const updatedHistory = [...prevHistory];
+
+          updatedHistory.shift();
+          updatedHistory.push({
+            timeString: "",
+            value: update.price,
+          });
+
+          return updatedHistory;
+        });
       } catch (error) {
         console.error("Error parsing incoming web socket data", error);
       }
@@ -77,7 +89,7 @@ export const AssetProfile = () => {
       }
       ws.current?.close();
     };
-  }, [priceHistory /*, activeDuration*/, ticker]);
+  }, [priceHistory, ticker]);
 
   return (
     <View>
@@ -90,7 +102,7 @@ export const AssetProfile = () => {
       />
       <PriceHistoryPerformance
         heading={`${stock?.ticker} History`}
-        chartData={priceHistory ?? []}
+        chartData={assetChartData ?? []}
         tooltipLabel="Price"
         trend={trend}
         handleDurationChange={setActiveDuration}

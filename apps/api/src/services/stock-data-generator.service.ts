@@ -137,8 +137,6 @@ export const generateRandomValue = (
   }
 
   currentPrice = Math.max(0, currentPrice);
-
-  console.log(+currentPrice.toFixed(2), "RETURNED_NEW_PRICE");
   return +currentPrice.toFixed(2);
 };
 
