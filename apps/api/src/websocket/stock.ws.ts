@@ -9,7 +9,7 @@ export const handleStockMessages = (ws: WebSocket) => {
     if (ws.readyState === WebSocket.OPEN) {
       for (const [ticker, stock] of subscriptions) {
         const onePercent = stock.price * 0.1;
-        const randomFactor = (Math.random() - 0.5) * 2;
+        const randomFactor = (Math.random() - 0.5) * 5;
         const variation = onePercent * randomFactor;
         const newPrice = +(stock.price + variation).toFixed(2);
 
