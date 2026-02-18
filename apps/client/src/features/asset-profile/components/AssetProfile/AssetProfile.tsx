@@ -7,6 +7,7 @@ import { AssetProfileActions } from "@asset-profile-components/AssetProfileActio
 import { useEffect, useMemo, useRef, useState } from "react";
 import { PriceHistoryPerformance } from "@components/PriceHistoryPerformance/PriceHistoryPerformance";
 import { Duration, LineGraphPoint } from "@project/shared-types";
+import { formatTimestampToDate } from "@/utlities/utilities.service";
 
 export const AssetProfile = () => {
   const { ticker } = useParams<{ ticker: string }>();
@@ -61,7 +62,7 @@ export const AssetProfile = () => {
 
           updatedHistory.shift();
           updatedHistory.push({
-            timeString: "",
+            timeString: formatTimestampToDate(Date.now(), activeDuration),
             value: update.price,
           });
 
