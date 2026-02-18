@@ -1,9 +1,33 @@
 import { WebSocket } from "ws";
 import * as stockService from "../services/stock-data-generator.service";
-import { Trend, WebSocketMessage } from "@project/shared-types";
+import { Duration, Trend, WebSocketMessage } from "@project/shared-types";
+
+export const formatDurationToMs = (duration: Duration): number => {
+  switch (duration) {
+    case "second":
+      return 1000;
+    case "minute":
+      return 60000;
+    case "hour":
+      return 3600000;
+    case "day":
+      return 86400000;
+    case "week":
+      return 604800000;
+    case "month":
+      return 2592000000;
+    case "year":
+      return 31536000000;
+    default:
+      return 1000;
+  }
+};
 
 export const handleStockMessages = (ws: WebSocket) => {
-  const subscriptions = new Map<string, { price: number; trend: Trend }>();
+  const subscriptions = new Map<
+    string,
+    { price: number; trend: Trend; duration: Duration }
+  >();
 
   const interval = setInterval(() => {
     if (ws.readyState === WebSocket.OPEN) {
@@ -33,12 +57,14 @@ export const handleStockMessages = (ws: WebSocket) => {
             data.ticker &&
             typeof data.price === "number" &&
             !isNaN(data.price) &&
-            data.trend
+            data.trend &&
+            data.duration
           ) {
             console.log(`Subscribing to ${data.ticker}`);
             subscriptions.set(data.ticker, {
               price: data.price,
               trend: data.trend,
+              duration: data.duration,
             });
           }
           break;

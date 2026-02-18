@@ -57,6 +57,7 @@ export interface WebSocketMessage {
   ticker?: string;
   price?: number;
   trend?: Trend;
+  duration?: Duration;
 }
 
 export type Trend = "up" | "down";

@@ -26,12 +26,14 @@ export const formatTimestampToDate = (
     case "minute":
       // Formats as HH:mm
       return date.toLocaleTimeString([], {
+        hour12: false,
         hour: "2-digit",
         minute: "2-digit",
       });
     case "hour":
       // Formats as HH:00 (Hours only, minutes set to 00)
       return date.toLocaleTimeString([], {
+        hour12: false,
         hour: "2-digit",
         minute: "2-digit",
       });

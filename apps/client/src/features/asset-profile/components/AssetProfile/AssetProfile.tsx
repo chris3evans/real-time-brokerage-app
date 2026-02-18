@@ -44,6 +44,7 @@ export const AssetProfile = () => {
             ticker: ticker,
             price: priceHistory[priceHistory.length - 1].value,
             trend: trend,
+            duration: activeDuration,
           }),
         );
       }
