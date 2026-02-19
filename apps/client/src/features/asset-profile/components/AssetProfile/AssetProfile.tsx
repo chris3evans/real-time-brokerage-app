@@ -91,7 +91,7 @@ export const AssetProfile = () => {
       }
       ws.current?.close();
     };
-  }, [priceHistory, ticker]);
+  }, [priceHistory, ticker, activeDuration]);
 
   return (
     <View>
