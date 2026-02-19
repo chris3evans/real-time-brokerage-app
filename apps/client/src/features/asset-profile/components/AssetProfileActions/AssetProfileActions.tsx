@@ -2,8 +2,11 @@ import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 import styles from "./AssetProfileActions.module.scss";
 import { useState } from "react";
 import { BuySellModal } from "@/components/modals/BuySellModal/BuySellModal";
+import { AssetProfileActionsComponentProps } from "../../types/asset-profile.interfaces";
 
-export const AssetProfileActions = () => {
+export const AssetProfileActions = ({
+  stock,
+}: AssetProfileActionsComponentProps) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -13,12 +16,17 @@ export const AssetProfileActions = () => {
       <ButtonSet
         className={styles["buttons-vertical"]}
         buttons={[
-          { label: "Buy" },
+          { label: "Buy", onClick: openModal },
           { label: "Sell", style: "outline", onClick: openModal },
-          { label: "Add to Watchlist", style: "outline" },
+          { label: "Add to Watchlist", style: "outline", onClick: openModal },
         ]}
       />
-      <BuySellModal modalOpen={modalOpen} closeModal={closeModal} />
+      <BuySellModal
+        actionType={"buy"}
+        stock={stock}
+        modalOpen={modalOpen}
+        closeModal={closeModal}
+      />
     </div>
   );
 };

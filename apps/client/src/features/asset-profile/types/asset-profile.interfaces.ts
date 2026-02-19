@@ -1,3 +1,5 @@
+import { StockItem } from "@project/shared-types";
+
 export interface AssetProfileComponentProps {
   assetName: string;
   assetTicker?: string;
@@ -8,4 +10,8 @@ export interface AssetProfileComponentProps {
 
 export interface AssetDetailsComponentProps {
   assetTicker: string;
+}
+
+export interface AssetProfileActionsComponentProps {
+  stock: StockItem | undefined;
 }

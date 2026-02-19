@@ -3,6 +3,8 @@ import { BuySellModalComponentProps } from "@/components/types/components.interf
 import { Box, Modal } from "@mui/material";
 
 export const BuySellModal = ({
+  stock,
+  actionType,
   modalOpen,
   closeModal,
 }: BuySellModalComponentProps) => {
@@ -18,13 +20,17 @@ export const BuySellModal = ({
     p: 4,
   };
 
+  console.log(stock, actionType);
+
   return (
     <Modal open={modalOpen} onClose={closeModal}>
       {/* Header - buy x shares / $x of AMAZON */}
       {/* Share amount | switch button | money amount */}
       {/* Confirm buy */}
       <Box sx={style}>
-        <h4>Buy 10 shares of Amazon (AMZN)</h4>
+        <h4>
+          {actionType} 10 shares of {stock?.name} ({stock?.ticker})
+        </h4>
 
         <input type="number" placeholder="num shares" />
         <button>Alternate</button>
