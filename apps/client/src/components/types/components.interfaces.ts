@@ -1,11 +1,15 @@
 import type React from "react";
 import type { ButtonStyle, SortOrder } from "./components.types";
 import type { Clickable } from "@/types/app.interfaces";
-import { LineGraphPoint } from "@project/shared-types";
+import { LineGraphPoint, Trend, Duration } from "@project/shared-types";
 
-export interface ButtonComponentProps {
+export interface ButtonComponentProps extends Clickable {
   label: string;
   style?: ButtonStyle;
+}
+
+export interface DurationButton extends ButtonComponentProps {
+  value: Duration;
 }
 
 export interface IconButtonComponentProps extends Clickable {
@@ -53,6 +57,7 @@ export interface ListSortersComponentProps {
 export interface AreaChartComponentProps {
   chartData: LineGraphPoint[];
   tooltipLabel: string;
+  trend: Trend;
 }
 
 export interface MarketIndicatorComponentProps extends Clickable {
@@ -60,4 +65,9 @@ export interface MarketIndicatorComponentProps extends Clickable {
   currentValue: number;
   valueChange: number;
   valueChangePercentage: number;
+}
+
+export interface BuySellModalComponentProps {
+  modalOpen: boolean;
+  closeModal: () => void;
 }

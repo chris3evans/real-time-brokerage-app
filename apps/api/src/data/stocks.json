@@ -17,7 +17,7 @@
   "PG": { "name": "Procter Gamble", "ticker": "PG", "price": 160.3 },
   "COST": { "name": "Costco Wholesale", "ticker": "COST", "price": 725.15 },
   "HD": { "name": "Home Depot", "ticker": "HD", "price": 345.6 },
-  "JNJ": { "name": "Johnson Johnson", "ticker": "JNJ", "price": 155.45 },
+  "JNJ": { "name": "Johnson & Johnson", "ticker": "JNJ", "price": 155.45 },
   "ORCL": { "name": "Oracle", "ticker": "ORCL", "price": 125.9 },
   "AMD": { "name": "Advanced Micro Devices", "ticker": "AMD", "price": 170.2 },
   "NFLX": { "name": "Netflix", "ticker": "NFLX", "price": 610.45 },

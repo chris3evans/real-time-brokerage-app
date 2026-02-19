@@ -4,8 +4,11 @@ import "dotenv/config";
 import { PrismaClient } from "./generated/client/index.js";
 import { stockRoutes } from "./routes/stocks.routes.js";
 import { marketIndicatorRoutes } from "./routes/market-indicators.routes.js";
+import { WebSocketServer } from "ws";
+import { handleStockMessages } from "./websocket/stock.ws.js";
 
 const server = Fastify({ logger: true });
+
 server.register(cors, {
   origin: [
     "http://localhost:5173",
@@ -41,6 +44,11 @@ const start = async () => {
     await server.listen({
       port: Number(process.env.PORT) || 3001,
       host: "0.0.0.0",
+    });
+
+    const wss = new WebSocketServer({ server: server.server });
+    wss.on("connection", (ws) => {
+      handleStockMessages(ws);
     });
   } catch (err) {
     server.log.error(err);

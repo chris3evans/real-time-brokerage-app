@@ -16,6 +16,10 @@ export const AppColour = {
   TERTIARY_DARK_2: "#78350f",
   BLACK: "#000000",
   WHITE: "#ffffff",
+  PROFIT_GREEN: "#22c55e",
+  PROFIT_GREEN_DARK: "#0e933f",
+  LOSS_RED: "#ef4444",
+  LOSS_RED_DARK: "#cf1e1e",
 } as const;
 
 export type AppColourType = (typeof AppColour)[keyof typeof AppColour];
