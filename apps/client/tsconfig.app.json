@@ -39,7 +39,7 @@
         "src/features/dashboard/components/DashboardMarketOverview/*"
       ],
       "@dashboard-portfolio-performance/*": [
-        "src/features/dashboard/components/DashboardPortfolioPerformance/*"
+        "src/components/PriceHistoryPerformance/*"
       ],
       "@dashboard-portfolio-overview/*": [
         "src/features/dashboard/components/DashboardPortfolioOverview/*"

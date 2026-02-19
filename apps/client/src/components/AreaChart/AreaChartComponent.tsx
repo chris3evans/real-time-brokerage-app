@@ -9,10 +9,12 @@ import {
   Area,
 } from "recharts";
 import type { AreaChartComponentProps } from "../types/components.interfaces";
+import styles from "./AreaChartComponent.module.scss";
 
 export const AreaChartComponent = ({
   chartData,
   tooltipLabel,
+  trend,
 }: AreaChartComponentProps) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -25,8 +27,8 @@ export const AreaChartComponent = ({
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
-          interval={1}
-          dataKey="time"
+          interval={3}
+          dataKey="timeString"
           label={{ value: "Time", position: "insideBottom", offset: 0 }}
         />
         <YAxis
@@ -39,16 +41,23 @@ export const AreaChartComponent = ({
           }}
         />
         <Tooltip
-          formatter={(v) => [`$${v}`, tooltipLabel]}
+          labelFormatter={(label) => `Time: ${label}`}
+          formatter={(v) => [`${tooltipLabel}: $${v} `]}
+          wrapperClassName={styles["custom-tooltip"]}
           itemStyle={{
             color: AppColour.BLACK,
           }}
         />
         <Area
+          isAnimationActive={false}
           type="monotone"
           dataKey="value"
-          stroke={AppColour.PRIMARY}
-          fill={AppColour.PRIMARY_LIGHT_1}
+          stroke={
+            trend === "up"
+              ? AppColour.PROFIT_GREEN_DARK
+              : AppColour.LOSS_RED_DARK
+          }
+          fill={trend === "up" ? AppColour.PROFIT_GREEN : AppColour.LOSS_RED}
         />
       </AreaChart>
     </ResponsiveContainer>

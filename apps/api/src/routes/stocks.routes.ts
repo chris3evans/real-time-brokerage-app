@@ -5,7 +5,14 @@ import {
   FastifyRequest,
 } from "fastify";
 import * as stockService from "../services/stock-data-generator.service";
-import { AssetDetails, StockItem } from "@project/shared-types";
+import {
+  AssetDetails,
+  Duration,
+  LineGraphPoint,
+  StockData,
+  StockItem,
+  Trend,
+} from "@project/shared-types";
 
 export const stockRoutes = (
   fastify: FastifyInstance,
@@ -82,6 +89,30 @@ export const stockRoutes = (
         return reply.code(500).send({
           error: "Internal Server Error",
           message: `Could not get the asset details for ${q}`,
+        });
+      }
+    },
+  );
+
+  fastify.post(
+    "/asset-price-history",
+    async (
+      request: FastifyRequest,
+      reply: FastifyReply,
+    ): Promise<LineGraphPoint[] | undefined> => {
+      const body = request.body as {
+        ticker: string;
+        trend: Trend;
+        duration: Duration;
+      };
+      const { ticker, trend, duration } = body;
+
+      try {
+        return stockService.generatePriceHistory(ticker, trend, duration);
+      } catch (error) {
+        return reply.code(500).send({
+          error: "Internal Server Error",
+          message: `Could not get the asset price history for ${ticker}`,
         });
       }
     },

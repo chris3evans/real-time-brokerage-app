@@ -36,7 +36,7 @@ export interface AssetDetails {
 }
 
 export interface LineGraphPoint {
-  time: string;
+  timeString: string;
   value: number;
 }
 
@@ -51,3 +51,21 @@ export interface MarketIndicator {
   valueChange: number;
   valueChangePercentage: number;
 }
+
+export interface WebSocketMessage {
+  type: string;
+  ticker?: string;
+  price?: number;
+  trend?: Trend;
+  duration?: Duration;
+}
+
+export type Trend = "up" | "down";
+export type Duration =
+  | "second"
+  | "minute"
+  | "hour"
+  | "day"
+  | "week"
+  | "month"
+  | "year";
