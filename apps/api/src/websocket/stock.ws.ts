@@ -26,17 +26,33 @@ export const formatDurationToMs = (duration: Duration): number => {
 export const handleStockMessages = (ws: WebSocket) => {
   const subscriptions = new Map<
     string,
-    { price: number; trend: Trend; duration: Duration }
+    {
+      price: number;
+      trend: Trend;
+      duration: Duration;
+      intervalId: NodeJS.Timeout;
+    }
   >();
 
-  const interval = setInterval(() => {
-    if (ws.readyState === WebSocket.OPEN) {
-      for (const [ticker, stock] of subscriptions) {
-        const onePercent = stock.price * 0.1;
+  const createStockInterval = (
+    ticker: string,
+    price: number,
+    trend: Trend,
+    duration: Duration,
+  ) => {
+    const msDuration = formatDurationToMs(duration);
+
+    return setInterval(() => {
+      if (ws.readyState === WebSocket.OPEN) {
+        const currentStock = subscriptions.get(ticker);
+        if (!currentStock) return;
+
+        const onePercent = currentStock.price * 0.1;
         const randomFactor = (Math.random() - 0.5) * 5;
         const variation = onePercent * randomFactor;
-        const newPrice = +(stock.price + variation).toFixed(2);
+        const newPrice = +(currentStock.price + variation).toFixed(2);
 
+        subscriptions.set(ticker, { ...currentStock, price: newPrice });
         ws.send(
           JSON.stringify({
             ticker,
@@ -44,8 +60,42 @@ export const handleStockMessages = (ws: WebSocket) => {
           }),
         );
       }
-    }
-  }, 1000);
+
+      // for (const [ticker, stock] of subscriptions) {
+      //   const onePercent = stock.price * 0.1;
+      //   const randomFactor = (Math.random() - 0.5) * 5;
+      //   const variation = onePercent * randomFactor;
+      //   const newPrice = +(stock.price + variation).toFixed(2);
+
+      //   ws.send(
+      //     JSON.stringify({
+      //       ticker,
+      //       price: newPrice,
+      //     }),
+      //   );
+      // }
+    }, msDuration);
+  };
+  // }, 1000);
+  // }
+
+  // const interval = setInterval(() => {
+  //   if (ws.readyState === WebSocket.OPEN) {
+  //     for (const [ticker, stock] of subscriptions) {
+  //       const onePercent = stock.price * 0.1;
+  //       const randomFactor = (Math.random() - 0.5) * 5;
+  //       const variation = onePercent * randomFactor;
+  //       const newPrice = +(stock.price + variation).toFixed(2);
+
+  //       ws.send(
+  //         JSON.stringify({
+  //           ticker,
+  //           price: newPrice,
+  //         }),
+  //       );
+  //     }
+  //   }
+  // }, 1000);
 
   ws.on("message", (message: string) => {
     try {
@@ -60,17 +110,30 @@ export const handleStockMessages = (ws: WebSocket) => {
             data.trend &&
             data.duration
           ) {
+            if (subscriptions.has(data.ticker)) {
+              clearInterval(subscriptions.get(data.ticker)!.intervalId);
+            }
             console.log(`Subscribing to ${data.ticker}`);
+
+            const intervalId = createStockInterval(
+              data.ticker,
+              data.price,
+              data.trend,
+              data.duration,
+            );
+
             subscriptions.set(data.ticker, {
               price: data.price,
               trend: data.trend,
               duration: data.duration,
+              intervalId,
             });
           }
           break;
         case "UNSUBSCRIBE":
           if (data.ticker && data.price && data.trend) {
             console.log(`Unsubscribing from ${data.ticker}`);
+            clearInterval(subscriptions.get(data.ticker)!.intervalId);
             subscriptions.delete(data.ticker);
           }
           break;
@@ -84,7 +147,7 @@ export const handleStockMessages = (ws: WebSocket) => {
 
   ws.on("close", () => {
     console.log("Client disconnected, cleaning up");
-    clearInterval(interval);
+    subscriptions.forEach((sub) => clearInterval(sub.intervalId));
     subscriptions.clear();
   });
 };
