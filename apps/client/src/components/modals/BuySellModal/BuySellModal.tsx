@@ -20,7 +20,7 @@ export const BuySellModal = ({
     p: 4,
   };
 
-  console.log(stock, actionType);
+  // console.log(stock, actionType);
 
   return (
     <Modal open={modalOpen} onClose={closeModal}>
