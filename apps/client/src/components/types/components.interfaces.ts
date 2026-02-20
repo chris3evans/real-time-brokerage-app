@@ -84,4 +84,5 @@ export interface InputComponentProps extends InputHTMLAttributes<HTMLInputElemen
   label?: string;
   error?: string;
   helperText?: string;
+  className?: string;
 }
