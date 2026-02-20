@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button/Button";
+import { Input } from "@/components/Input/Input";
 import { BuySellModalComponentProps } from "@/components/types/components.interfaces";
 import { Box, Modal } from "@mui/material";
 
@@ -20,6 +21,18 @@ export const BuySellModal = ({
     p: 4,
   };
 
+  const handleOrderQuantityInput = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    console.log(event.target.value, "order quantity");
+  };
+
+  const handleOrderSumInput = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    console.log(event.target.value, "order sum");
+  };
+
   // console.log(stock, actionType);
 
   return (
@@ -29,12 +42,23 @@ export const BuySellModal = ({
       {/* Confirm buy */}
       <Box sx={style}>
         <h4>
-          {actionType} 10 shares of {stock?.name} ({stock?.ticker})
+          {`${actionType[0].toLocaleUpperCase()}${actionType.slice(1)}`} 10
+          shares of {stock?.name} ({stock?.ticker})
         </h4>
 
-        <input type="number" placeholder="num shares" />
+        <Input
+          placeholder="0"
+          type="number"
+          label="Order Quantity"
+          onChange={(e) => handleOrderQuantityInput(e)}
+        />
         <button>Alternate</button>
-        <input type="number" placeholder="num shares" />
+        <Input
+          placeholder="0"
+          type="0"
+          label="Order Sum"
+          onChange={(e) => handleOrderSumInput(e)}
+        />
 
         <Button label="Confirm Buy" />
       </Box>

@@ -54,8 +54,6 @@ export const AssetProfile = () => {
       try {
         const update = JSON.parse(event.data);
 
-        console.log(event.data);
-
         setAssetChartData((prevHistory) => {
           if (!prevHistory || prevHistory.length === 0) {
             return prevHistory;

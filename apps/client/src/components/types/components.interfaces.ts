@@ -7,6 +7,7 @@ import {
   Duration,
   StockItem,
 } from "@project/shared-types";
+import { InputHTMLAttributes } from "react";
 
 export interface ButtonComponentProps extends Clickable {
   label: string;
@@ -77,4 +78,10 @@ export interface BuySellModalComponentProps {
   actionType: "sell" | "buy";
   stock: StockItem | undefined;
   closeModal: () => void;
+}
+
+export interface InputComponentProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  error?: string;
+  helperText?: string;
 }
