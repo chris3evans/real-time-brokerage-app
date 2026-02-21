@@ -85,4 +85,5 @@ export interface InputComponentProps extends InputHTMLAttributes<HTMLInputElemen
   error?: string;
   helperText?: string;
   className?: string;
+  elementOrientation?: "vertical" | "horizontal";
 }

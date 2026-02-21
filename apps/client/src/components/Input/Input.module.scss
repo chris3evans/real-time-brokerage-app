@@ -1,0 +1,13 @@
+.field {
+  display: grid;
+  gap: 1rem;
+
+  .vertical-orientation {
+    grid-auto-rows: min-content;
+  }
+
+  .horizontal-orientation {
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+  }
+}

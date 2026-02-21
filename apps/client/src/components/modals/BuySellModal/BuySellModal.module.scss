@@ -1,0 +1,19 @@
+@use "../../../styles/variables" as variables;
+
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  background-color: variables.$white;
+  border: 2px solid variables.$black;
+  box-shadow: 24px;
+  padding: 2rem;
+
+  .quantity-handler {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+  }
+}

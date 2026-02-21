@@ -1,12 +1,29 @@
 import React, { useId } from "react";
 import { InputComponentProps } from "../types/components.interfaces";
+import styles from "./Input.module.scss";
+import clsx from "clsx";
 
 export const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
-  ({ label, error, helperText, className, ...props }, ref) => {
+  (
+    {
+      label,
+      error,
+      helperText,
+      className,
+      elementOrientation = "vertical",
+      ...props
+    },
+    ref,
+  ) => {
     const inputId = useId();
 
     return (
-      <div>
+      <div
+        className={clsx(
+          styles["field"],
+          styles[`${elementOrientation}-orientation`],
+        )}
+      >
         {label && <label htmlFor={inputId}>{label}</label>}
 
         <input
@@ -18,7 +35,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
           aria-describedby={error ? `${inputId}-error` : undefined}
         />
 
-        {error ? <p id={`${inputId}-error`}>{error}</p> : <p>{helperText}</p>}
+        {helperText && <p>{helperText}</p>}
+
+        {error && <p id={`${inputId}-error`}>{error}</p>}
       </div>
     );
   },
