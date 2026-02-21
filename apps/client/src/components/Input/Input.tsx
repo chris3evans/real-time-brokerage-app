@@ -24,20 +24,28 @@ export const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
           styles[`${elementOrientation}-orientation`],
         )}
       >
-        {label && <label htmlFor={inputId}>{label}</label>}
+        {label && (
+          <label className={styles["label"]} htmlFor={inputId}>
+            {label}
+          </label>
+        )}
 
         <input
           {...props}
           ref={ref}
           id={inputId}
-          className={className}
+          className={clsx(className, styles["input"])}
           aria-invalid={!!error}
           aria-describedby={error ? `${inputId}-error` : undefined}
         />
 
-        {helperText && <p>{helperText}</p>}
+        {helperText && <p className={styles["helper-text"]}>{helperText}</p>}
 
-        {error && <p id={`${inputId}-error`}>{error}</p>}
+        {error && (
+          <p className={styles["error"]} id={`${inputId}-error`}>
+            {error}
+          </p>
+        )}
       </div>
     );
   },

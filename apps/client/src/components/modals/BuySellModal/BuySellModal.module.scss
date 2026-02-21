@@ -6,14 +6,32 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto;
-  background-color: variables.$white;
-  border: 2px solid variables.$black;
+  background-color: variables.$secondary-dark-1;
+  border: 2px solid variables.$secondary-dark-2;
+  color: variables.$white;
   box-shadow: 24px;
-  padding: 2rem;
+  padding: 3rem;
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 5rem;
+  border-radius: 5px;
+
+  h3 {
+    text-align: center;
+  }
 
   .quantity-handler {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 1rem;
+    column-gap: 2.5rem;
+    align-items: center;
+
+    .button-alternate {
+    }
+  }
+
+  .button-confirm {
+    width: 25rem;
+    margin: auto;
   }
 }

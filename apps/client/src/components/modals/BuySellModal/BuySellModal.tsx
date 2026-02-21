@@ -25,10 +25,10 @@ export const BuySellModal = ({
   return (
     <Modal open={modalOpen} onClose={closeModal}>
       <Box className={styles["modal-container"]}>
-        <h4>
+        <h3>
           {`${actionType[0].toLocaleUpperCase()}${actionType.slice(1)}`} 10
           shares of {stock?.name} ({stock?.ticker})
-        </h4>
+        </h3>
 
         <div className={styles["quantity-handler"]}>
           <Input
@@ -36,11 +36,15 @@ export const BuySellModal = ({
             type="number"
             label="Order Quantity"
             onChange={(e) => handleOrderQuantityInput(e)}
+            // elementOrientation="horizontal"
           />
-          <Button
-            aria-label="Alternate between selecting by quantity or price"
-            label="Alternate"
-          />
+          <div className={styles["button-alternate"]}>
+            <Button
+              style="outline"
+              aria-label="Alternate between selecting by quantity or price"
+              label="Alternate"
+            />
+          </div>
           <Input
             placeholder="0"
             type="0"
@@ -48,7 +52,9 @@ export const BuySellModal = ({
             onChange={(e) => handleOrderSumInput(e)}
           />
         </div>
-        <Button label="Confirm Buy" />
+        <div className={styles["button-confirm"]}>
+          <Button label="Confirm Buy" />
+        </div>
       </Box>
     </Modal>
   );
