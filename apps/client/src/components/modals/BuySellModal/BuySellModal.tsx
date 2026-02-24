@@ -12,17 +12,19 @@ export const BuySellModal = ({
   closeModal,
 }: BuySellModalComponentProps) => {
   const [orderInPrice, setOrderInPrice] = useState<boolean>(false);
+  const [orderPrice, setOrderPrice] = useState<number>(0);
+  const [numOrderShares, setNumOrderShares] = useState<number>(0);
 
   const handleOrderQuantityInput = (
     event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    console.log(event.target.value, "order quantity");
+    setNumOrderShares(+event.target.value);
   };
 
   const handleOrderSumInput = (
     event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    console.log(event.target.value, "order sum");
+    setOrderPrice(+event.target.value);
   };
 
   const alternateOrderMethod = (): void => {
@@ -40,12 +42,19 @@ export const BuySellModal = ({
     }
   };
 
+  const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (["-"].includes(e.key)) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <Modal open={modalOpen} onClose={closeModal}>
       <Box className={styles["modal-container"]}>
         <h3>
-          {`${actionType[0].toLocaleUpperCase()}${actionType.slice(1)}`} 10
-          shares of {stock?.name} ({stock?.ticker})
+          {`${actionType[0].toLocaleUpperCase()}${actionType.slice(1)}`}{" "}
+          {orderInPrice ? `$${orderPrice}` : `${numOrderShares} shares`} of{" "}
+          {stock?.name} ({stock?.ticker})
         </h3>
 
         <div className={styles["quantity-handler"]}>
@@ -54,8 +63,10 @@ export const BuySellModal = ({
             placeholder="0"
             type="number"
             label="Num Shares"
+            min="0"
             onChange={(e) => handleOrderQuantityInput(e)}
             onFocus={(e) => handleInputFocus(e)}
+            onKeyDown={blockInvalidChar}
             disabled={orderInPrice}
           />
           <div className={styles["button-alternate"]}>
@@ -69,10 +80,12 @@ export const BuySellModal = ({
           <Input
             id="price"
             placeholder="0"
-            type="0"
+            type="number"
             label="Price"
+            min="0"
             onChange={(e) => handleOrderSumInput(e)}
             onFocus={(e) => handleInputFocus(e)}
+            onKeyDown={blockInvalidChar}
             disabled={!orderInPrice}
           />
         </div>
