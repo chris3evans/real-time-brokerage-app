@@ -7,24 +7,33 @@ import { AssetProfileActionsComponentProps } from "../../types/asset-profile.int
 export const AssetProfileActions = ({
   stock,
 }: AssetProfileActionsComponentProps) => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
+  const [modalActionType, setModalActionType] = useState<
+    "buy" | "sell" | "watchlist" | null
+  >(null);
+  const closeModal = () => setModalActionType(null);
 
   return (
     <div className={styles["asset-actions"]}>
       <ButtonSet
         className={styles["buttons-vertical"]}
         buttons={[
-          { label: "Buy", onClick: openModal },
-          { label: "Sell", style: "outline", onClick: openModal },
-          { label: "Add to Watchlist", style: "outline", onClick: openModal },
+          { label: "Buy", onClick: () => setModalActionType("buy") },
+          {
+            label: "Sell",
+            style: "outline",
+            onClick: () => setModalActionType("sell"),
+          },
+          {
+            label: "Add to Watchlist",
+            style: "outline",
+            onClick: () => setModalActionType("watchlist"),
+          },
         ]}
       />
       <BuySellModal
-        actionType={"buy"}
+        actionType={modalActionType ?? "buy"}
         stock={stock}
-        modalOpen={modalOpen}
+        modalOpen={modalActionType !== null}
         closeModal={closeModal}
       />
     </div>
