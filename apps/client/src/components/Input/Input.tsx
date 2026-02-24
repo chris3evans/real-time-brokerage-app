@@ -15,7 +15,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
     },
     ref,
   ) => {
-    const inputId = useId();
+    const inputId = props.id ?? useId();
 
     return (
       <div

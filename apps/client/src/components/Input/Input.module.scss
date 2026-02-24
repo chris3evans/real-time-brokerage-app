@@ -8,11 +8,16 @@
     font-weight: bold;
   }
 
+  &:has(.input:disabled) .label {
+    font-weight: 100;
+  }
+
   .label {
     font-weight: 100;
     font-size: 1.2rem;
     padding-left: 0.25rem;
     transition: all 0.3s;
+    font-weight: 500;
   }
 
   .input {
@@ -28,6 +33,12 @@
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
+    }
+
+    &:disabled {
+      background-color: rgba(variables.$primary-dark-2, 0.3);
+      font-weight: 100;
+      cursor: not-allowed;
     }
 
     /* Firefox */
