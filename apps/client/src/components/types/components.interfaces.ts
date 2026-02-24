@@ -76,7 +76,7 @@ export interface MarketIndicatorComponentProps extends Clickable {
 export interface BuySellModalComponentProps {
   modalOpen: boolean;
   actionType: "sell" | "buy" | "watchlist";
-  stock: StockItem | undefined;
+  stock: StockItem;
   closeModal: () => void;
 }
 

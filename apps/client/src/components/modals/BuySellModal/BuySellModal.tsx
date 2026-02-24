@@ -12,19 +12,29 @@ export const BuySellModal = ({
   closeModal,
 }: BuySellModalComponentProps) => {
   const [orderInPrice, setOrderInPrice] = useState<boolean>(false);
-  const [orderPrice, setOrderPrice] = useState<number>(0);
-  const [numOrderShares, setNumOrderShares] = useState<number>(0);
+  const [orderPrice, setOrderPrice] = useState<number | string>("");
+  const [numOrderShares, setNumOrderShares] = useState<number | string>("");
 
   const handleOrderQuantityInput = (
     event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    setNumOrderShares(+event.target.value);
+    setNumOrderShares(+event.target.value === 0 ? "" : +event.target.value);
+    setOrderPrice(
+      +event.target.value === 0
+        ? ""
+        : +(+event.target.value * stock.currentPrice).toFixed(2),
+    );
   };
 
   const handleOrderSumInput = (
     event: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    setOrderPrice(+event.target.value);
+    setOrderPrice(+event.target.value === 0 ? "" : +event.target.value);
+    setNumOrderShares(
+      +event.target.value === 0
+        ? ""
+        : +(+event.target.value / stock.currentPrice).toFixed(2),
+    );
   };
 
   const alternateOrderMethod = (): void => {
@@ -42,7 +52,7 @@ export const BuySellModal = ({
     }
   };
 
-  const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const blockInvalidChar = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (["-"].includes(e.key)) {
       e.preventDefault();
     }
@@ -60,14 +70,15 @@ export const BuySellModal = ({
         <div className={styles["quantity-handler"]}>
           <Input
             id="number-shares"
-            placeholder="0"
+            // placeholder="0"
             type="number"
             label="Num Shares"
-            min="0"
+            // min="0"
             onChange={(e) => handleOrderQuantityInput(e)}
             onFocus={(e) => handleInputFocus(e)}
             onKeyDown={blockInvalidChar}
             disabled={orderInPrice}
+            value={numOrderShares}
           />
           <div className={styles["button-alternate"]}>
             <Button
@@ -79,14 +90,15 @@ export const BuySellModal = ({
           </div>
           <Input
             id="price"
-            placeholder="0"
+            // placeholder="0"
             type="number"
             label="Price"
-            min="0"
+            // min="0"
             onChange={(e) => handleOrderSumInput(e)}
             onFocus={(e) => handleInputFocus(e)}
             onKeyDown={blockInvalidChar}
             disabled={!orderInPrice}
+            value={orderPrice}
           />
         </div>
         <div className={styles["button-confirm"]}>

@@ -3,6 +3,7 @@ import styles from "./AssetProfileActions.module.scss";
 import { useState } from "react";
 import { BuySellModal } from "@/components/modals/BuySellModal/BuySellModal";
 import { AssetProfileActionsComponentProps } from "../../types/asset-profile.interfaces";
+import { StockItem } from "@project/shared-types";
 
 export const AssetProfileActions = ({
   stock,
@@ -32,7 +33,7 @@ export const AssetProfileActions = ({
       />
       <BuySellModal
         actionType={modalActionType ?? "buy"}
-        stock={stock}
+        stock={stock as StockItem}
         modalOpen={modalActionType !== null}
         closeModal={closeModal}
       />
