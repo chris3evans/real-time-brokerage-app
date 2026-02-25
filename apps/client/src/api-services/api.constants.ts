@@ -1,2 +1,6 @@
-export const API_KEY = import.meta.env.VITE_ALPHA_VANTAGE_API_KEY;
-export const BASE_URL = "https://www.alphavantage.co/query";
+export const LOCAL_BACKEND = "http://localhost:3001";
+export const PROD_BACKEND = "";
+
+export const INTERNAL_API_BASE_URL = import.meta.env.PROD
+  ? PROD_BACKEND
+  : LOCAL_BACKEND;
