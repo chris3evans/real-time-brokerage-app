@@ -1,0 +1,70 @@
+@use "../../styles/variables" as variables;
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+
+  &:focus-within .label {
+    font-weight: bold;
+  }
+
+  &:has(.input:disabled) .label {
+    font-weight: 100;
+  }
+
+  .label {
+    font-weight: 100;
+    font-size: 1.2rem;
+    padding-left: 0.25rem;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+
+  .input {
+    border: none;
+    height: 4rem;
+    background-color: variables.$primary-dark-2;
+    transition: all 0.3s;
+    border-radius: 5px;
+    padding-left: 1rem;
+    color: variables.$white;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:disabled {
+      background-color: rgba(variables.$primary-dark-2, 0.3);
+      font-weight: 100;
+      cursor: not-allowed;
+    }
+
+    /* Firefox */
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    &:focus {
+      background-color: variables.$primary-dark-1;
+      outline: none;
+      border-color: variables.$primary-dark-1;
+    }
+  }
+
+  .helper-text {
+  }
+
+  .error {
+  }
+}
+
+.vertical-orientation {
+  grid-auto-rows: min-content;
+}
+
+.horizontal-orientation {
+  grid-auto-columns: auto;
+  grid-auto-flow: column;
+}

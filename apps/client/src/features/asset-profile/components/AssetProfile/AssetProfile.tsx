@@ -110,7 +110,7 @@ export const AssetProfile = () => {
         handleDurationChange={setActiveDuration}
       />
       <AssetDetails assetTicker={stock?.ticker ?? ""} />
-      <AssetProfileActions />
+      <AssetProfileActions stock={stock} />
     </View>
   );
 };

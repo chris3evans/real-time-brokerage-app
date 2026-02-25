@@ -1,7 +1,13 @@
 import type React from "react";
 import type { ButtonStyle, SortOrder } from "./components.types";
 import type { Clickable } from "@/types/app.interfaces";
-import { LineGraphPoint, Trend, Duration } from "@project/shared-types";
+import {
+  LineGraphPoint,
+  Trend,
+  Duration,
+  StockItem,
+} from "@project/shared-types";
+import { InputHTMLAttributes } from "react";
 
 export interface ButtonComponentProps extends Clickable {
   label: string;
@@ -69,5 +75,15 @@ export interface MarketIndicatorComponentProps extends Clickable {
 
 export interface BuySellModalComponentProps {
   modalOpen: boolean;
+  actionType: "sell" | "buy" | "watchlist";
+  stock: StockItem;
   closeModal: () => void;
+}
+
+export interface InputComponentProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  error?: string;
+  helperText?: string;
+  className?: string;
+  elementOrientation?: "vertical" | "horizontal";
 }

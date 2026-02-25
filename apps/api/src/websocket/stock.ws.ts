@@ -1,5 +1,4 @@
 import { WebSocket } from "ws";
-import * as stockService from "../services/stock-data-generator.service";
 import { Duration, Trend, WebSocketMessage } from "@project/shared-types";
 
 export const formatDurationToMs = (duration: Duration): number => {
@@ -13,11 +12,9 @@ export const formatDurationToMs = (duration: Duration): number => {
     case "day":
       return 86400000;
     case "week":
-      return 604800000;
     case "month":
-      return 2592000000;
     case "year":
-      return 31536000000;
+      return 604800000;
     default:
       return 1000;
   }
@@ -34,12 +31,7 @@ export const handleStockMessages = (ws: WebSocket) => {
     }
   >();
 
-  const createStockInterval = (
-    ticker: string,
-    price: number,
-    trend: Trend,
-    duration: Duration,
-  ) => {
+  const createStockInterval = (ticker: string, duration: Duration) => {
     const msDuration = formatDurationToMs(duration);
 
     return setInterval(() => {
@@ -60,42 +52,8 @@ export const handleStockMessages = (ws: WebSocket) => {
           }),
         );
       }
-
-      // for (const [ticker, stock] of subscriptions) {
-      //   const onePercent = stock.price * 0.1;
-      //   const randomFactor = (Math.random() - 0.5) * 5;
-      //   const variation = onePercent * randomFactor;
-      //   const newPrice = +(stock.price + variation).toFixed(2);
-
-      //   ws.send(
-      //     JSON.stringify({
-      //       ticker,
-      //       price: newPrice,
-      //     }),
-      //   );
-      // }
     }, msDuration);
   };
-  // }, 1000);
-  // }
-
-  // const interval = setInterval(() => {
-  //   if (ws.readyState === WebSocket.OPEN) {
-  //     for (const [ticker, stock] of subscriptions) {
-  //       const onePercent = stock.price * 0.1;
-  //       const randomFactor = (Math.random() - 0.5) * 5;
-  //       const variation = onePercent * randomFactor;
-  //       const newPrice = +(stock.price + variation).toFixed(2);
-
-  //       ws.send(
-  //         JSON.stringify({
-  //           ticker,
-  //           price: newPrice,
-  //         }),
-  //       );
-  //     }
-  //   }
-  // }, 1000);
 
   ws.on("message", (message: string) => {
     try {
@@ -115,12 +73,7 @@ export const handleStockMessages = (ws: WebSocket) => {
             }
             console.log(`Subscribing to ${data.ticker}`);
 
-            const intervalId = createStockInterval(
-              data.ticker,
-              data.price,
-              data.trend,
-              data.duration,
-            );
+            const intervalId = createStockInterval(data.ticker, data.duration);
 
             subscriptions.set(data.ticker, {
               price: data.price,

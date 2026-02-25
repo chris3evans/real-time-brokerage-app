@@ -12,7 +12,6 @@ export const formatTimestampToDate = (
   timestamp: number,
   duration: Duration,
 ): string => {
-  console.log(timestamp, duration);
   const date = new Date(timestamp);
   switch (duration) {
     case "second":
