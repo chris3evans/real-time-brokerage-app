@@ -67,6 +67,7 @@
       "@utilities": ["src/utilities/utilities"],
       "@store-dashboard/*": ["src/store/dashboard/*"],
       "@store-navigation/*": ["src/store/navigation/*"],
+      "@store-user/*": ["src/store/user/*"],
       "@project/shared-types": ["../../packages/shared-types/src/index.ts"]
     }
   },
