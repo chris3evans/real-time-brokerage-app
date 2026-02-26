@@ -4,14 +4,8 @@ import { DashboardWatchList } from "@dashboard-watchlist/DashboardWatchList";
 import { DashboardPortfolioOverview } from "@dashboard-portfolio-overview/DashboardPortfolioOverview";
 import { View } from "@components/View/View";
 import { PriceHistoryPerformance } from "@/components/PriceHistoryPerformance/PriceHistoryPerformance";
-import { GeneralModal } from "@/components/modals/GeneralModal/GeneralModal";
-import { useState } from "react";
 
 export const Dashboard = () => {
-  const [openModal, setOpenModal] = useState<boolean>(true);
-
-  const closeModal = () => setOpenModal(!openModal);
-
   return (
     <View>
       <DashboardBalance />
@@ -25,13 +19,6 @@ export const Dashboard = () => {
       />
       <DashboardPortfolioOverview />
       <DashboardWatchList />
-      <GeneralModal
-        modalOpen={openModal}
-        closeModal={closeModal}
-        title="Custom Modal Title Works!"
-      >
-        <div>I AM THE MODALS CONTENT</div>
-      </GeneralModal>
     </View>
   );
 };

@@ -3,6 +3,8 @@ import { Card } from "@/components/Card/Card";
 import { formatChangeColour } from "@/utlities/utilities.service";
 import { ButtonSet } from "@/components/ButtonSet/ButtonSet";
 import { useAppSelector } from "@/store/hooks";
+import { useState } from "react";
+import { GeneralModal } from "@/components/modals/GeneralModal/GeneralModal";
 
 export const DashboardBalance = () => {
   const balanceAmount = useAppSelector(
@@ -11,6 +13,21 @@ export const DashboardBalance = () => {
   const balanceReturn = useAppSelector(
     (state) => state.dashboard.balanceReturn,
   );
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [modalTitle, setModalTitle] = useState<string>("");
+
+  const closeModal = () => setOpenModal(!openModal);
+
+  const openDepositModal = () => {
+    setOpenModal(true);
+    setModalTitle("Select Amount To Deposit");
+  };
+
+  const openWithdrawModal = () => {
+    setOpenModal(true);
+    setModalTitle("Select Amount To Withdraw");
+  };
 
   return (
     <Card cardTitle="Account Balance" className={styles["dashboard-balance"]}>
@@ -22,10 +39,21 @@ export const DashboardBalance = () => {
       </div>
       <ButtonSet
         buttons={[
-          { label: "Deposit" },
-          { label: "Withdraw", style: "outline" },
+          { label: "Deposit", onClick: () => openDepositModal() },
+          {
+            label: "Withdraw",
+            onClick: () => openWithdrawModal(),
+            style: "outline",
+          },
         ]}
       />
+      <GeneralModal
+        modalOpen={openModal}
+        closeModal={closeModal}
+        title={modalTitle}
+      >
+        <div>I AM THE MODALS CONTENT</div>
+      </GeneralModal>
     </Card>
   );
 };
