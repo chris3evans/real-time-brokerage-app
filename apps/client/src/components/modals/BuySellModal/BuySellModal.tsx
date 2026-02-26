@@ -70,10 +70,8 @@ export const BuySellModal = ({
         <div className={styles["quantity-handler"]}>
           <Input
             id="number-shares"
-            // placeholder="0"
             type="number"
             label="Num Shares"
-            // min="0"
             onChange={(e) => handleOrderQuantityInput(e)}
             onFocus={(e) => handleInputFocus(e)}
             onKeyDown={blockInvalidChar}
@@ -90,10 +88,8 @@ export const BuySellModal = ({
           </div>
           <Input
             id="price"
-            // placeholder="0"
             type="number"
             label="Price"
-            // min="0"
             onChange={(e) => handleOrderSumInput(e)}
             onFocus={(e) => handleInputFocus(e)}
             onKeyDown={blockInvalidChar}

@@ -73,6 +73,13 @@ export interface MarketIndicatorComponentProps extends Clickable {
   valueChangePercentage: number;
 }
 
+export interface GeneralModalComponentProps {
+  modalOpen: boolean;
+  closeModal: () => void;
+  children: React.ReactNode;
+  title?: string;
+}
+
 export interface BuySellModalComponentProps {
   modalOpen: boolean;
   actionType: "sell" | "buy" | "watchlist";
